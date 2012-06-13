@@ -18,8 +18,7 @@ indeholder følgende elementer:
 
 * latitude: Breddegrad
 * longitude: Længegrad
-* kind: Typen af lokale, kan være `office`, `store` eller `warehouse`,
-* radius: Maksimal afstand i km til nærliggende lokaler.
+* kind: Typen af lokale, kan være `office`, `store` eller `warehouse`
 * locations: (Valgfri) Liste af emner. Se dokumentationen for
   [lokalebasen.locations+json.md](lokalebasen.locations.json.html).
 
@@ -33,7 +32,6 @@ Eksempel
       "kind": "warehouse",
       "latitude": 56.1816043,
       "longitude": 9.535053,
-      "radius: 10",
       "locations": [
         {
           "self_href": "http://url/to/self",
@@ -73,6 +71,9 @@ Eksempel
 
 Historik
 --------
+### 13. juni 2012
+
+Fjernet `radius` rodelement.
 
 ### 11. juni 2012
 
