@@ -19,7 +19,7 @@ indeholder følgende elementer:
 * latitude: Breddegrad
 * longitude: Længegrad
 * kind: Typen af lokale, kan være `office`, `store` eller `warehouse`
-* locations: (Valgfri) Liste af emner. Se dokumentationen for
+* locations: (Valgfri) Liste med 10 emner nærmest punktet. Se dokumentationen for
   [lokalebasen.locations+json.md](lokalebasen.locations.json.html).
 
 Det er ikke meningen at klienter skal angive `locations` når de sender
