@@ -57,6 +57,11 @@ by just using:
 
     git pull
 
+Further reading
+---------------
+
+To dive further into git checkout the [Pro Git](http://git-scm.com/book/)
+book.
 
 ZSH
 ===
