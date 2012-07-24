@@ -36,6 +36,28 @@ Only push current branch:
 
     git config --global push.default simple
 
+Pulling from master
+-------------------
+
+You will need to add the main repository as a remote:
+
+    git remote add upstream git@github.com:lokalebasen/lokalebasen.git
+
+Then to pull from master (when on your master branch) either do:
+
+    git pull upstream master
+
+Or set the master branch to always use this remote:
+
+    git config branch.master.remote upstream
+    git config branch.master.merge refs/heads/master
+
+You only need to do this once, afterwards you will be able to pull from master
+by just using:
+
+    git pull
+
+
 ZSH
 ===
 
