@@ -57,6 +57,30 @@ by just using:
 
     git pull
 
+git extras
+----------
+
+git extras is a set of utilities for git, install it with:
+
+    brew install git-extras
+
+It provides a bunch of nice commands, amongst others:
+
+    git undo
+    git create-branch
+    git remove-branch
+
+Check the [git-extras github page](https://github.com/visionmedia/git-extras/) for further documentation.
+
+Cleaning branches
+-----------------
+
+To keep things tidy it is nice to cleanout branches that have been merged into master.
+
+If you have git-extras installed it can be done with this snippet:
+
+    git checkout master && git branch --merged | egrep -v "production|master" | xargs -p -L1 git delete-branch
+
 Further reading
 ---------------
 
