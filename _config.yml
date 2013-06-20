@@ -1,1 +1,1 @@
-exclude: [config, db, doc, log, public]
+exclude: [config, db, doc, log, public, phrase]
