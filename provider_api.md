@@ -2,9 +2,12 @@
 layout: default
 ---
 Lokalebasen.dk Provider API Documentation
-======================================
+=========================================
 
-The purpose of this document is to help developers build client applications that integrate with Lokalebasen.dk through Lokalebasen.dk Provider API. Thereby allowing providers to automatically and continuously update data on Lokalebasen.dk.
+The purpose of this document is to help developers build client applications
+that integrate with Lokalebasen.dk through Lokalebasen.dk Provider API.
+Thereby allowing providers to automatically and continuously update data
+on Lokalebasen.dk.
 
 * [Contact](#contact_)
 * [Architecture](#architecture_)
@@ -24,52 +27,70 @@ Any questions, suggestions or other may be send to api@lokalebasen.dk .
 
 ###<a id="architecture_">Architecture</a>
 
-As a part of the Lokalebasen.dk B2B strategy, a RESTful API is being used. REST libraries are available for the most common programming languages such as Java, C#, Javascript, PHP, Python and Ruby.  
+As a part of the Lokalebasen.dk B2B strategy, a RESTful API is being used.
+REST libraries are available for the most common programming languages such
+as Java, C#, Javascript, PHP, Python and Ruby.
 
-Lokalebasen.dk Provider API is a hypermedia API, meaning that it allows client applications to browse through information much like a human user browses through the internet.  
-The client should begin any operation at the entry of the API at http://www.lokalebasen.dk/api/provider and then follow link after link until a link to the desired resource is found.  
-The link keys will remain unchanged. Some URLs will definately change over time.  
-Client applications should not store any URLs apart from the entry URL mentioned above.  
+Lokalebasen.dk Provider API is a hypermedia API, meaning that it allows
+client applications to browse through information much like a human user
+browses through the internet.
+The client should begin any operation at the entry of the API at
+http://www.lokalebasen.dk/api/provider and then follow link after link until
+a link to the desired resource is found.
+The link keys will remain unchanged. Some URLs will definately change over
+time.
+Client applications should not store any URLs apart from the entry URL
+mentioned above.
 
-Instead of using the absolute paths, this document explains where in a reponse body an URL is found.
+Instead of using the absolute paths, this document explains where in a
+reponse body an URL is found.
 This is done to stress that URLs should not be hardcoded.
 
-A successful GET request on the location resource will produce a json response body. The top of which may appear as shown below:
+A successful GET request on the location resource will produce a json
+response body. The top of which may appear as shown below:
 
 ######Example
-<pre>
+<a id="syntax_example"></a>
+
+```json
 {
     "location": {
         "_links": {
-            "self": {<a id="syntax_example"></a>
+            "self": {
                 "href": "http://www.lokalebasen.dk/api/provider/locations/8289"
-            },
-            ...
+            }
+        }
+    }
 }
-</pre>
+```
 
-When explaining how to reload the location ( which the link in the json above may be used for ) the documentation will use the following syntax:  
-GET [ Example \["location\] \["_links"\] \["self"\] \["href"\] ](#syntax_example)  
-Meaning, in this example, that the client needs to GET http://www.lokalebasen.dk/api/provider/locations/8289.  
-Whenever this syntax is used it will link to the line it refers to in a json example.
-
+When explaining how to reload the location ( which the link in the json above
+may be used for ) the documentation will use the following syntax:
+GET [ Example \["location\] \["_links"\] \["self"\] \["href"\] ](#syntax_example) .
+Meaning, in this example, that the client needs to
+`GET http://www.lokalebasen.dk/api/provider/locations/8289`.
+Whenever this syntax is used it will link to the json response where the link
+can be found.
 
 
 ###<a id="getting_access">Getting Access</a>
 
-Getting access to Lokalebasen.dk Provider API is easy. Just follow the few steps below and you are ready to go.
+Getting access to Lokalebasen.dk Provider API is easy. Just follow the few
+steps below and you are ready to go.
 
 * Create a provider profile on Lokalebasen.dk.
 * Call us at (+45) 70 20 08 14 and request access to the API.
 * You will then receive an email with your `Api-Key`.
 
-The `Api-Key` goes into the header of all requests to the API ( see [Headers](#headers_) ).
+The `Api-Key` goes into the header of all requests to the API
+( see [Headers](#headers_) ).
 
 
 
 ###<a id="headers_">Headers</a>
 
-Every request sent to the API must include `Api-Key` and `Content-Type` in header.
+Every request sent to the API must include `Api-Key` and `Content-Type` in
+header.
 
 #####Header Requirements
 
@@ -91,14 +112,20 @@ The API uses `application/json` media type. `application/xml` is not supported.
 
 Possible status codes and error messages are listed under each resource chapter.
 
-Except for 5xx errors, all error messages are returned in json as the value to the key: `message` ( see example below ).
+Except for 5xx errors, all error messages are returned in json as the value to
+the key: `message` ( see example below ).
 
-<pre>
+```json
 {
     "message": "Record not found!"
 }
-</pre>
-If Lokalebasen.dk Provider API is having trouble, you might see a 5xx error. `500` might mean that the app is entirely down, but you may also see `502 Bad Gateway`, `503 Service Unavailable`, or `504 Gateway Timeout`. It's your responsibility in all of these cases to retry your request later.
+```
+
+If Lokalebasen.dk Provider API is having trouble, you may see a 5xx error.
+`500` can mean that the server is down, but you may also see
+`502 Bad Gateway`, `503 Service Unavailable`, or `504 Gateway Timeout`.
+It's the clients responsibility in all of these cases to retry your request
+later.
 
 
 
@@ -125,21 +152,24 @@ If Lokalebasen.dk Provider API is having trouble, you might see a 5xx error. `50
 
 ####<a id="locations_entry_point">Locations Entry Point</a>
 
-The only URL in the API that is certain not to change is the API entry point - e.g. http://www.lokalebasen.dk/api/providers.  
-This URL should be hard coded into the client application.  
+The only URL in the API that is certain not to change is the API entry
+point.
+This URL should be hard coded into the client application.
 
-GET http://www.lokalebasen.dk/api/provider  
+GET http://www.lokalebasen.dk/api/provider
 
 Response body example:
 
 ######Entry:
-<pre>
+<a id="entry_locations"></a>
+
+```json
 {
     "_links": {
         "clients": {
             "href": "http://www.lokalebasen.dk/api/provider/clients.json"
         },
-        "locations": {<a id="entry_locations"></a>
+        "locations": {
             "href": "http://www.lokalebasen.dk/api/provider/locations.json"
         },
         "orders": {
@@ -152,7 +182,7 @@ Response body example:
         }
     }
 }
-</pre>
+```
 
 ######Status codes
 * 200 ok
@@ -162,19 +192,21 @@ Response body example:
 
 ####<a id="read_locations">Read Locations</a>
 
-GET [Entry \["_links"\] \["locations"\] \["href"\] ](#entry_locations)  
+GET [Entry \["_links"\] \["locations"\] \["href"\] ](#entry_locations)
 
 Response body example:
 
 ######Locations
-<pre>
+<a id="location_list"></a>
+
+```json
 {
     "_links": {
-        "self": {<a id="locations_resource"></a>
+        "self": {
             "href": "http://www.lokalebasen.dk/api/provider/locations"
         }
     },
-    "locations": [ <a id="location_list"></a>
+    "locations": [
             {
                 "_links": {
                     "self": {
@@ -195,7 +227,7 @@ Response body example:
                 "external_key": "Location 2"
             },
             {
-                "_links": {<a id="location_8289_in_list"></a>
+                "_links": {
                     "self": {
                         "href": "http://www.lokalebasen.dk/api/provider/locations/8289"
                     }
@@ -215,13 +247,21 @@ Response body example:
             }
         ]
 }
-</pre>
+```
 
-The response body consists of a link to this resource and a list of all providers locations.  
-The [ Locations \["_links"\] \["self"\] \["href"\] ](#locations_resource) can be used to reload the list of locations. It can also be used to POST data to create a new location ( see [Create Location](#create_location) ).  
+The response body consists of a link to this resource and a list of all
+providers locations.
+The [ Locations \["_links"\] \["self"\] \["href"\] ](#location_list) can
+be used to reload the list of locations. It can also be used to POST data
+to create a new location ( see [Create Location](#create_location) ).
 
-Each location in the list has a link to its own resource. The URL for the second location in the list above is found at [Locations \["locations"\] \[1\] \["_links"\] \["self"\] \["href"\]  ](#location_8289_in_list). Use the GET method on these URLs  to see more details about a given location ( see [Read Location](#read_location) ).  
-The external_key value is providers own reference to a location used to find the desired location.  
+Each location in the list has a link to its own resource. The URL for the
+second location in the list above is found at
+[ Locations \["locations"\] \[1\] \["_links"\] \["self"\] \["href"\] ](#location_list).
+Use the GET method on these URLs  to see more details about a given location
+ ( see [Read Location](#read_location) ).
+The external_key value is providers own reference to a location used to find
+the desired location.
 
 ######Status codes
 * 200 ok
@@ -231,30 +271,35 @@ The external_key value is providers own reference to a location used to find the
 
 ####<a id="read_location">Read Location</a>
 
-To find a specific location in the locations list a client application should run through the list of [locations](#location_list) until it finds a match for external_key. Then the client application may follow the self link for that location to view additional data and options for the location.
+To find a specific location in the locations list a client application should
+run through the list of [locations](#location_list) until it finds a match
+for external_key. Then the client application may follow the self link for
+that location to view additional data and options for the location.
 
-GET [ Locations \["locations"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location_8289_in_list)  
+GET [ Locations \["locations"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location_list)
 
 Response body:
 
 ######Location
-<pre>
-{<a id="location"></a>
-    "location": {<a id="location_key"></a>
-        "_links": {<a id="links"></a>
-            "self": {<a id="location_8289"></a>
+<a id="location"></a>
+
+```json
+{
+    "location": {
+        "_links": {
+            "self": {
                 "href": "http://www.lokalebasen.dk/api/provider/locations/8289"
             },
-            "prospectuses": {<a id="location_8289_prospectuses"></a>
+            "prospectuses": {
                 "href": "http://www.lokalebasen.dk/api/provider/locations/8289/prospectuses"
             },
-            "photos": {<a id="location_8289_photos"></a>
+            "photos": {
                 "href": "http://www.lokalebasen.dk/api/provider/locations/8289/photos"
             },
-            "floor_plans": {<a id="location_8289_floor_plans"></a>
+            "floor_plans": {
                 "href": "http://www.lokalebasen.dk/api/provider/locations/8289/floor_plans"
             },
-            "activation": {<a id="location_8289_activation"></a>
+            "activation": {
                 "href": "http://www.lokalebasen.dk/api/provider/locations/8289/activation"
             }
         },
@@ -279,7 +324,7 @@ Response body:
         },
         "photos": [
             {
-                "_links": {<a id="photo_5"></a>
+                "_links": {
                     "self": {
                         "href": "http://www.lokalebasen.dk/api/provider/photos/142968"
                     }
@@ -299,7 +344,7 @@ Response body:
         ],
         "floor_plans": [
             {
-                "_links": {<a id="floor_plan_1"></a>
+                "_links": {
                     "self": {
                         "href": "http://www.lokalebasen.dk/api/provider/floor_plans/142971"
                     }
@@ -321,7 +366,7 @@ Response body:
             "currency": "DKK"
         },
         "prospectus": {
-            "_links": {<a id="prospectus_1"></a>
+            "_links": {
                 "self": {
                     "href": "http://www.lokalebasen.dk/api/provider/prospectuses/142973"
                 }
@@ -331,19 +376,28 @@ Response body:
         }
     }
 }
-</pre>
+```
 
 
 
-The list of [links](#links) shows what you can do with a location.
+The list of [links](#location) shows what you can do with a location.
 
-* GET [ Location \["location\] \["_links"\] \["self"\] \["href"\] ](#location_8289) to reload location.
-* PUT [ Location \["location\] \["_links"\] \["self"\] \["href"\] ](#location_8289) to [update location](#update_location).
-* PUT [ Location \["location\] \["_links"\] \["activation"\] \["href"\] ](#location_8289_activation) to [activate location](#activate_location). This link is only available when `state` is "new" or "closed".
-* PUT [ Location \["location\] \["_links"\] \["deactivation"\] \["href"\] ](#location_8289_deactivation) to [deactivate location](#deactivate_location). This link is only available when `state` is "active".
-* POST [ Location \["location\] \["_links"\] \["photos"\] \["href"\] ](#location_8289_photos) to [create photos](#create_photo) for location.
-* POST [ Location \["location\] \["_links"\] \["floor_plans"\] \["href"\] ](#location_8289_floor_plans) to [create floor_plan](#create_floor_plan) for location.
-* POST [ Location \["location\] \["_links"\] \["prospectuses"\] \["href"\] ](#location_8289_prospectuses) to [create prospectus](#create_prospectus) for location.
+* GET [ Location \["location\] \["_links"\] \["self"\] \["href"\] ](#location)
+to reload location.
+* PUT [ Location \["location\] \["_links"\] \["self"\] \["href"\] ](#location)
+to [update location](#update_location).
+* PUT [ Location \["location\] \["_links"\] \["activation"\] \["href"\] ](#location)
+to [activate location](#activate_location). This link is only available
+when `state` is "new" or "closed".
+* PUT [ Location \["location\] \["_links"\] \["deactivation"\] \["href"\] ](#location_update)
+to [deactivate location](#deactivate_location). This link is only available
+when `state` is "active".
+* POST [ Location \["location\] \["_links"\] \["photos"\] \["href"\] ](#location)
+to [create photos](#create_photo) for location.
+* POST [ Location \["location\] \["_links"\] \["floor_plans"\] \["href"\] ](#location)
+to [create floor_plan](#create_floor_plan) for location.
+* POST [ Location \["location\] \["_links"\] \["prospectuses"\] \["href"\] ](#location)
+to [create prospectus](#create_prospectus) for location.
 
 ######Status codes
 * 200 ok
@@ -351,7 +405,7 @@ The list of [links](#links) shows what you can do with a location.
 
 ####<a id="create_location">Create Location</a>
 
-POST [ Location \["location"\] \["_links"\] \["self"\] \["href"\] ](#locations_resource)  
+POST [ Location \["location"\] \["_links"\] \["self"\] \["href"\] ](#location_list)
 
 Request body example:
 
@@ -359,7 +413,7 @@ Request body example:
 ######Location Create
 <a id="location_create"></a>
 
-<pre>
+```json
 {
     "location": {
         "external_key": "Location 3",
@@ -394,9 +448,10 @@ Request body example:
         }
     }
 }
-</pre>
+```
 
-Some of the attributes included in the request body example above are optional. Check the list below to see details for all fields.
+Some of the attributes included in the request body example above are optional.
+Check the list below to see details for all fields.
 
 #####<a id="location_attributes">Location Attributes</a>
 
@@ -422,7 +477,9 @@ yearly_operational_cost_per_m2_to|[Money](#money)|Maximum yearly operational cos
 yearly_rent_per_m2_from|[Money](#money)|Minimum yearly rent per m2 .|Required
 yearly_rent_per_m2_to|[Money](#money)|Maximum yearly rent per m2. Must be more than yearly_rent_per_m2_from.|Optional
 
-All attributes not included in the list above will just be ignored. This makes it possible to GET an existing location ( with links, photos etc ), alter a few attributes and use it as the request body to create a new location.
+All attributes not included in the list above will be ignored. This makes
+it possible to GET an existing location ( with links, photos etc ), alter a
+few attributes and use it as the request body to create a new location.
 
 #####<a id="money">Money</a>
 
@@ -430,12 +487,12 @@ Some fields expect to receive a money type.
 
 Money example
 
-<pre>
+```json
 {
   "cents": 49500,
   "currency": "DKK"
 }
-</pre>
+```
 
 ####Money Attributes
 
@@ -444,12 +501,13 @@ Money example
 cents|Integer|Price in currency times 100|Required
 currency|String|Entity currency ("DKK")|Required
 
-After posting the [Location Create](#location_create) for a new location you will receive
-a response with the representation of the new location:  
+After posting the [Location Create](#location_create) for a new location you
+will receive
+a response with the representation of the new location:
 
 Response body:
 
-<pre>
+```json
 {
     "location": {
         "title": "Beautiful place by the lake",
@@ -485,11 +543,13 @@ Response body:
         }
     }
 }
-</pre>
+```
 
-Response header includes a `Location` key with a value containing a link for the location resource.  
+Response header includes a `Location` key with a value containing a
+link for the location resource.
 
-A location does not have any photos, floor_plans or a prospectus when just created.
+A location does not have any photos, floor_plans or a prospectus just
+after it is created.
 
 ######Status codes
 * 201 created
@@ -500,15 +560,17 @@ A location does not have any photos, floor_plans or a prospectus when just creat
 
 ####<a id="update_location">Update Location</a>
 
-PUT [ Location \["location"\] \["_links"\] \["self"\] \["href"\] ](#location_8289)
+PUT [ Location \["location"\] \["_links"\] \["self"\] \["href"\] ](#location)
 
-It is possible to update any of the [location attributes](#location_attributes) that can be set when [creating a location](#create_location).
+It is possible to update any of the [location attributes](#location_attributes)
+that can be set when [creating a location](#create_location).
 
 Request body example:
 
 ######Location Update
+<a id="location_update"></a>
 
-<pre>
+```json
 {
     "location": {
         "_links": {
@@ -524,7 +586,7 @@ Request body example:
             "floor_plans": {
                 "href": "http://localhost:3000/api/provider/locations/8289/floor_plans"
             },
-            "deactivation": {<a id="location_8289_deactivation"></a>
+            "deactivation": {
                 "href": "http://localhost:3000/api/provider/locations/8289/deactivation"
             },
         },
@@ -619,12 +681,15 @@ Request body example:
         }
     }
 }
-</pre>
+```
 
-Far from all the data in the request body example above is necessary.  
-A request body like: `{ "location": { "external_key": "New Key" } } }` would change the `external_key` value.  
+A full [location representation](#location) with the desired changes may be
+used for the response body, though less data will do the job.
+A request body like: `{ "location": { "external_key": "New Key" } } }` would
+change the `external_key` value.
 
-If succesful a [location representation](#location) will be returned in the response body.
+If succesful a [location representation](#location) will be returned in the
+response body.
 
 ######Status codes
 * 200 ok
@@ -635,13 +700,16 @@ If succesful a [location representation](#location) will be returned in the resp
 
 ####<a id="activate_location">Activate Location</a>
 
-Only locations that are not active ( `state` set to "new" or "closed" ) may be activated.
+Only locations that are not active ( `state` set to "new" or "closed" ) may
+be activated.
 
-PUT [ Location \["location"\] \["_links"\] \["activation"\] \["href"\] ](#location_8289_activation)  
+PUT [ Location \["location"\] \["_links"\] \["activation"\] \["href"\] ](#location)
 
-If succesfull a [location representation](#location) will be returned in the response body.
+If succesfull a [location representation](#location) will be returned in the
+response body.
 
-Response header includes a `Location` key with a value containing a link for the location resource.
+Response header includes a `Location` key with a value containing a link for
+the location resource.
 
 ######Status codes
 * 200 ok
@@ -654,11 +722,13 @@ Response header includes a `Location` key with a value containing a link for the
 
 Only locations that are active ( `state` set to "active" ) may be deactivated.
 
-PUT [ Location \["location"\] \["_links"\] \["deactivation"\] \["href"\] ](#location_8289_deactivation)  
+PUT [ Location \["location"\] \["_links"\] \["deactivation"\] \["href"\] ](#location_update)
 
-If succesfull a [location representation](#location) will be returned in the response body.  
+If succesfull a [location representation](#location) will be returned in the
+response body.
 
-Response header includes a `Location` key with a value containing a link for the location resource.
+Response header includes a `Location` key with a value containing a link for
+the location resource.
 
 ######Status codes
 * 200 ok
@@ -669,18 +739,18 @@ Response header includes a `Location` key with a value containing a link for the
 
 ####<a id="create_photo">Create Photo</a>
 
-POST [ Location \["location"\] \["_links"\] \["photos"\] \["href"\] ](#location_8289_photos)  
+POST [ Location \["location"\] \["_links"\] \["photos"\] \["href"\] ](#location)
 
 Request body example:
 
-<pre>
+```json
 {
   "photo": {
     "external_key": "Photo 5",
     "url": "http://www.skyen.dk/worldpixelsPictures/BigNarrowPictures/tokay.png"
   }
 }
-</pre>
+```
 
 ####Photo Attributes
 
@@ -691,11 +761,12 @@ url|String|Photo URL ( jpg or png ).|Required
 
 The photo file must be accesible on the internet.
 
-The photo is uploaded in a background job, and may not be attached to the location immediately.
+The photo is uploaded in a background job, and may not be attached to the
+location immediately.
 
 Response body example:
 
-<pre>
+```json
 {
     "job": {
         "_links": {
@@ -706,11 +777,11 @@ Response body example:
         "state": "enqueued"
     }
 }
-</pre>
+```
 
 Use the link supplied in the response body to find out how the job is doing.
 
-* GET [ Job \["job\] \["_links"\] \["self"\] \["href"\] ](#job_25888) to [read job](#read_job).
+* GET [ Job \["job\] \["_links"\] \["self"\] \["href"\] ](#read_job) to [read job](#read_job).
 
 ######Status codes
 * 202 accepted
@@ -721,7 +792,7 @@ Use the link supplied in the response body to find out how the job is doing.
 
 ####<a id="delete_photo">Delete Photo</a>
 
-DELETE [ Location \["location"\] \["photos"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#photo_5)
+DELETE [ Location \["location"\] \["photos"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location)
 
 ######Status codes
 * 204 no content
@@ -731,18 +802,18 @@ DELETE [ Location \["location"\] \["photos"\] \[index\] \["_links"\] \["self"\] 
 
 ####<a id="create_floor_plan">Create Floor Plan</a>
 
-POST [ Location \["location"\] \["_links"\] \["floor_plans"\] \["href"\] ](#location_8289_floor_plans)  
+POST [ Location \["location"\] \["_links"\] \["floor_plans"\] \["href"\] ](#location)
 
 Request body example:
 
-<pre>
+```json
 {
   "floor_plan": {
     "external_key": "Floor Plan 1",
     "url": "http://www.skyen.dk/worldpixelsPictures/BigNarrowPictures/floor_plan.png"
   }
 }
-</pre>
+```
 
 ####Floor Plan Attributes
 
@@ -751,13 +822,14 @@ Request body example:
 external_key|String|Providers own reference. Must be unique. A provider may only have one floor plan with the external_key set to e.g. "1", though this provider may also have a photo with the external_key set to "1".|Required
 url|String|Floor plan URL ( jpg or png ).|Required
 
-The floor plan file must be accesible on the internet.  
+The floor plan file must be accesible on the internet.
 
-The floor plan is uploaded in a background job, and may not be attached to the location immediately.  
+The floor plan is uploaded in a background job, and may not be attached to the
+location immediately.
 
 Response body example:
 
-<pre>
+```json
 {
     "job": {
         "_links": {
@@ -768,11 +840,12 @@ Response body example:
         "state": "enqueued"
     }
 }
-</pre>
+```
 
 Use the link supplied in the response body to find out how the job is doing.
 
-* GET [ Job \["job\] \["_links"\] \["self"\] \["href"\] ](#job_25888) to [read job](#read_job).
+* GET [ Job \["job\] \["_links"\] \["self"\] \["href"\] ](#read_job) to
+[read job](#read_job).
 
 ######Status codes
 * 202 accepted
@@ -783,7 +856,7 @@ Use the link supplied in the response body to find out how the job is doing.
 
 ####<a id="delete_floor_plans">Delete Floor Plans</a>
 
-DELETE [ Location \["location"\] \["floor_plans"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#floor_plan_1)
+DELETE [ Location \["location"\] \["floor_plans"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location)
 
 ######Status codes
 * 204 no content
@@ -794,18 +867,18 @@ DELETE [ Location \["location"\] \["floor_plans"\] \[index\] \["_links"\] \["sel
 
 ####<a id="create_prospectus">Create Prospectus</a>
 
-POST [ Location \["location"\] \["_links"\] \["prospectuses"\] \["href"\] ](#location_8289_prospectuses)  
+POST [ Location \["location"\] \["_links"\] \["prospectuses"\] \["href"\] ](#location)
 
 Request body example:
 
-<pre>
+```json
 {
   "prospectus": {
     "external_key": "Prospectus 2",
     "url": "http://www.skyen.dk/worldpixelsPictures/BigNarrowPictures/prospectus2.png"
   }
 }
-</pre>
+```
 
 ####Prospectus Attributes
 
@@ -814,16 +887,18 @@ Request body example:
 external_key|String|Providers own reference. Must be unique. A provider may only have one prospectus with the external_key set to e.g. "1", though this provider may also have a floor plan with the external_key set to "1".|Required
 url|String|Prospectus URL ( pdf, jpg or png )|Required
 
-The prospectus file must be accesible on the internet.  
+The prospectus file must be accesible on the internet.
 
-A location can only have one prospectus.  
-If a location already has a prospectus, but you want to change it - first [delete](#delete_prospectus) the current prospectus and then add a new one.  
+A location can only have one prospectus.
+If a location already has a prospectus, but you want to change it - first
+[delete](#delete_prospectus) the current prospectus and then add a new one.
 
-The prospectus is uploaded in a background job, and may not be attached to the location immediately.  
+The prospectus is uploaded in a background job, and may not be attached to the
+location immediately.
 
 Response body example:
 
-<pre>
+```json
 {
     "job": {
         "_links": {
@@ -834,11 +909,12 @@ Response body example:
         "state": "enqueued"
     }
 }
-</pre>
+```
 
-Use the link supplied in the response body to find out how the job is doing.  
+Use the link supplied in the response body to find out how the job is doing.
 
-* GET [ Job \["job\] \["_links"\] \["self"\] \["href"\] ](#job_25888) to [read job](#read_job).
+* GET [ Job \["job\] \["_links"\] \["self"\] \["href"\] ](#read_job) to
+[read job](#read_job).
 
 ######Status codes
 * 202 accepted
@@ -849,7 +925,7 @@ Use the link supplied in the response body to find out how the job is doing.
 
 ####<a id="delete_prospectus">Delete Prospectus</a>
 
-DELETE [ Location \["location"\] \["prospectus"\] \["_links"\] \["self"\] \["href"\] ](#prospectus_1)  
+DELETE [ Location \["location"\] \["prospectus"\] \["_links"\] \["self"\] \["href"\] ](#location)
 
 ######Status codes
 * 204 no content
@@ -859,15 +935,17 @@ DELETE [ Location \["location"\] \["prospectus"\] \["_links"\] \["self"\] \["hre
 
 ####<a id="read_job">Read Job</a>
 
-GET [ Job \["job"\] \["_links"\] \["self"\] \["href"\] ](#job_25888)  
+GET [ Job \["job"\] \["_links"\] \["self"\] \["href"\] ](#read_job)
 
 Request body example:
 
 ######Read Job
-<pre>
+<a id="read_job"></a>
+
+```json
 {
     "job": {
-        "_links": {<a id="job_25888"></a>
+        "_links": {
             "self": {
                 "href": "http://localhost:3000/api/provider/asset_jobs/25888"
             }
@@ -875,9 +953,12 @@ Request body example:
         "state": "enqueued"
     }
 }
-</pre>
+```
 
-The state of the job is revealed in the value of the `state` attribute. This will initialy be set to `enqueued`. When the job is done it will be set to either `success` or `error`. When set to `success` the photo, floor plan or prospectus will appear in the [Location](#location).
+The state of the job is revealed in the value of the `state` attribute.
+This will initialy be set to `enqueued`. When the job is done it will be set
+to either `success` or `error`. When set to `success` the photo, floor plan
+or prospectus will appear in the [Location](#location).
 
 
 ######Status codes
