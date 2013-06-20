@@ -1,9 +1,6 @@
 ---
 layout: default
 ---
-Lokalebasen.dk Provider API Documentation
-=========================================
-
 The purpose of this document is to help developers build client applications
 that integrate with Lokalebasen.dk through Lokalebasen.dk Provider API.
 Thereby allowing providers to automatically and continuously update data
@@ -49,7 +46,7 @@ This is done to stress that URLs should not be hardcoded.
 A successful GET request on the location resource will produce a json
 response body. The top of which may appear as shown below:
 
-######Example
+####Example
 <a id="syntax_example"></a>
 
 {% highlight json %}
@@ -160,7 +157,7 @@ GET http://www.lokalebasen.dk/api/provider
 
 Response body example:
 
-######Entry:
+####Entry:
 <a id="entry_locations"></a>
 
 {% hightlight json %}
@@ -184,7 +181,7 @@ Response body example:
 }
 {% endhighlight %}
 
-######Status codes
+####Status codes
 * 200 ok
 
 
@@ -196,7 +193,7 @@ GET [Entry \["_links"\] \["locations"\] \["href"\] ](#entry_locations)
 
 Response body example:
 
-######Locations
+####Locations
 <a id="location_list"></a>
 
 {% hightlight json %}
@@ -263,7 +260,7 @@ Use the GET method on these URLs  to see more details about a given location
 The external_key value is providers own reference to a location used to find
 the desired location.
 
-######Status codes
+####Status codes
 * 200 ok
 
 
@@ -280,7 +277,7 @@ GET [ Locations \["locations"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#
 
 Response body:
 
-######Location
+####Location
 <a id="location"></a>
 
 {% hightlight json %}
@@ -397,7 +394,7 @@ to [create floor_plan](#create_floor_plan) for location.
 * POST [ Location \["location\] \["_links"\] \["prospectuses"\] \["href"\] ](#location)
 to [create prospectus](#create_prospectus) for location.
 
-######Status codes
+####Status codes
 * 200 ok
 * 404 record not found
 
@@ -408,7 +405,7 @@ POST [ Location \["location"\] \["_links"\] \["self"\] \["href"\] ](#location_li
 Request body example:
 
 
-######Location Create
+####Location Create
 <a id="location_create"></a>
 
 {% hightlight json %}
@@ -549,7 +546,7 @@ link for the location resource.
 A location does not have any photos, floor_plans or a prospectus just
 after it is created.
 
-######Status codes
+####Status codes
 * 201 created
 * 400 bad request
 
@@ -565,7 +562,7 @@ that can be set when [creating a location](#create_location).
 
 Request body example:
 
-######Location Update
+####Location Update
 <a id="location_update"></a>
 
 {% hightlight json %}
@@ -689,7 +686,7 @@ change the `external_key` value.
 If succesful a [location representation](#location) will be returned in the
 response body.
 
-######Status codes
+####Status codes
 * 200 ok
 * 404 record not found
 
@@ -709,7 +706,7 @@ response body.
 Response header includes a `Location` key with a value containing a link for
 the location resource.
 
-######Status codes
+####Status codes
 * 200 ok
 * 404 record not found
 
@@ -728,7 +725,7 @@ response body.
 Response header includes a `Location` key with a value containing a link for
 the location resource.
 
-######Status codes
+####Status codes
 * 200 ok
 * 404 record not found
 
@@ -781,7 +778,7 @@ Use the link supplied in the response body to find out how the job is doing.
 
 * GET [ Job \["job\] \["_links"\] \["self"\] \["href"\] ](#read_job) to [read job](#read_job).
 
-######Status codes
+####Status codes
 * 202 accepted
 * 400 bad request
 
@@ -792,7 +789,7 @@ Use the link supplied in the response body to find out how the job is doing.
 
 DELETE [ Location \["location"\] \["photos"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location)
 
-######Status codes
+####Status codes
 * 204 no content
 * 404 record not found
 
@@ -845,7 +842,7 @@ Use the link supplied in the response body to find out how the job is doing.
 * GET [ Job \["job\] \["_links"\] \["self"\] \["href"\] ](#read_job) to
 [read job](#read_job).
 
-######Status codes
+####Status codes
 * 202 accepted
 * 400 bad request
 
@@ -856,7 +853,7 @@ Use the link supplied in the response body to find out how the job is doing.
 
 DELETE [ Location \["location"\] \["floor_plans"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location)
 
-######Status codes
+####Status codes
 * 204 no content
 * 404 record not found
 
@@ -914,7 +911,7 @@ Use the link supplied in the response body to find out how the job is doing.
 * GET [ Job \["job\] \["_links"\] \["self"\] \["href"\] ](#read_job) to
 [read job](#read_job).
 
-######Status codes
+####Status codes
 * 202 accepted
 * 400 bad request
 
@@ -925,7 +922,7 @@ Use the link supplied in the response body to find out how the job is doing.
 
 DELETE [ Location \["location"\] \["prospectus"\] \["_links"\] \["self"\] \["href"\] ](#location)
 
-######Status codes
+####Status codes
 * 204 no content
 * 404 record not found
 
@@ -937,7 +934,7 @@ GET [ Job \["job"\] \["_links"\] \["self"\] \["href"\] ](#read_job)
 
 Request body example:
 
-######Read Job
+####Read Job
 <a id="read_job"></a>
 
 {% hightlight json %}
@@ -959,6 +956,6 @@ to either `success` or `error`. When set to `success` the photo, floor plan
 or prospectus will appear in the [Location](#location).
 
 
-######Status codes
+####Status codes
 * 200 ok
 * 404 record not found
