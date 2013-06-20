@@ -52,7 +52,7 @@ response body. The top of which may appear as shown below:
 ######Example
 <a id="syntax_example"></a>
 
-```json
+{% highlight json %}
 {
     "location": {
         "_links": {
@@ -62,7 +62,7 @@ response body. The top of which may appear as shown below:
         }
     }
 }
-```
+{% endhighlight %}
 
 When explaining how to reload the location ( which the link in the json above
 may be used for ) the documentation will use the following syntax:
@@ -115,11 +115,11 @@ Possible status codes and error messages are listed under each resource chapter.
 Except for 5xx errors, all error messages are returned in json as the value to
 the key: `message` ( see example below ).
 
-```json
+{% hightlight json %}
 {
     "message": "Record not found!"
 }
-```
+{% endhighlight %}
 
 If Lokalebasen.dk Provider API is having trouble, you may see a 5xx error.
 `500` can mean that the server is down, but you may also see
@@ -163,7 +163,7 @@ Response body example:
 ######Entry:
 <a id="entry_locations"></a>
 
-```json
+{% hightlight json %}
 {
     "_links": {
         "clients": {
@@ -182,7 +182,7 @@ Response body example:
         }
     }
 }
-```
+{% endhighlight %}
 
 ######Status codes
 * 200 ok
@@ -199,7 +199,7 @@ Response body example:
 ######Locations
 <a id="location_list"></a>
 
-```json
+{% hightlight json %}
 {
     "_links": {
         "self": {
@@ -247,7 +247,7 @@ Response body example:
             }
         ]
 }
-```
+{% endhighlight %}
 
 The response body consists of a link to this resource and a list of all
 providers locations.
@@ -283,7 +283,7 @@ Response body:
 ######Location
 <a id="location"></a>
 
-```json
+{% hightlight json %}
 {
     "location": {
         "_links": {
@@ -376,9 +376,7 @@ Response body:
         }
     }
 }
-```
-
-
+{% endhighlight %}
 
 The list of [links](#location) shows what you can do with a location.
 
@@ -413,7 +411,7 @@ Request body example:
 ######Location Create
 <a id="location_create"></a>
 
-```json
+{% hightlight json %}
 {
     "location": {
         "external_key": "Location 3",
@@ -448,7 +446,7 @@ Request body example:
         }
     }
 }
-```
+{% endhighlight %}
 
 Some of the attributes included in the request body example above are optional.
 Check the list below to see details for all fields.
@@ -487,12 +485,12 @@ Some fields expect to receive a money type.
 
 Money example
 
-```json
+{% hightlight json %}
 {
   "cents": 49500,
   "currency": "DKK"
 }
-```
+{% endhighlight %}
 
 ####Money Attributes
 
@@ -507,7 +505,7 @@ a response with the representation of the new location:
 
 Response body:
 
-```json
+{% hightlight json %}
 {
     "location": {
         "title": "Beautiful place by the lake",
@@ -543,7 +541,7 @@ Response body:
         }
     }
 }
-```
+{% endhighlight %}
 
 Response header includes a `Location` key with a value containing a
 link for the location resource.
@@ -570,7 +568,7 @@ Request body example:
 ######Location Update
 <a id="location_update"></a>
 
-```json
+{% hightlight json %}
 {
     "location": {
         "_links": {
@@ -681,7 +679,7 @@ Request body example:
         }
     }
 }
-```
+{% endhighlight %}
 
 A full [location representation](#location) with the desired changes may be
 used for the response body, though less data will do the job.
@@ -743,14 +741,14 @@ POST [ Location \["location"\] \["_links"\] \["photos"\] \["href"\] ](#location)
 
 Request body example:
 
-```json
+{% hightlight json %}
 {
   "photo": {
     "external_key": "Photo 5",
     "url": "http://www.skyen.dk/worldpixelsPictures/BigNarrowPictures/tokay.png"
   }
 }
-```
+{% endhighlight %}
 
 ####Photo Attributes
 
@@ -766,7 +764,7 @@ location immediately.
 
 Response body example:
 
-```json
+{% hightlight json %}
 {
     "job": {
         "_links": {
@@ -777,7 +775,7 @@ Response body example:
         "state": "enqueued"
     }
 }
-```
+{% endhighlight %}
 
 Use the link supplied in the response body to find out how the job is doing.
 
@@ -806,14 +804,14 @@ POST [ Location \["location"\] \["_links"\] \["floor_plans"\] \["href"\] ](#loca
 
 Request body example:
 
-```json
+{% hightlight json %}
 {
   "floor_plan": {
     "external_key": "Floor Plan 1",
     "url": "http://www.skyen.dk/worldpixelsPictures/BigNarrowPictures/floor_plan.png"
   }
 }
-```
+{% endhighlight %}
 
 ####Floor Plan Attributes
 
@@ -829,7 +827,7 @@ location immediately.
 
 Response body example:
 
-```json
+{% hightlight json %}
 {
     "job": {
         "_links": {
@@ -840,7 +838,7 @@ Response body example:
         "state": "enqueued"
     }
 }
-```
+{% endhighlight %}
 
 Use the link supplied in the response body to find out how the job is doing.
 
@@ -871,14 +869,14 @@ POST [ Location \["location"\] \["_links"\] \["prospectuses"\] \["href"\] ](#loc
 
 Request body example:
 
-```json
+{% highlight json %}
 {
   "prospectus": {
     "external_key": "Prospectus 2",
     "url": "http://www.skyen.dk/worldpixelsPictures/BigNarrowPictures/prospectus2.png"
   }
 }
-```
+{% endhighlight %}
 
 ####Prospectus Attributes
 
@@ -898,7 +896,7 @@ location immediately.
 
 Response body example:
 
-```json
+{% highlight json %}
 {
     "job": {
         "_links": {
@@ -909,7 +907,7 @@ Response body example:
         "state": "enqueued"
     }
 }
-```
+{% endhighlight %}
 
 Use the link supplied in the response body to find out how the job is doing.
 
@@ -942,7 +940,7 @@ Request body example:
 ######Read Job
 <a id="read_job"></a>
 
-```json
+{% hightlight json %}
 {
     "job": {
         "_links": {
@@ -953,7 +951,7 @@ Request body example:
         "state": "enqueued"
     }
 }
-```
+{% endhighlight %}
 
 The state of the job is revealed in the value of the `state` attribute.
 This will initialy be set to `enqueued`. When the job is done it will be set
