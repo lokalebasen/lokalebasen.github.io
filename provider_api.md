@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: provider_api
 ---
 The purpose of this document is to help developers build client applications
 that integrate with Lokalebasen.dk through Lokalebasen.dk Provider API.
@@ -211,10 +211,8 @@ Response body example:
                     }
                 },
                 "id": 8250,
-                "street_name": "Somewhere",
-                "house_number": "5",
-                "floor": "1",
-                "side": "th",
+                "address_line1": "Lillegade 3",
+                "address_line2": "",
                 "postal_code": 1371,
                 "area_from": 334,
                 "area_to": null,
@@ -230,10 +228,8 @@ Response body example:
                     }
                 },
                 "id": 8289,
-                "street_name": "Main Street",
-                "house_number": "5",
-                "floor": "1",
-                "side": "th",
+                "address_line1": "Hovedgaden 5, 1. th.",
+                "address_line2": "",
                 "postal_code": 1371,
                 "area_from": 334,
                 "area_to": 370,
@@ -302,10 +298,8 @@ Response body:
         },
         "title": "Beautiful place by the lake",
         "description": "Old building...\n\nIn the old center",
-        "street_name": "Main Street",
-        "house_number": "5",
-        "floor": "1",
-        "side": "th",
+        "address_line1": "Hovedgaden 5, 1. th.",
+        "address_line2": "",
         "postal_code": 1371,
         "latitude": 52.145,
         "longitude": 12.813,
@@ -377,21 +371,21 @@ Response body:
 
 The list of [links](#location) shows what you can do with a location.
 
-* GET [ Location \["location\] \["_links"\] \["self"\] \["href"\] ](#location)
+* GET [ Location \["location"\] \["_links"\] \["self"\] \["href"\] ](#location)
 to reload location.
-* PUT [ Location \["location\] \["_links"\] \["self"\] \["href"\] ](#location)
+* PUT [ Location \["location"\] \["_links"\] \["self"\] \["href"\] ](#location)
 to [update location](#update_location).
-* PUT [ Location \["location\] \["_links"\] \["activation"\] \["href"\] ](#location)
+* POST [ Location \["location"\] \["_links"\] \["activation"\] \["href"\] ](#location)
 to [activate location](#activate_location). This link is only available
 when `state` is "new" or "closed".
-* PUT [ Location \["location\] \["_links"\] \["deactivation"\] \["href"\] ](#location_update)
+* POST [ Location \["location"\] \["_links"\] \["deactivation"\] \["href"\] ](#location_update)
 to [deactivate location](#deactivate_location). This link is only available
 when `state` is "active".
-* POST [ Location \["location\] \["_links"\] \["photos"\] \["href"\] ](#location)
+* POST [ Location \["location"\] \["_links"\] \["photos"\] \["href"\] ](#location)
 to [create photos](#create_photo) for location.
-* POST [ Location \["location\] \["_links"\] \["floor_plans"\] \["href"\] ](#location)
+* POST [ Location \["location"\] \["_links"\] \["floor_plans"\] \["href"\] ](#location)
 to [create floor_plan](#create_floor_plan) for location.
-* POST [ Location \["location\] \["_links"\] \["prospectuses"\] \["href"\] ](#location)
+* POST [ Location \["location"\] \["_links"\] \["prospectuses"\] \["href"\] ](#location)
 to [create prospectus](#create_prospectus) for location.
 
 ####Status codes
@@ -414,8 +408,8 @@ Request body example:
         "external_key": "Location 3",
         "title": "Beautiful place by the lake",
         "description": "Old building...\n\nIn the old center",
-        "street_name": "Main Street",
-        "house_number": "5",
+        "address_line1": "Hovedgaden 5, 1. th.",
+        "address_line2": "",
         "postal_code": "1371",
         "floor": "1",
         "side": "th",
@@ -452,20 +446,18 @@ Check the list below to see details for all fields.
 
 | Field  | Type | Description | Required/Optional |
 | ------ | ---- | ----------- | ----------------- |
+address_line1|String|Street name and house number|Required
+address_line2|String|Apartment, building, condo, floor number|Optional
 area_from|Integer|Minimum area in m2.|Required
 area_to|Integer|Maximum area in m2. Must be more than area_from.|Optional
 description|String|A detailed description of the location. Use \n for new line.|Optional
 external_key|String|Providers own reference. Must be unique for a given resource. E.g. a provider can only have one photo with an external_key called "1", but he may also have a floor plan with an external_key called "1"|Optional
-floor|String|Floor.|Optional
-house_number|String|House number.|Required
 kind|String|Type ("office", "warehouse" or "store").|Required
 latitude|Float|Latitude ( e.g. 55.6012 ). Must be within the area of Denmark ( 54.2000 - 57.9000 ).|Required
 longitude|Float|Longitude ( e.g. 11.6121 ). Must be within the area of Denmark ( 7.8000 - 15.4000 ).|Required
 postal_code|String|A valid zip-code for the country of the location.|Required
 provider_website_link|String|A link to the location representation on providers own website.|Optional
-side|String|Side of staircase.|Optional
 state|String|State ("new", "active", "closed"). Can only be changed by using activation/deactivation link in [location representation](#location)| Neither
-street_name|String|Street name|Required
 title|String|Title.|Required
 yearly_operational_cost_per_m2_from|[Money](#money)|Minimum yearly operational cost per m2.|Optional
 yearly_operational_cost_per_m2_to|[Money](#money)|Maximum yearly operational cost per m2. Must be more than yearly_operational_cost_per_m2_from.|Optional
@@ -507,10 +499,8 @@ Response body:
     "location": {
         "title": "Beautiful place by the lake",
         "description": "Old building...\n\nIn the old center",
-        "street_name": "Main Street",
-        "house_number": "5",
-        "floor": "1",
-        "side": "th",
+        "address_line1": "Hovedgaden 5, 1. th.",
+        "address_line2": "",
         "postal_code": 1371,
         "latitude": 52.145,
         "longitude": 12.813,
@@ -587,10 +577,8 @@ Request body example:
         },
         "title": "Beautiful place by the lake",
         "description": "Old building...\n\nIn the old center",
-        "street_name": "Main Street",
-        "house_number": "5",
-        "floor": "1",
-        "side": "th",
+        "address_line1": "Hovedgaden 5, 1. th.",
+        "address_line2": "",
         "postal_code": 2900,
         "latitude": 52.145,
         "longitude": 12.813,
@@ -698,7 +686,7 @@ response body.
 Only locations that are not active ( `state` set to "new" or "closed" ) may
 be activated.
 
-PUT [ Location \["location"\] \["_links"\] \["activation"\] \["href"\] ](#location)
+POST [ Location \["location"\] \["_links"\] \["activation"\] \["href"\] ](#location)
 
 If succesfull a [location representation](#location) will be returned in the
 response body.
@@ -717,7 +705,7 @@ the location resource.
 
 Only locations that are active ( `state` set to "active" ) may be deactivated.
 
-PUT [ Location \["location"\] \["_links"\] \["deactivation"\] \["href"\] ](#location_update)
+POST [ Location \["location"\] \["_links"\] \["deactivation"\] \["href"\] ](#location_update)
 
 If succesfull a [location representation](#location) will be returned in the
 response body.
