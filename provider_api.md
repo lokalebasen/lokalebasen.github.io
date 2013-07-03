@@ -241,9 +241,9 @@ Response body example:
         ]
 }
 {% endhighlight %}
-
+  
 The response body consists of a link to this resource and a list of all
-providers locations.
+providers locations.  
 The [ Locations \["_links"\] \["self"\] \["href"\] ](#location_list) can
 be used to reload the list of locations. It can also be used to POST data
 to create a new location ( see [Create Location](#create_location) ).
@@ -369,7 +369,7 @@ Response body:
 }
 {% endhighlight %}
 
-The list of [links](#location) shows what you can do with a location.
+[The list of links](#location) shows what you can do with a location.
 
 * GET [ Location \["location"\] \["_links"\] \["self"\] \["href"\] ](#location)
 to reload location.
@@ -438,7 +438,7 @@ Request body example:
     }
 }
 {% endhighlight %}
-
+  
 Some of the attributes included in the request body example above are optional.
 Check the list below to see details for all fields.
 
@@ -446,8 +446,8 @@ Check the list below to see details for all fields.
 
 | Field  | Type | Description | Required/Optional |
 | ------ | ---- | ----------- | ----------------- |
-address_line1|String|Street name and house number|Required
-address_line2|String|Apartment, building, condo, floor number|Optional
+address_line1|String|As much of the address as possible|Required
+address_line2|String|Only if needed|Optional
 area_from|Integer|Minimum area in m2.|Required
 area_to|Integer|Maximum area in m2. Must be more than area_from.|Optional
 description|String|A detailed description of the location. Use \n for new line.|Optional
@@ -665,7 +665,7 @@ Request body example:
     }
 }
 {% endhighlight %}
-
+  
 A full [location representation](#location) with the desired changes may be
 used for the response body, though less data will do the job.
 A request body like: `{ "location": { "external_key": "New Key" } } }` would
