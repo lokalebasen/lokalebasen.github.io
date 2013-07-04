@@ -446,8 +446,8 @@ Check the list below to see details for all fields.
 
 | Field  | Type | Description | Required/Optional |
 | ------ | ---- | ----------- | ----------------- |
-address_line1|String|As much of the address as possible|Required
-address_line2|String|Only if needed|Optional
+address_line1|String||Required
+address_line2|String||Optional
 area_from|Integer|Minimum area in m2.|Required
 area_to|Integer|Maximum area in m2. Must be more than area_from.|Optional
 description|String|A detailed description of the location. Use \n for new line.|Optional
