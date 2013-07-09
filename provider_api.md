@@ -112,7 +112,7 @@ Possible status codes and error messages are listed under each resource chapter.
 Except for 5xx errors, all error messages are returned in json as the value to
 the key: `message` ( see example below ).
 
-{% hightlight json %}
+{% highlight json %}
 {
     "message": "Record not found!"
 }
@@ -160,7 +160,7 @@ Response body example:
 ####Entry:
 <a id="entry_locations"></a>
 
-{% hightlight json %}
+{% highlight json %}
 {
     "_links": {
         "clients": {
@@ -196,7 +196,7 @@ Response body example:
 ####Locations
 <a id="location_list"></a>
 
-{% hightlight json %}
+{% highlight json %}
 {
     "_links": {
         "self": {
@@ -241,9 +241,9 @@ Response body example:
         ]
 }
 {% endhighlight %}
-  
+
 The response body consists of a link to this resource and a list of all
-providers locations.  
+providers locations.
 The [ Locations \["_links"\] \["self"\] \["href"\] ](#location_list) can
 be used to reload the list of locations. It can also be used to POST data
 to create a new location ( see [Create Location](#create_location) ).
@@ -276,7 +276,7 @@ Response body:
 ####Location
 <a id="location"></a>
 
-{% hightlight json %}
+{% highlight json %}
 {
     "location": {
         "_links": {
@@ -402,7 +402,7 @@ Request body example:
 ####Location Create
 <a id="location_create"></a>
 
-{% hightlight json %}
+{% highlight json %}
 {
     "location": {
         "external_key": "Location 3",
@@ -438,7 +438,7 @@ Request body example:
     }
 }
 {% endhighlight %}
-  
+
 Some of the attributes included in the request body example above are optional.
 Check the list below to see details for all fields.
 
@@ -446,8 +446,8 @@ Check the list below to see details for all fields.
 
 | Field  | Type | Description | Required/Optional |
 | ------ | ---- | ----------- | ----------------- |
-address_line1|String||Required
-address_line2|String||Optional
+address_line1|String| |Required
+address_line2|String| |Optional
 area_from|Integer|Minimum area in m2.|Required
 area_to|Integer|Maximum area in m2. Must be more than area_from.|Optional
 description|String|A detailed description of the location. Use \n for new line.|Optional
@@ -474,7 +474,7 @@ Some fields expect to receive a money type.
 
 Money example
 
-{% hightlight json %}
+{% highlight json %}
 {
   "cents": 49500,
   "currency": "DKK"
@@ -494,7 +494,7 @@ a response with the representation of the new location:
 
 Response body:
 
-{% hightlight json %}
+{% highlight json %}
 {
     "location": {
         "title": "Beautiful place by the lake",
@@ -555,7 +555,7 @@ Request body example:
 ####Location Update
 <a id="location_update"></a>
 
-{% hightlight json %}
+{% highlight json %}
 {
     "location": {
         "_links": {
@@ -665,7 +665,7 @@ Request body example:
     }
 }
 {% endhighlight %}
-  
+
 A full [location representation](#location) with the desired changes may be
 used for the response body, though less data will do the job.
 A request body like: `{ "location": { "external_key": "New Key" } } }` would
@@ -726,7 +726,7 @@ POST [ Location \["location"\] \["_links"\] \["photos"\] \["href"\] ](#location)
 
 Request body example:
 
-{% hightlight json %}
+{% highlight json %}
 {
   "photo": {
     "external_key": "Photo 5",
@@ -749,7 +749,7 @@ location immediately.
 
 Response body example:
 
-{% hightlight json %}
+{% highlight json %}
 {
     "job": {
         "_links": {
@@ -789,7 +789,7 @@ POST [ Location \["location"\] \["_links"\] \["floor_plans"\] \["href"\] ](#loca
 
 Request body example:
 
-{% hightlight json %}
+{% highlight json %}
 {
   "floor_plan": {
     "external_key": "Floor Plan 1",
@@ -812,7 +812,7 @@ location immediately.
 
 Response body example:
 
-{% hightlight json %}
+{% highlight json %}
 {
     "job": {
         "_links": {
@@ -925,7 +925,7 @@ Request body example:
 ####Read Job
 <a id="read_job"></a>
 
-{% hightlight json %}
+{% highlight json %}
 {
     "job": {
         "_links": {
