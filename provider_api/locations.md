@@ -401,19 +401,19 @@ Request body example:
     "location": {
         "_links": {
             "self": {
-                "href": "http://localhost:3000/api/provider/locations/8289"
+                "href": "http://www.lokalebasen.dk/api/provider/locations/8289"
             },
             "prospectuses": {
-                "href": "http://localhost:3000/api/provider/locations/8289/prospectuses"
+                "href": "http://www.lokalebasen.dk/api/provider/locations/8289/prospectuses"
             },
             "photos": {
-                "href": "http://localhost:3000/api/provider/locations/8289/photos"
+                "href": "http://www.lokalebasen.dk/api/provider/locations/8289/photos"
             },
             "floor_plans": {
-                "href": "http://localhost:3000/api/provider/locations/8289/floor_plans"
+                "href": "http://www.lokalebasen.dk/api/provider/locations/8289/floor_plans"
             },
             "deactivation": {
-                "href": "http://localhost:3000/api/provider/locations/8289/deactivation"
+                "href": "http://www.lokalebasen.dk/api/provider/locations/8289/deactivation"
             },
         },
         "title": "Beautiful place by the lake",
@@ -438,7 +438,7 @@ Request body example:
             {
                 "_links": {
                     "self": {
-                        "href": "http://localhost:3000/api/provider/photos/142968"
+                        "href": "http://www.lokalebasen.dk/api/provider/photos/142968"
                     }
                 },
                 "external_key": "Photo 5",
@@ -447,7 +447,7 @@ Request body example:
             {
                 "_links": {
                     "self": {
-                        "href": "http://localhost:3000/api/provider/photos/142969"
+                        "href": "http://www.lokalebasen.dk/api/provider/photos/142969"
                     }
                 },
                 "external_key": "Photo 7",
@@ -456,7 +456,7 @@ Request body example:
             {
                 "_links": {
                     "self": {
-                        "href": "http://localhost:3000/api/provider/photos/142994"
+                        "href": "http://www.lokalebasen.dk/api/provider/photos/142994"
                     }
                 },
                 "external_key": "Photo 512",
@@ -467,7 +467,7 @@ Request body example:
             {
                 "_links": {
                     "self": {
-                        "href": "http://localhost:3000/api/provider/floor_plans/142971"
+                        "href": "http://www.lokalebasen.dk/api/provider/floor_plans/142971"
                     }
                 },
                 "external_key": null,
@@ -476,7 +476,7 @@ Request body example:
             {
                 "_links": {
                     "self": {
-                        "href": "http://localhost:3000/api/provider/floor_plans/142977"
+                        "href": "http://www.lokalebasen.dk/api/provider/floor_plans/142977"
                     }
                 },
                 "external_key": "Floor Plan 1",
@@ -498,7 +498,7 @@ Request body example:
         "prospectus": {
             "_links": {
                 "self": {
-                    "href": "http://localhost:3000/api/provider/prospectuses/142973"
+                    "href": "http://www.lokalebasen.dk/api/provider/prospectuses/142973"
                 }
             },
             "external_key": "Prospectus 2",
@@ -596,7 +596,7 @@ Response body example:
     "job": {
         "_links": {
             "self": {
-                "href": "http://localhost:3000/api/provider/asset_jobs/25951"
+                "href": "http://www.lokalebasen.dk/api/provider/asset_jobs/25951"
             }
         },
         "state": "enqueued"
@@ -659,7 +659,7 @@ Response body example:
     "job": {
         "_links": {
             "self": {
-                "href": "http://localhost:3000/api/provider/asset_jobs/25952"
+                "href": "http://www.lokalebasen.dk/api/provider/asset_jobs/25952"
             }
         },
         "state": "enqueued"
@@ -728,7 +728,7 @@ Response body example:
     "job": {
         "_links": {
             "self": {
-                "href": "http://localhost:3000/api/provider/asset_jobs/25953"
+                "href": "http://www.lokalebasen.dk/api/provider/asset_jobs/25953"
             }
         },
         "state": "enqueued"
@@ -767,7 +767,7 @@ Response body example:
 {
     "_links": {
         "self": {
-            "href": "http://localhost:3000/api/provider/locations/8289/subscribers"
+            "href": "http://www.lokalebasen.dk/api/provider/locations/8289/subscribers"
         }
     },
     "subscribers": [
@@ -813,7 +813,7 @@ Request body example:
     "job": {
         "_links": {
             "self": {
-                "href": "http://localhost:3000/api/provider/asset_jobs/25888"
+                "href": "http://www.lokalebasen.dk/api/provider/asset_jobs/25888"
             }
         },
         "state": "enqueued"
