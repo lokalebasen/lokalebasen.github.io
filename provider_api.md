@@ -131,13 +131,15 @@ later.
 
 * [Entry Point](#entry_point)
 * [Location Resources](/provider_api/locations.html)
+* [Contact Resources](/provider_api/contacts.html)
 
 ####<a id="entry_point">Entry Point</a>
 
 The only URL in the API that is certain not to change is the API entry
 point.
 This URL should be hard coded into the client application. The entry point exposes
-the URLs for accessing the [location resources](/provider_api/locations.html).
+the URLs for accessing the [Location Resources](/provider_api/locations.html) and
+[Contact Resources](/provider_api/locations.html)
 
 GET http://www.lokalebasen.dk/api/provider
 
