@@ -14,6 +14,7 @@ layout: provider_api_sub
 * [Delete Floor Plan](#delete_floor_plan)
 * [Create Prospectus](#create_prospectus)
 * [Delete Prospectus](#delete_prospectus)
+* [Read Subscribers](#read_subscribers)
 * [Read job](#read_job)
 
 ####<a id="read_locations">Read Locations</a>
@@ -121,6 +122,9 @@ Response body:
             "floor_plans": {
                 "href": "http://www.lokalebasen.dk/api/provider/locations/8289/floor_plans"
             },
+            "subscribers": {
+                "href": "http://www.lokalebasen.dk/api/provider/locations/8289/subscribers"
+            },
             "activation": {
                 "href": "http://www.lokalebasen.dk/api/provider/locations/8289/activation"
             }
@@ -216,6 +220,8 @@ to [create photos](#create_photo) for location.
 to [create floor_plan](#create_floor_plan) for location.
 * POST [ Location \["location"\] \["_links"\] \["prospectuses"\] \["href"\] ](#location)
 to [create prospectus](#create_prospectus) for location.
+* GET [ Location \["location"\] \["_links"\] \["subscribers"\] \["href"\] ](#location)
+to [read list of subscribers](#read_subscribers) for location.
 
 ####Status codes
 * 200 ok
@@ -742,6 +748,47 @@ DELETE [ Location \["location"\] \["prospectus"\] \["_links"\] \["self"\] \["hre
 ####Status codes
 * 204 no content
 * 404 record not found
+
+
+####<a id="read_subscribers">Read Subscribers</a>
+
+GET [ Location \["location"\] \["_links"\] \["subscribers"\] \["href"\] ](#location)
+
+Response body example:
+
+{% highlight json %}
+{
+    "_links": {
+        "self": {
+            "href": "http://localhost:3000/api/provider/locations/8289/subscribers"
+        }
+    },
+    "subscribers": [
+        {
+            "_links": {
+                "self": {
+                    "href": "http://lokalebasen.dev/api/provider/contacts/82776"
+                }
+            },
+            "external_key": "Contact 1"
+        },
+        {
+            "_links": {
+                "self": {
+                    "href": "http://lokalebasen.dev/api/provider/contacts/97440"
+                }
+            },
+            "external_key": "Contact 2"
+        }
+    ]
+}
+{% endhighlight %}
+
+The response body consists of a link the resource itself and a list of subscribers. Each subscriber has a link to its own resource and an external key. To get more details about a subscriber, a GET request must be send to the URL of the given subscriber.
+
+
+####Status codes
+* 200 ok
 
 
 
