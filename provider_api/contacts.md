@@ -5,6 +5,7 @@ layout: provider_api_sub
 
 * [Read Contacts](#read_contacts)
 * [Read Contact](#read_contact)
+* [Create Contact](#create_contact)
 
 ####<a id="read_contacts">Read Contacts</a>
 
@@ -64,7 +65,6 @@ GET [ Contacts \["contacts"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#co
 Response body:
 
 {% highlight json %}
-
 {
     "contact": {
         "_links": {
@@ -84,3 +84,61 @@ Response body:
 * 200 OK
 * 404 Record Not Found
 
+
+####<a id="create_contact">Create Contact</a>
+
+POST [ Contact \["contacts"\] \["_links"\] \["self"\] \["href"\] ](#contact_list)
+
+Request body example:
+
+#####Contact Create
+<a id="contact_create_request"></a>
+
+{% highlight json %}
+{
+    "contact": {
+        "email": "anders@andersen.dk",
+        "password": "secret123",
+        "name": "Anders Andersen",
+        "phone_number": "12345678",
+        "external_key": "Contact 1"
+    }
+}
+
+{% endhighlight %}
+
+Some of the attributes included in the request body example above are optional.
+Check the list below to see details for all fields.
+
+#####<a id="contact_attributes">Contact Attributes</a>
+| Field      | Type   | Description | Request/Optional |
+| ---------- | ------ | ----------- | ---------------- |
+email        | String |             | Required
+password     | String | The password used to login to [Lokalebasen Provider Application](http://www.lokalebasen.dk/login). Must be between 6 and 40 characters.| Required
+name         | String |             | Required
+phone_number | String |             | Required
+external_key | String | Providers own reference. Must be unique for all contacts. | Optional
+
+After the request, the api will send a representation of the new contact as the response body.
+
+Response body example:
+
+{% highlight json %}
+{
+    "contact": {
+        "_links": {
+            "self": {
+                "href": "http://lokalebasen.dev/api/provider/contacts/82776"
+            }
+        },
+        "name": "Anders Andersen",
+        "email": "anders@andersen.dk",
+        "phone_number": "12345678",
+        "external_key": "Contact 1"
+    }
+}
+{% endhighlight %}
+
+####Status codes
+* 201 created
+* 400 bad request
