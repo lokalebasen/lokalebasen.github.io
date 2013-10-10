@@ -131,7 +131,9 @@ Response body:
         },
         "title": "Beautiful place by the lake",
         "description": "Old building...\n\nIn the old center",
-        "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776",
+        "contact": {
+            "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
+        },
         "address_line1": "Hovedgaden 5, 1. th.",
         "address_line2": "",
         "postal_code": 1371,
@@ -243,7 +245,9 @@ Request body example:
     "location": {
         "external_key": "Location 3",
         "title": "Beautiful place by the lake",
-        "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776",
+        "contact": {
+            "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
+        },
         "description": "Old building...\n\nIn the old center",
         "address_line1": "Hovedgaden 5, 1. th.",
         "address_line2": "",
@@ -296,7 +300,7 @@ postal_code|String|A valid zip-code for the country of the location.|Required
 provider_website_link|String|A link to the location representation on providers own website.|Optional
 state|String|State ("new", "active", "closed"). Can only be changed by using activation/deactivation link in [location representation](#location)| Neither
 title|String|Title.|Required
-contact|String|The absolute URL of the [contact](#location_contact).|Required
+contact|[Contact Resource](#location_contact)|A resource representation of the contact.|Required
 yearly_operational_cost_per_m2_from|[Money](#money)|Minimum yearly operational cost per m2.|Optional
 yearly_operational_cost_per_m2_to|[Money](#money)|Maximum yearly operational cost per m2. Must be more than yearly_operational_cost_per_m2_from.|Optional
 yearly_rent_per_m2_from|[Money](#money)|Minimum yearly rent per m2 .|Required
@@ -308,6 +312,17 @@ few attributes and use it as the request body to create a new location.
 
 #####<a id="location_contact">Contact</a>
 The contact information of the contact is the contact information displayed to the clients. The contact will also receive emails about leads for the location.
+
+Contact Resource example:
+
+{% highlight json %}
+{
+    "contact": {
+        "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
+    },
+}
+{% endhighlight %}
+
 
 #####<a id="money">Money</a>
 
@@ -340,6 +355,9 @@ Response body:
     "location": {
         "title": "Beautiful place by the lake",
         "description": "Old building...\n\nIn the old center",
+        "contact": {
+            "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
+        },
         "address_line1": "Hovedgaden 5, 1. th.",
         "address_line2": "",
         "postal_code": 1371,
@@ -418,7 +436,9 @@ Request body example:
         },
         "title": "Beautiful place by the lake",
         "description": "Old building...\n\nIn the old center",
-        "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776",
+        "contact": {
+            "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
+        },
         "address_line1": "Hovedgaden 5, 1. th.",
         "address_line2": "",
         "postal_code": 2900,
