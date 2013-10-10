@@ -95,7 +95,7 @@ From the links given in the [response](#contact) above, the client have the poss
 
 ###<a id="create_contact">Create Contact</a>
 
-POST [ Contact \["contacts"\] \["_links"\] \["self"\] \["href"\] ](#contact_list)
+POST [ Contacts \["contacts"\] \["_links"\] \["self"\] \["href"\] ](#contact_list)
 
 Request body example:
 
@@ -137,7 +137,7 @@ After the request, the api will send a [full representation](#contact) of the ne
 
 ###<a id="update_contact">Update Contact</a>
 
-PUT [ Contact \["contacts"\] \["_links"\] \["self"\] \["href"\] ](#contact)
+PUT [ Contact \["contact"\] \["_links"\] \["self"\] \["href"\] ](#contact)
 
 It is possible to update the [contact attributes](#contact_attributes) of an already existing contact by sending a PUT request to the contact resource URL.
 
