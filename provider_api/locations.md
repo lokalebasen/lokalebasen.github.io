@@ -681,8 +681,7 @@ Response body example:
                 "self": {
                     "href": "http://lokalebasen.dev/api/provider/contacts/82776"
                 }
-            },
-            "external_key": "Contact 1"
+            }
         },
         {
             "_links": {
@@ -690,13 +689,12 @@ Response body example:
                     "href": "http://lokalebasen.dev/api/provider/contacts/97440"
                 }
             },
-            "external_key": "Contact 2"
         }
     ]
 }
 {% endhighlight %}
 
-The response body consists of a link the resource itself and a list of subscriptions. Each subscription has a link to its subscribing contact resource and an external key. To get more details about a subscription, a GET request must be send to the URL of the given subscription.
+The response body consists of a link the resource itself and a list of subscriptions. Each subscription has a link to its subscribing contact.
 
 
 ####Status codes
