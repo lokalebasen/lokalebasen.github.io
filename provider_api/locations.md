@@ -17,8 +17,8 @@ layout: provider_api_sub
 * Prospectuses
     * [Create Prospectus](#create_prospectus)
     * [Delete Prospectus](#delete_prospectus)
-* Subscribers
-    * [Read Subscribers](#read_subscribers)
+* Subscriptions
+    * [Read Subscriptions](#read_subscriptions)
 * [Read Job](#read_job)
 
 ###<a id="read_locations">Read Locations</a>
@@ -127,8 +127,8 @@ Response body:
             "floor_plans": {
                 "href": "http://www.lokalebasen.dk/api/provider/locations/8289/floor_plans"
             },
-            "subscribers": {
-                "href": "http://www.lokalebasen.dk/api/provider/locations/8289/subscribers"
+            "subscriptions": {
+                "href": "http://www.lokalebasen.dk/api/provider/locations/8289/subscriptions"
             },
             "activation": {
                 "href": "http://www.lokalebasen.dk/api/provider/locations/8289/activation"
@@ -228,8 +228,8 @@ to [create photos](#create_photo) for location.
 to [create floor_plan](#create_floor_plan) for location.
 * POST [ Location \["location"\] \["_links"\] \["prospectuses"\] \["href"\] ](#location)
 to [create prospectus](#create_prospectus) for location.
-* GET [ Location \["location"\] \["_links"\] \["subscribers"\] \["href"\] ](#location)
-to [read list of subscribers](#read_subscribers) for location.
+* GET [ Location \["location"\] \["_links"\] \["subscriptions"\] \["href"\] ](#location)
+to [read list of subscriptions](#read_subscriptions) for location.
 
 ####Status codes
 * 200 OK
@@ -662,9 +662,9 @@ DELETE [ Location \["location"\] \["prospectus"\] \["_links"\] \["self"\] \["hre
 * 404 Record Not Found
 
 
-###<a id="read_subscribers">Read Subscribers</a>
+###<a id="read_subscriptions">Read Subscriptions</a>
 
-GET [ Location \["location"\] \["_links"\] \["subscribers"\] \["href"\] ](#location)
+GET [ Location \["location"\] \["_links"\] \["subscriptions"\] \["href"\] ](#location)
 
 Response body example:
 
@@ -672,10 +672,10 @@ Response body example:
 {
     "_links": {
         "self": {
-            "href": "http://www.lokalebasen.dk/api/provider/locations/8289/subscribers"
+            "href": "http://www.lokalebasen.dk/api/provider/locations/8289/subscriptions"
         }
     },
-    "subscribers": [
+    "subscriptions": [
         {
             "_links": {
                 "self": {
@@ -696,7 +696,7 @@ Response body example:
 }
 {% endhighlight %}
 
-The response body consists of a link the resource itself and a list of subscribers. Each subscriber has a link to its own resource and an external key. To get more details about a subscriber, a GET request must be send to the URL of the given subscriber.
+The response body consists of a link the resource itself and a list of subscriptions. Each subscription has a link to its subscribing contact resource and an external key. To get more details about a subscription, a GET request must be send to the URL of the given subscription.
 
 
 ####Status codes
