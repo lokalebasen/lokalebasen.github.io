@@ -15,7 +15,7 @@ layout: provider_api_sub
 * [Create Prospectus](#create_prospectus)
 * [Delete Prospectus](#delete_prospectus)
 * [Read Subscribers](#read_subscribers)
-* [Read job](#read_job)
+* [Read Job](#read_job)
 
 ###<a id="read_locations">Read Locations</a>
 
