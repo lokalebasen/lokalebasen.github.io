@@ -417,23 +417,6 @@ Request body example:
 {% highlight json %}
 {
     "location": {
-        "_links": {
-            "self": {
-                "href": "http://www.lokalebasen.dk/api/provider/locations/8289"
-            },
-            "prospectuses": {
-                "href": "http://www.lokalebasen.dk/api/provider/locations/8289/prospectuses"
-            },
-            "photos": {
-                "href": "http://www.lokalebasen.dk/api/provider/locations/8289/photos"
-            },
-            "floor_plans": {
-                "href": "http://www.lokalebasen.dk/api/provider/locations/8289/floor_plans"
-            },
-            "deactivation": {
-                "href": "http://www.lokalebasen.dk/api/provider/locations/8289/deactivation"
-            },
-        },
         "title": "Beautiful place by the lake",
         "description": "Old building...\n\nIn the old center",
         "contact": {
@@ -454,55 +437,6 @@ Request body example:
             "cents": 117300,
             "currency": "DKK"
         },
-        "photos": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://www.lokalebasen.dk/api/provider/photos/142968"
-                    }
-                },
-                "external_key": "Photo 5",
-                "url": "/uploads/0014/2968/tokay.png"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://www.lokalebasen.dk/api/provider/photos/142969"
-                    }
-                },
-                "external_key": "Photo 7",
-                "url": "/uploads/0014/2969/tokay.png"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://www.lokalebasen.dk/api/provider/photos/142994"
-                    }
-                },
-                "external_key": "Photo 512",
-                "url": "/uploads/0014/2994/tokay.png"
-            }
-        ],
-        "floor_plans": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://www.lokalebasen.dk/api/provider/floor_plans/142971"
-                    }
-                },
-                "external_key": null,
-                "url": "/uploads/0014/2971/1_full.jpg"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://www.lokalebasen.dk/api/provider/floor_plans/142977"
-                    }
-                },
-                "external_key": "Floor Plan 1",
-                "url": "/uploads/0014/2977/tokay.png"
-            }
-        ],
         "yearly_rent_per_m2_to": {
             "cents": 137300,
             "currency": "DKK"
@@ -514,15 +448,6 @@ Request body example:
         "yearly_operational_cost_per_m2_to": {
             "cents": 49500,
             "currency": "DKK"
-        },
-        "prospectus": {
-            "_links": {
-                "self": {
-                    "href": "http://www.lokalebasen.dk/api/provider/prospectuses/142973"
-                }
-            },
-            "external_key": "Prospectus 2",
-            "url": "/Users/kennjacobsen/lokalebasen/uploads/0014/2973/sample.pdf"
         }
     }
 }
