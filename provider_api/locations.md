@@ -20,6 +20,7 @@ layout: provider_api_sub
 * [Subscriptions](#subscriptions_intro)
     * [Read Subscriptions](#read_subscriptions)
     * [Create Subscription](#create_subscription)
+    * [Delete Subscription](#delete_subscription)
 * [Read Job](#read_job)
 
 ###<a id="read_locations">Read Locations</a>
@@ -730,6 +731,29 @@ This action is idempotent. If the contact already subscribes to the location, 20
 * 201 Created
 * 400 Bad Request
 * 422 Unprocessable Entity
+
+
+###<a id="delete_subscription">Delete Subscription</a>
+
+DELETE [ Location \["location"\] \["_links"\] \["subscriptions"\] \["href"\] ](#location)
+
+Request body example:
+
+{% highlight json %}
+{
+  "contact": {
+    "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
+  }
+}
+{% endhighlight %}
+
+This action is idempotent. If the contact does not subscribe to the location, 204 will be returned.
+
+####Status codes
+* 204 No Content
+* 400 Bad Request
+* 422 Unprocessable Entity
+
 
 ###<a id="read_job">Read Job</a>
 
