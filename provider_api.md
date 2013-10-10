@@ -145,8 +145,7 @@ GET http://www.lokalebasen.dk/api/provider
 
 Response body example:
 
-####Entry:
-<a id="entry_locations"></a>
+####<a id="entry_locations">Entry</a>
 
 {% highlight json %}
 {

@@ -23,8 +23,8 @@ GET [Entry \["_links"\] \["locations"\] \["href"\] ](/provider_api.html#entry_lo
 
 Response body example:
 
-####Locations
-<a id="location_list"></a>
+
+####<a id="location_list">Locations</a>
 
 {% highlight json %}
 {
@@ -103,8 +103,9 @@ GET [ Locations \["locations"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#
 
 Response body:
 
-####Location
-<a id="location"></a>
+
+####<a id="location">Location</a>
+
 
 {% highlight json %}
 {
@@ -237,8 +238,7 @@ POST [ Location \["location"\] \["_links"\] \["self"\] \["href"\] ](#location_li
 Request body example:
 
 
-####Location Create
-<a id="location_create"></a>
+####<a id="location_create">Location Create</a>
 
 {% highlight json %}
 {
@@ -411,8 +411,7 @@ that can be set when [creating a location](#create_location).
 
 Request body example:
 
-####Location Update
-<a id="location_update"></a>
+####<a id="location_update">Location Update</a>
 
 {% highlight json %}
 {
@@ -750,8 +749,7 @@ GET [ Job \["job"\] \["_links"\] \["self"\] \["href"\] ](#read_job)
 
 Request body example:
 
-####Read Job
-<a id="read_job"></a>
+####<a id="read_job">Read Job</a>
 
 {% highlight json %}
 {

@@ -65,8 +65,7 @@ GET [ Contacts \["contacts"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#co
 
 Response body:
 
-####Contact
-<a id="contact"></a>
+####<a id="contact">Contact</a>
 
 {% highlight json %}
 {
@@ -95,8 +94,8 @@ POST [ Contact \["contacts"\] \["_links"\] \["self"\] \["href"\] ](#contact_list
 
 Request body example:
 
-#####Contact Create
-<a id="contact_create_request"></a>
+####<a id="contact_create_request">Contact Create</a>
+
 
 {% highlight json %}
 {
@@ -157,8 +156,8 @@ It is possible to update the [contact attributes](#contact_attributes) of an alr
 
 Request body example:
 
-####Contact Update
-<a id="contact_update"></a>
+####<a id="contact_update">Contact Update</a>
+
 
 {% highlight json %}
 {
