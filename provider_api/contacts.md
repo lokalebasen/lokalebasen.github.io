@@ -129,6 +129,7 @@ external_key | String | Providers own reference. Must be unique for all contacts
 
 After the request, the api will send a [full representation](#contact) of the new contact as the response body.
 
+The response header includes a `Location` field with the link for the contact resource.
 ####Status codes
 * 201 Created
 * 400 Bad Request
