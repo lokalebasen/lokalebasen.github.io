@@ -1,3 +1,5 @@
+.site_config
+_site
 log/*.log
 tmp/**/*
 tmp/*
