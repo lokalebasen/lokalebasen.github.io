@@ -87,7 +87,7 @@ The external_key value is providers own reference to a location used to find
 the desired location.
 
 ####Status codes
-* 200 ok
+* 200 OK
 
 
 
@@ -225,8 +225,8 @@ to [create prospectus](#create_prospectus) for location.
 to [read list of subscribers](#read_subscribers) for location.
 
 ####Status codes
-* 200 ok
-* 404 record not found
+* 200 OK
+* 404 Record Not Found
 
 ####<a id="create_location">Create Location</a>
 
@@ -378,8 +378,8 @@ A location does not have any photos, floor_plans or a prospectus just
 after it is created.
 
 ####Status codes
-* 201 created
-* 400 bad request
+* 201 Created
+* 400 Bad Request
 
 
 
@@ -517,8 +517,8 @@ If succesful a [location representation](#location) will be returned in the
 response body.
 
 ####Status codes
-* 200 ok
-* 404 record not found
+* 200 OK
+* 404 Record Not Found
 
 
 
@@ -537,8 +537,8 @@ Response header includes a `Location` key with a value containing a link for
 the location resource.
 
 ####Status codes
-* 200 ok
-* 404 record not found
+* 200 OK
+* 404 Record Not Found
 
 
 
@@ -556,8 +556,8 @@ Response header includes a `Location` key with a value containing a link for
 the location resource.
 
 ####Status codes
-* 200 ok
-* 404 record not found
+* 200 OK
+* 404 Record Not Found
 
 
 
@@ -609,8 +609,8 @@ Use the link supplied in the response body to find out how the job is doing.
 * GET [ Job \["job\] \["_links"\] \["self"\] \["href"\] ](#read_job) to [read job](#read_job).
 
 ####Status codes
-* 202 accepted
-* 400 bad request
+* 202 Accepted
+* 400 Bad Request
 
 
 
@@ -620,8 +620,8 @@ Use the link supplied in the response body to find out how the job is doing.
 DELETE [ Location \["location"\] \["photos"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location)
 
 ####Status codes
-* 204 no content
-* 404 record not found
+* 204 No Content
+* 404 Record Not Found
 
 
 
@@ -673,8 +673,8 @@ Use the link supplied in the response body to find out how the job is doing.
 [read job](#read_job).
 
 ####Status codes
-* 202 accepted
-* 400 bad request
+* 202 Accepted
+* 400 Bad Request
 
 
 
@@ -684,8 +684,8 @@ Use the link supplied in the response body to find out how the job is doing.
 DELETE [ Location \["location"\] \["floor_plans"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location)
 
 ####Status codes
-* 204 no content
-* 404 record not found
+* 204 No Content
+* 404 Record Not Found
 
 
 
@@ -742,8 +742,8 @@ Use the link supplied in the response body to find out how the job is doing.
 [read job](#read_job).
 
 ####Status codes
-* 202 accepted
-* 400 bad request
+* 202 Accepted
+* 400 Bad Request
 
 
 
@@ -753,8 +753,8 @@ Use the link supplied in the response body to find out how the job is doing.
 DELETE [ Location \["location"\] \["prospectus"\] \["_links"\] \["self"\] \["href"\] ](#location)
 
 ####Status codes
-* 204 no content
-* 404 record not found
+* 204 No Content
+* 404 Record Not Found
 
 
 ####<a id="read_subscribers">Read Subscribers</a>
@@ -795,7 +795,7 @@ The response body consists of a link the resource itself and a list of subscribe
 
 
 ####Status codes
-* 200 ok
+* 200 OK
 
 
 
@@ -828,5 +828,5 @@ or prospectus will appear in the [Location](#location).
 
 
 ####Status codes
-* 200 ok
-* 404 record not found
+* 200 OK
+* 404 Record Not Found

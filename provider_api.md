@@ -170,4 +170,4 @@ Response body example:
 {% endhighlight %}
 
 ####Status codes
-* 200 ok
+* 200 OK

@@ -140,5 +140,5 @@ Response body example:
 {% endhighlight %}
 
 ####Status codes
-* 201 created
-* 400 bad request
+* 201 Created
+* 400 Bad Request
