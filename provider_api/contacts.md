@@ -122,25 +122,7 @@ name         | String |             | Required
 phone_number | String |             | Required
 external_key | String | Providers own reference. Must be unique for all contacts. | Optional
 
-After the request, the api will send a representation of the new contact as the response body.
-
-Response body example:
-
-{% highlight json %}
-{
-    "contact": {
-        "_links": {
-            "self": {
-                "href": "http://lokalebasen.dev/api/provider/contacts/82776"
-            }
-        },
-        "name": "Anders Andersen",
-        "email": "anders@andersen.dk",
-        "phone_number": "12345678",
-        "external_key": "Contact 1"
-    }
-}
-{% endhighlight %}
+After the request, the api will send a [full representation](#contact) of the new contact as the response body.
 
 ####Status codes
 * 201 Created
