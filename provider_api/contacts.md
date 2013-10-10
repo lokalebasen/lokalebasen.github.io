@@ -1,14 +1,14 @@
 ---
 layout: provider_api_sub
 ---
-### Contact Resources
+## Contact Resources
 
 * [Read Contacts](#read_contacts)
 * [Read Contact](#read_contact)
 * [Create Contact](#create_contact)
 * [Update Contact](#update_contact)
 
-####<a id="read_contacts">Read Contacts</a>
+###<a id="read_contacts">Read Contacts</a>
 
 GET [Entry \["_links"\] \["contacts"\] \["href"\] ](/provider_api.html#entry_locations)
 
@@ -54,7 +54,7 @@ As an example, the URL for the second contact in the list is [ Contacts \["conta
 
 
 
-####<a id="read_contact">Read Contact</a>
+###<a id="read_contact">Read Contact</a>
 
 To find a specific contact in the contacts list, a client application should
 run through the list of [contacts](#contact_list) until it finds a match
@@ -88,7 +88,7 @@ Response body:
 * 404 Record Not Found
 
 
-####<a id="create_contact">Create Contact</a>
+###<a id="create_contact">Create Contact</a>
 
 POST [ Contact \["contacts"\] \["_links"\] \["self"\] \["href"\] ](#contact_list)
 
@@ -113,7 +113,7 @@ Request body example:
 Some of the attributes included in the request body example above are optional.
 Check the list below to see details for all fields.
 
-#####<a id="contact_attributes">Contact Attributes</a>
+####<a id="contact_attributes">Contact Attributes</a>
 | Field      | Type   | Description | Request/Optional |
 | ---------- | ------ | ----------- | ---------------- |
 email        | String |             | Required
@@ -148,7 +148,7 @@ Response body example:
 
 
 
-#####<a id="update_contact">Update Contact</a>
+###<a id="update_contact">Update Contact</a>
 
 PUT [ Contact \["contacts"\] \["_links"\] \["self"\] \["href"\] ](#contact)
 

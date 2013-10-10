@@ -1,7 +1,7 @@
 ---
 layout: provider_api_sub
 ---
-### Location Resources
+## Location Resources
 * [Read Locations](#read_locations)
 * [Read Location](#read_location)
 * [Create Location](#create_location)
@@ -17,14 +17,14 @@ layout: provider_api_sub
 * [Read Subscribers](#read_subscribers)
 * [Read job](#read_job)
 
-####<a id="read_locations">Read Locations</a>
+###<a id="read_locations">Read Locations</a>
 
 GET [Entry \["_links"\] \["locations"\] \["href"\] ](/provider_api.html#entry_locations)
 
 Response body example:
 
 
-####<a id="location_list">Locations</a>
+###<a id="location_list">Locations</a>
 
 {% highlight json %}
 {
@@ -86,13 +86,13 @@ Use the GET method on these URLs  to see more details about a given location
 The external_key value is providers own reference to a location used to find
 the desired location.
 
-####Status codes
+###Status codes
 * 200 OK
 
 
 
 
-####<a id="read_location">Read Location</a>
+###<a id="read_location">Read Location</a>
 
 To find a specific location in the locations list a client application should
 run through the list of [locations](#location_list) until it finds a match
@@ -104,7 +104,7 @@ GET [ Locations \["locations"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#
 Response body:
 
 
-####<a id="location">Location</a>
+###<a id="location">Location</a>
 
 
 {% highlight json %}
@@ -231,7 +231,7 @@ to [read list of subscribers](#read_subscribers) for location.
 * 200 OK
 * 404 Record Not Found
 
-####<a id="create_location">Create Location</a>
+###<a id="create_location">Create Location</a>
 
 POST [ Location \["location"\] \["_links"\] \["self"\] \["href"\] ](#location_list)
 
@@ -283,7 +283,7 @@ Request body example:
 Some of the attributes included in the request body example above are optional.
 Check the list below to see details for all fields.
 
-#####<a id="location_attributes">Location Attributes</a>
+####<a id="location_attributes">Location Attributes</a>
 
 | Field  | Type | Description | Required/Optional |
 | ------ | ---- | ----------- | ----------------- |
@@ -310,7 +310,7 @@ All attributes not included in the list above will be ignored. This makes
 it possible to GET an existing location ( with links, photos etc ), alter a
 few attributes and use it as the request body to create a new location.
 
-#####<a id="location_contact">Contact</a>
+####<a id="location_contact">Contact</a>
 The contact information of the contact is the contact information displayed to the clients. The contact will also receive emails about leads for the location.
 
 Contact Resource example:
@@ -324,7 +324,7 @@ Contact Resource example:
 {% endhighlight %}
 
 
-#####<a id="money">Money</a>
+####<a id="money">Money</a>
 
 Some fields expect to receive a money type.
 
@@ -402,7 +402,7 @@ after it is created.
 
 
 
-####<a id="update_location">Update Location</a>
+###<a id="update_location">Update Location</a>
 
 PUT [ Location \["location"\] \["_links"\] \["self"\] \["href"\] ](#location)
 
@@ -467,7 +467,7 @@ response body.
 
 
 
-####<a id="activate_location">Activate Location</a>
+###<a id="activate_location">Activate Location</a>
 
 Only locations that are not active ( `state` set to "new" or "closed" ) may
 be activated.
@@ -487,7 +487,7 @@ the location resource.
 
 
 
-####<a id="deactivate_location">Deactivate Location</a>
+###<a id="deactivate_location">Deactivate Location</a>
 
 Only locations that are active ( `state` set to "active" ) may be deactivated.
 
@@ -506,7 +506,7 @@ the location resource.
 
 
 
-####<a id="create_photo">Create Photo</a>
+###<a id="create_photo">Create Photo</a>
 
 POST [ Location \["location"\] \["_links"\] \["photos"\] \["href"\] ](#location)
 
@@ -559,7 +559,7 @@ Use the link supplied in the response body to find out how the job is doing.
 
 
 
-####<a id="delete_photo">Delete Photo</a>
+###<a id="delete_photo">Delete Photo</a>
 
 DELETE [ Location \["location"\] \["photos"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location)
 
@@ -569,7 +569,7 @@ DELETE [ Location \["location"\] \["photos"\] \[index\] \["_links"\] \["self"\] 
 
 
 
-####<a id="create_floor_plan">Create Floor Plan</a>
+###<a id="create_floor_plan">Create Floor Plan</a>
 
 POST [ Location \["location"\] \["_links"\] \["floor_plans"\] \["href"\] ](#location)
 
@@ -623,7 +623,7 @@ Use the link supplied in the response body to find out how the job is doing.
 
 
 
-####<a id="delete_floor_plans">Delete Floor Plans</a>
+###<a id="delete_floor_plans">Delete Floor Plans</a>
 
 DELETE [ Location \["location"\] \["floor_plans"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location)
 
@@ -634,7 +634,7 @@ DELETE [ Location \["location"\] \["floor_plans"\] \[index\] \["_links"\] \["sel
 
 
 
-####<a id="create_prospectus">Create Prospectus</a>
+###<a id="create_prospectus">Create Prospectus</a>
 
 POST [ Location \["location"\] \["_links"\] \["prospectuses"\] \["href"\] ](#location)
 
@@ -692,7 +692,7 @@ Use the link supplied in the response body to find out how the job is doing.
 
 
 
-####<a id="delete_prospectus">Delete Prospectus</a>
+###<a id="delete_prospectus">Delete Prospectus</a>
 
 DELETE [ Location \["location"\] \["prospectus"\] \["_links"\] \["self"\] \["href"\] ](#location)
 
@@ -701,7 +701,7 @@ DELETE [ Location \["location"\] \["prospectus"\] \["_links"\] \["self"\] \["hre
 * 404 Record Not Found
 
 
-####<a id="read_subscribers">Read Subscribers</a>
+###<a id="read_subscribers">Read Subscribers</a>
 
 GET [ Location \["location"\] \["_links"\] \["subscribers"\] \["href"\] ](#location)
 
@@ -743,7 +743,7 @@ The response body consists of a link the resource itself and a list of subscribe
 
 
 
-####<a id="read_job">Read Job</a>
+###<a id="read_job">Read Job</a>
 
 GET [ Job \["job"\] \["_links"\] \["self"\] \["href"\] ](#read_job)
 
