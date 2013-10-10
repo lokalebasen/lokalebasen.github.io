@@ -6,6 +6,7 @@ layout: provider_api_sub
 * [Read Contacts](#read_contacts)
 * [Read Contact](#read_contact)
 * [Create Contact](#create_contact)
+* [Update Contact](#update_contact)
 
 ####<a id="read_contacts">Read Contacts</a>
 
@@ -63,6 +64,9 @@ that location to view additional data and options for the location.
 GET [ Contacts \["contacts"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#contact_list)
 
 Response body:
+
+####Contact
+<a id="contact"></a>
 
 {% highlight json %}
 {
@@ -142,3 +146,40 @@ Response body example:
 ####Status codes
 * 201 Created
 * 400 Bad Request
+
+
+
+#####<a id="update_contact">Update Contact</a>
+
+PUT [ Contact \["contacts"\] \["_links"\] \["self"\] \["href"\] ](#contact)
+
+It is possible to update the [contact attributes](#contact_attributes) of an already existing contact by sending a PUT request to the contact resource URL.
+
+Request body example:
+
+####Contact Update
+<a id="contact_update"></a>
+
+{% highlight json %}
+{
+    "contact": {
+        "name": "Anders Andersen",
+        "password": "secret123",
+        "email": "anders@andersen.dk",
+        "phone_number": "12345678",
+        "external_key": "Contact 1"
+    }
+}
+{% endhighlight %}
+
+A full [contact representation](#contact) with the desired changes may be
+used for the response body, though less data will do the job.
+A request body like: `{ "contact": { "external_key": "New Key" } } }` would
+change the `external_key` value.
+
+If succesful a [contact representation](#contact) will be returned in the
+response body.
+
+####Status codes
+* 200 OK
+* 404 Record Not Found
