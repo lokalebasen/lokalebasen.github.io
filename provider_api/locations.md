@@ -19,6 +19,7 @@ layout: provider_api_sub
     * [Delete Prospectus](#delete_prospectus)
 * [Subscriptions](#subscriptions_intro)
     * [Read Subscriptions](#read_subscriptions)
+    * [Create Subscription](#create_subscription)
 * [Read Job](#read_job)
 
 ###<a id="read_locations">Read Locations</a>
@@ -709,6 +710,26 @@ The response body consists of a link the resource itself and a list of subscript
 * 200 OK
 
 
+###<a id="create_subscription">Create Subscription</a>
+
+POST [ Location \["location"\] \["_links"\] \["subscriptions"\] \["href"\] ](#location)
+
+Request body example:
+
+{% highlight json %}
+{
+  "contact": {
+    "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
+  }
+}
+{% endhighlight %}
+
+This action is idempotent. If the contact already subscribes to the location, 201 will be returned.
+
+####Status codes
+* 201 Created
+* 400 Bad Request
+* 422 Unprocessable Entity
 
 ###<a id="read_job">Read Job</a>
 
