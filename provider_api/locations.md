@@ -17,7 +17,7 @@ layout: provider_api_sub
 * Prospectuses
     * [Create Prospectus](#create_prospectus)
     * [Delete Prospectus](#delete_prospectus)
-* Subscriptions
+* [Subscriptions](#subscriptions_intro)
     * [Read Subscriptions](#read_subscriptions)
 * [Read Job](#read_job)
 
@@ -660,6 +660,14 @@ DELETE [ Location \["location"\] \["prospectus"\] \["_links"\] \["self"\] \["hre
 ####Status codes
 * 204 No Content
 * 404 Record Not Found
+
+
+
+##<a id="subscriptions_intro">Subscriptions</a>
+
+Subscriptions allow additional contacts to receive leads on a particular location. The subscribing contacts are not
+revealed to the client, but receives e-mails whenever a client requests information on the particular location.
+
 
 
 ###<a id="read_subscriptions">Read Subscriptions</a>
