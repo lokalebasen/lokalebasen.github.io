@@ -1,7 +1,7 @@
 ---
 layout: provider_api_sub
 ---
-### Location Resources
+## Location Resources
 * [Read Locations](#read_locations)
 * [Read Location](#read_location)
 * [Create Location](#create_location)
@@ -17,14 +17,14 @@ layout: provider_api_sub
 * [Read Subscribers](#read_subscribers)
 * [Read job](#read_job)
 
-####<a id="read_locations">Read Locations</a>
+###<a id="read_locations">Read Locations</a>
 
 GET [Entry \["_links"\] \["locations"\] \["href"\] ](/provider_api.html#entry_locations)
 
 Response body example:
 
-####Locations
-<a id="location_list"></a>
+
+###<a id="location_list">Locations</a>
 
 {% highlight json %}
 {
@@ -86,13 +86,13 @@ Use the GET method on these URLs  to see more details about a given location
 The external_key value is providers own reference to a location used to find
 the desired location.
 
-####Status codes
-* 200 ok
+###Status codes
+* 200 OK
 
 
 
 
-####<a id="read_location">Read Location</a>
+###<a id="read_location">Read Location</a>
 
 To find a specific location in the locations list a client application should
 run through the list of [locations](#location_list) until it finds a match
@@ -103,8 +103,9 @@ GET [ Locations \["locations"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#
 
 Response body:
 
-####Location
-<a id="location"></a>
+
+###<a id="location">Location</a>
+
 
 {% highlight json %}
 {
@@ -131,7 +132,9 @@ Response body:
         },
         "title": "Beautiful place by the lake",
         "description": "Old building...\n\nIn the old center",
-        "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776",
+        "contact": {
+            "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
+        },
         "address_line1": "Hovedgaden 5, 1. th.",
         "address_line2": "",
         "postal_code": 1371,
@@ -225,25 +228,26 @@ to [create prospectus](#create_prospectus) for location.
 to [read list of subscribers](#read_subscribers) for location.
 
 ####Status codes
-* 200 ok
-* 404 record not found
+* 200 OK
+* 404 Record Not Found
 
-####<a id="create_location">Create Location</a>
+###<a id="create_location">Create Location</a>
 
 POST [ Location \["location"\] \["_links"\] \["self"\] \["href"\] ](#location_list)
 
 Request body example:
 
 
-####Location Create
-<a id="location_create"></a>
+####<a id="location_create">Location Create</a>
 
 {% highlight json %}
 {
     "location": {
         "external_key": "Location 3",
         "title": "Beautiful place by the lake",
-        "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776",
+        "contact": {
+            "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
+        },
         "description": "Old building...\n\nIn the old center",
         "address_line1": "Hovedgaden 5, 1. th.",
         "address_line2": "",
@@ -279,7 +283,7 @@ Request body example:
 Some of the attributes included in the request body example above are optional.
 Check the list below to see details for all fields.
 
-#####<a id="location_attributes">Location Attributes</a>
+####<a id="location_attributes">Location Attributes</a>
 
 | Field  | Type | Description | Required/Optional |
 | ------ | ---- | ----------- | ----------------- |
@@ -296,7 +300,7 @@ postal_code|String|A valid zip-code for the country of the location.|Required
 provider_website_link|String|A link to the location representation on providers own website.|Optional
 state|String|State ("new", "active", "closed"). Can only be changed by using activation/deactivation link in [location representation](#location)| Neither
 title|String|Title.|Required
-contact|String|The absolute URL of the [contact](#location_contact).|Required
+contact|[Contact Resource](#location_contact)|A resource representation of the contact.|Required
 yearly_operational_cost_per_m2_from|[Money](#money)|Minimum yearly operational cost per m2.|Optional
 yearly_operational_cost_per_m2_to|[Money](#money)|Maximum yearly operational cost per m2. Must be more than yearly_operational_cost_per_m2_from.|Optional
 yearly_rent_per_m2_from|[Money](#money)|Minimum yearly rent per m2 .|Required
@@ -306,10 +310,21 @@ All attributes not included in the list above will be ignored. This makes
 it possible to GET an existing location ( with links, photos etc ), alter a
 few attributes and use it as the request body to create a new location.
 
-#####<a id="location_contact">Contact</a>
+####<a id="location_contact">Contact</a>
 The contact information of the contact is the contact information displayed to the clients. The contact will also receive emails about leads for the location.
 
-#####<a id="money">Money</a>
+Contact Resource example:
+
+{% highlight json %}
+{
+    "contact": {
+        "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
+    },
+}
+{% endhighlight %}
+
+
+####<a id="money">Money</a>
 
 Some fields expect to receive a money type.
 
@@ -329,47 +344,7 @@ Money example
 cents|Integer|Price in currency times 100|Required
 currency|String|Entity currency ("DKK")|Required
 
-After posting the [Location Create](#location_create) for a new location you
-will receive
-a response with the representation of the new location:
-
-Response body:
-
-{% highlight json %}
-{
-    "location": {
-        "title": "Beautiful place by the lake",
-        "description": "Old building...\n\nIn the old center",
-        "address_line1": "Hovedgaden 5, 1. th.",
-        "address_line2": "",
-        "postal_code": 1371,
-        "latitude": 52.145,
-        "longitude": 12.813,
-        "state": "new",
-        "kind": "office",
-        "area_from": 334,
-        "area_to": 370,
-        "external_key": "Location 3",
-        "provider_website_link": "http://www.provider.com/location1",
-        "yearly_rent_per_m2_from": {
-            "cents": 117300,
-            "currency": "DKK"
-        },
-        "yearly_rent_per_m2_to": {
-            "cents": 137300,
-            "currency": "DKK"
-        },
-        "yearly_operational_cost_per_m2_from": {
-            "cents": 39500,
-            "currency": "DKK"
-        },
-        "yearly_operational_cost_per_m2_to": {
-            "cents": 49500,
-            "currency": "DKK"
-        }
-    }
-}
-{% endhighlight %}
+After posting the [Location Create](#location_create) for a new location, the API will send a response with a full [location representation](#location).
 
 Response header includes a `Location` key with a value containing a
 link for the location resource.
@@ -378,13 +353,13 @@ A location does not have any photos, floor_plans or a prospectus just
 after it is created.
 
 ####Status codes
-* 201 created
-* 400 bad request
+* 201 Created
+* 400 Bad Request
 
 
 
 
-####<a id="update_location">Update Location</a>
+###<a id="update_location">Update Location</a>
 
 PUT [ Location \["location"\] \["_links"\] \["self"\] \["href"\] ](#location)
 
@@ -393,32 +368,16 @@ that can be set when [creating a location](#create_location).
 
 Request body example:
 
-####Location Update
-<a id="location_update"></a>
+####<a id="location_update">Location Update</a>
 
 {% highlight json %}
 {
     "location": {
-        "_links": {
-            "self": {
-                "href": "http://www.lokalebasen.dk/api/provider/locations/8289"
-            },
-            "prospectuses": {
-                "href": "http://www.lokalebasen.dk/api/provider/locations/8289/prospectuses"
-            },
-            "photos": {
-                "href": "http://www.lokalebasen.dk/api/provider/locations/8289/photos"
-            },
-            "floor_plans": {
-                "href": "http://www.lokalebasen.dk/api/provider/locations/8289/floor_plans"
-            },
-            "deactivation": {
-                "href": "http://www.lokalebasen.dk/api/provider/locations/8289/deactivation"
-            },
-        },
         "title": "Beautiful place by the lake",
         "description": "Old building...\n\nIn the old center",
-        "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776",
+        "contact": {
+            "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
+        },
         "address_line1": "Hovedgaden 5, 1. th.",
         "address_line2": "",
         "postal_code": 2900,
@@ -434,55 +393,6 @@ Request body example:
             "cents": 117300,
             "currency": "DKK"
         },
-        "photos": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://www.lokalebasen.dk/api/provider/photos/142968"
-                    }
-                },
-                "external_key": "Photo 5",
-                "url": "/uploads/0014/2968/tokay.png"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://www.lokalebasen.dk/api/provider/photos/142969"
-                    }
-                },
-                "external_key": "Photo 7",
-                "url": "/uploads/0014/2969/tokay.png"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://www.lokalebasen.dk/api/provider/photos/142994"
-                    }
-                },
-                "external_key": "Photo 512",
-                "url": "/uploads/0014/2994/tokay.png"
-            }
-        ],
-        "floor_plans": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://www.lokalebasen.dk/api/provider/floor_plans/142971"
-                    }
-                },
-                "external_key": null,
-                "url": "/uploads/0014/2971/1_full.jpg"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": "http://www.lokalebasen.dk/api/provider/floor_plans/142977"
-                    }
-                },
-                "external_key": "Floor Plan 1",
-                "url": "/uploads/0014/2977/tokay.png"
-            }
-        ],
         "yearly_rent_per_m2_to": {
             "cents": 137300,
             "currency": "DKK"
@@ -494,15 +404,6 @@ Request body example:
         "yearly_operational_cost_per_m2_to": {
             "cents": 49500,
             "currency": "DKK"
-        },
-        "prospectus": {
-            "_links": {
-                "self": {
-                    "href": "http://www.lokalebasen.dk/api/provider/prospectuses/142973"
-                }
-            },
-            "external_key": "Prospectus 2",
-            "url": "/Users/kennjacobsen/lokalebasen/uploads/0014/2973/sample.pdf"
         }
     }
 }
@@ -517,13 +418,13 @@ If succesful a [location representation](#location) will be returned in the
 response body.
 
 ####Status codes
-* 200 ok
-* 404 record not found
+* 200 OK
+* 404 Record Not Found
 
 
 
 
-####<a id="activate_location">Activate Location</a>
+###<a id="activate_location">Activate Location</a>
 
 Only locations that are not active ( `state` set to "new" or "closed" ) may
 be activated.
@@ -537,13 +438,13 @@ Response header includes a `Location` key with a value containing a link for
 the location resource.
 
 ####Status codes
-* 200 ok
-* 404 record not found
+* 200 OK
+* 404 Record Not Found
 
 
 
 
-####<a id="deactivate_location">Deactivate Location</a>
+###<a id="deactivate_location">Deactivate Location</a>
 
 Only locations that are active ( `state` set to "active" ) may be deactivated.
 
@@ -556,13 +457,13 @@ Response header includes a `Location` key with a value containing a link for
 the location resource.
 
 ####Status codes
-* 200 ok
-* 404 record not found
+* 200 OK
+* 404 Record Not Found
 
 
 
 
-####<a id="create_photo">Create Photo</a>
+###<a id="create_photo">Create Photo</a>
 
 POST [ Location \["location"\] \["_links"\] \["photos"\] \["href"\] ](#location)
 
@@ -609,23 +510,23 @@ Use the link supplied in the response body to find out how the job is doing.
 * GET [ Job \["job\] \["_links"\] \["self"\] \["href"\] ](#read_job) to [read job](#read_job).
 
 ####Status codes
-* 202 accepted
-* 400 bad request
+* 202 Accepted
+* 400 Bad Request
 
 
 
 
-####<a id="delete_photo">Delete Photo</a>
+###<a id="delete_photo">Delete Photo</a>
 
 DELETE [ Location \["location"\] \["photos"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location)
 
 ####Status codes
-* 204 no content
-* 404 record not found
+* 204 No Content
+* 404 Record Not Found
 
 
 
-####<a id="create_floor_plan">Create Floor Plan</a>
+###<a id="create_floor_plan">Create Floor Plan</a>
 
 POST [ Location \["location"\] \["_links"\] \["floor_plans"\] \["href"\] ](#location)
 
@@ -673,24 +574,24 @@ Use the link supplied in the response body to find out how the job is doing.
 [read job](#read_job).
 
 ####Status codes
-* 202 accepted
-* 400 bad request
+* 202 Accepted
+* 400 Bad Request
 
 
 
 
-####<a id="delete_floor_plans">Delete Floor Plans</a>
+###<a id="delete_floor_plans">Delete Floor Plans</a>
 
 DELETE [ Location \["location"\] \["floor_plans"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location)
 
 ####Status codes
-* 204 no content
-* 404 record not found
+* 204 No Content
+* 404 Record Not Found
 
 
 
 
-####<a id="create_prospectus">Create Prospectus</a>
+###<a id="create_prospectus">Create Prospectus</a>
 
 POST [ Location \["location"\] \["_links"\] \["prospectuses"\] \["href"\] ](#location)
 
@@ -742,22 +643,22 @@ Use the link supplied in the response body to find out how the job is doing.
 [read job](#read_job).
 
 ####Status codes
-* 202 accepted
-* 400 bad request
+* 202 Accepted
+* 400 Bad Request
 
 
 
 
-####<a id="delete_prospectus">Delete Prospectus</a>
+###<a id="delete_prospectus">Delete Prospectus</a>
 
 DELETE [ Location \["location"\] \["prospectus"\] \["_links"\] \["self"\] \["href"\] ](#location)
 
 ####Status codes
-* 204 no content
-* 404 record not found
+* 204 No Content
+* 404 Record Not Found
 
 
-####<a id="read_subscribers">Read Subscribers</a>
+###<a id="read_subscribers">Read Subscribers</a>
 
 GET [ Location \["location"\] \["_links"\] \["subscribers"\] \["href"\] ](#location)
 
@@ -795,18 +696,17 @@ The response body consists of a link the resource itself and a list of subscribe
 
 
 ####Status codes
-* 200 ok
+* 200 OK
 
 
 
-####<a id="read_job">Read Job</a>
+###<a id="read_job">Read Job</a>
 
 GET [ Job \["job"\] \["_links"\] \["self"\] \["href"\] ](#read_job)
 
 Request body example:
 
-####Read Job
-<a id="read_job"></a>
+####<a id="read_job">Read Job</a>
 
 {% highlight json %}
 {
@@ -828,5 +728,5 @@ or prospectus will appear in the [Location](#location).
 
 
 ####Status codes
-* 200 ok
-* 404 record not found
+* 200 OK
+* 404 Record Not Found

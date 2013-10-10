@@ -1,13 +1,14 @@
 ---
 layout: provider_api_sub
 ---
-### Contact Resources
+## Contact Resources
 
 * [Read Contacts](#read_contacts)
 * [Read Contact](#read_contact)
 * [Create Contact](#create_contact)
+* [Update Contact](#update_contact)
 
-####<a id="read_contacts">Read Contacts</a>
+###<a id="read_contacts">Read Contacts</a>
 
 GET [Entry \["_links"\] \["contacts"\] \["href"\] ](/provider_api.html#entry_locations)
 
@@ -53,7 +54,7 @@ As an example, the URL for the second contact in the list is [ Contacts \["conta
 
 
 
-####<a id="read_contact">Read Contact</a>
+###<a id="read_contact">Read Contact</a>
 
 To find a specific contact in the contacts list, a client application should
 run through the list of [contacts](#contact_list) until it finds a match
@@ -63,6 +64,8 @@ that location to view additional data and options for the location.
 GET [ Contacts \["contacts"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#contact_list)
 
 Response body:
+
+####<a id="contact">Contact</a>
 
 {% highlight json %}
 {
@@ -85,14 +88,14 @@ Response body:
 * 404 Record Not Found
 
 
-####<a id="create_contact">Create Contact</a>
+###<a id="create_contact">Create Contact</a>
 
 POST [ Contact \["contacts"\] \["_links"\] \["self"\] \["href"\] ](#contact_list)
 
 Request body example:
 
-#####Contact Create
-<a id="contact_create_request"></a>
+####<a id="contact_create_request">Contact Create</a>
+
 
 {% highlight json %}
 {
@@ -110,7 +113,7 @@ Request body example:
 Some of the attributes included in the request body example above are optional.
 Check the list below to see details for all fields.
 
-#####<a id="contact_attributes">Contact Attributes</a>
+####<a id="contact_attributes">Contact Attributes</a>
 | Field      | Type   | Description | Request/Optional |
 | ---------- | ------ | ----------- | ---------------- |
 email        | String |             | Required
@@ -119,19 +122,30 @@ name         | String |             | Required
 phone_number | String |             | Required
 external_key | String | Providers own reference. Must be unique for all contacts. | Optional
 
-After the request, the api will send a representation of the new contact as the response body.
+After the request, the api will send a [full representation](#contact) of the new contact as the response body.
 
-Response body example:
+####Status codes
+* 201 Created
+* 400 Bad Request
+
+
+
+###<a id="update_contact">Update Contact</a>
+
+PUT [ Contact \["contacts"\] \["_links"\] \["self"\] \["href"\] ](#contact)
+
+It is possible to update the [contact attributes](#contact_attributes) of an already existing contact by sending a PUT request to the contact resource URL.
+
+Request body example:
+
+####<a id="contact_update">Contact Update</a>
+
 
 {% highlight json %}
 {
     "contact": {
-        "_links": {
-            "self": {
-                "href": "http://lokalebasen.dev/api/provider/contacts/82776"
-            }
-        },
         "name": "Anders Andersen",
+        "password": "secret123",
         "email": "anders@andersen.dk",
         "phone_number": "12345678",
         "external_key": "Contact 1"
@@ -139,6 +153,14 @@ Response body example:
 }
 {% endhighlight %}
 
+A full [contact representation](#contact) with the desired changes may be
+used for the response body, though less data will do the job.
+A request body like: `{ "contact": { "external_key": "New Key" } } }` would
+change the `external_key` value.
+
+If succesful a [contact representation](#contact) will be returned in the
+response body.
+
 ####Status codes
-* 201 created
-* 400 bad request
+* 200 OK
+* 404 Record Not Found

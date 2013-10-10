@@ -16,13 +16,13 @@ on Lokalebasen.dk.
 
 
 
-###<a id="contact_">Contact</a>
+##<a id="contact_">Contact</a>
 
 Any questions, suggestions or other may be send to api@lokalebasen.dk .
 
 
 
-###<a id="architecture_">Architecture</a>
+##<a id="architecture_">Architecture</a>
 
 As a part of the Lokalebasen.dk B2B strategy, a RESTful API is being used.
 REST libraries are available for the most common programming languages such
@@ -46,7 +46,7 @@ This is done to stress that URLs should not be hardcoded.
 A successful GET request on the location resource will produce a json
 response body. The top of which may appear as shown below:
 
-####Example
+###Example
 <a id="syntax_example"></a>
 
 {% highlight json %}
@@ -70,7 +70,7 @@ Whenever this syntax is used it will link to the json response where the link
 can be found.
 
 
-###<a id="getting_access">Getting Access</a>
+##<a id="getting_access">Getting Access</a>
 
 Getting access to Lokalebasen.dk Provider API is easy. Just follow the few
 steps below and you are ready to go.
@@ -84,12 +84,12 @@ The `Api-Key` goes into the header of all requests to the API
 
 
 
-###<a id="headers_">Headers</a>
+##<a id="headers_">Headers</a>
 
 Every request sent to the API must include `Api-Key` and `Content-Type` in
 header.
 
-#####Header Requirements
+###Header Requirements
 
 | Header | Value |
 | --- | ----- |
@@ -98,14 +98,14 @@ Content-Type|application/json
 
 
 
-###<a id="media_types">Media Types</a>
+##<a id="media_types">Media Types</a>
 
 The API uses `application/json` media type. `application/xml` is not supported.
 
 
 
 
-###<a id="error_handling">Error Handling</a>
+##<a id="error_handling">Error Handling</a>
 
 Possible status codes and error messages are listed under each resource chapter.
 
@@ -127,13 +127,13 @@ later.
 
 
 
-###<a id="api_resource_documentation">API Resource Documentation</a>
+##<a id="api_resource_documentation">API Resource Documentation</a>
 
 * [Entry Point](#entry_point)
 * [Location Resources](/provider_api/locations.html)
 * [Contact Resources](/provider_api/contacts.html)
 
-####<a id="entry_point">Entry Point</a>
+###<a id="entry_point">Entry Point</a>
 
 The only URL in the API that is certain not to change is the API entry
 point.
@@ -145,8 +145,7 @@ GET http://www.lokalebasen.dk/api/provider
 
 Response body example:
 
-####Entry:
-<a id="entry_locations"></a>
+###<a id="entry_locations">Entry</a>
 
 {% highlight json %}
 {
@@ -169,5 +168,5 @@ Response body example:
 }
 {% endhighlight %}
 
-####Status codes
-* 200 ok
+###Status codes
+* 200 OK
