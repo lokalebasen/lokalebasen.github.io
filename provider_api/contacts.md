@@ -83,6 +83,11 @@ Response body:
 }
 {% endhighlight %}
 
+From the links given in the [response](#contact) above, the client have the possibility to:
+
+* GET [ Contact \["contact"\] \["_links"\] \["self"\] \["href"\] ](#contact) to reload contact
+* PUT [ Contact \["contact"\] \["_links"\] \["self"\] \["href"\] ](#contact) to [update contact](#update_contact)
+
 ####Status codes
 * 200 OK
 * 404 Record Not Found
