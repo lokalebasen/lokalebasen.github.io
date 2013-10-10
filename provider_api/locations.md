@@ -344,50 +344,7 @@ Money example
 cents|Integer|Price in currency times 100|Required
 currency|String|Entity currency ("DKK")|Required
 
-After posting the [Location Create](#location_create) for a new location you
-will receive
-a response with the representation of the new location:
-
-Response body:
-
-{% highlight json %}
-{
-    "location": {
-        "title": "Beautiful place by the lake",
-        "description": "Old building...\n\nIn the old center",
-        "contact": {
-            "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
-        },
-        "address_line1": "Hovedgaden 5, 1. th.",
-        "address_line2": "",
-        "postal_code": 1371,
-        "latitude": 52.145,
-        "longitude": 12.813,
-        "state": "new",
-        "kind": "office",
-        "area_from": 334,
-        "area_to": 370,
-        "external_key": "Location 3",
-        "provider_website_link": "http://www.provider.com/location1",
-        "yearly_rent_per_m2_from": {
-            "cents": 117300,
-            "currency": "DKK"
-        },
-        "yearly_rent_per_m2_to": {
-            "cents": 137300,
-            "currency": "DKK"
-        },
-        "yearly_operational_cost_per_m2_from": {
-            "cents": 39500,
-            "currency": "DKK"
-        },
-        "yearly_operational_cost_per_m2_to": {
-            "cents": 49500,
-            "currency": "DKK"
-        }
-    }
-}
-{% endhighlight %}
+After posting the [Location Create](#location_create) for a new location, the API will send a response with a full [location representation](#location).
 
 Response header includes a `Location` key with a value containing a
 link for the location resource.
