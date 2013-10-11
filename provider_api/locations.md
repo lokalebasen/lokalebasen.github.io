@@ -239,7 +239,7 @@ to [read list of subscriptions](#read_subscriptions) for location.
 
 ###<a id="create_location">Create Location</a>
 
-POST [ Location \["location"\] \["_links"\] \["self"\] \["href"\] ](#location_list)
+POST [ Locations \["locations"\] \["_links"\] \["self"\] \["href"\] ](#location_list)
 
 Request body example:
 
