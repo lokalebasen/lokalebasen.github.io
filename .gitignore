@@ -44,3 +44,4 @@ spec/fixtures/tmp/
 .sass-cache/
 public/lb_assets
 public/assetpipe
+phrase
