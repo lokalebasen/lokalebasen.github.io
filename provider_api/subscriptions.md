@@ -15,7 +15,7 @@ revealed to the client, but receives e-mails whenever a client requests informat
 
 ###<a id="read_subscriptions">Read Subscriptions</a>
 
-GET Location \["location"\] \["_links"\] \["subscriptions"\] \["href"\] ]
+GET Location \["location"\] \["_links"\] \["subscriptions"\] \["href"\]
 
 Response body example:
 
@@ -71,7 +71,7 @@ The response body consists of a link the resource itself and a list of subscript
 
 ###<a id="read_subscription">Read Subscription</a>
 
-GET [ Subscriptions \["subscriptions"\] \[index\] \["_links\] \["self"\] \["href"]
+GET Subscriptions \["subscriptions"\] \[index\] \["_links\] \["self"\] \["href"\]
 
 Response body example:
 
