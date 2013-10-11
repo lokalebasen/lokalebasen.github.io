@@ -8,14 +8,20 @@ layout: provider_api_sub
 * [Update Location](#update_location)
 * [Activate Location](#activate_location)
 * [Deactivate Location](#deactivate_location)
-* [Create Photo](#create_photo)
-* [Delete Photo](#delete_photo)
-* [Create Floor Plan](#create_floor_plan)
-* [Delete Floor Plan](#delete_floor_plan)
-* [Create Prospectus](#create_prospectus)
-* [Delete Prospectus](#delete_prospectus)
-* [Read Subscribers](#read_subscribers)
-* [Read job](#read_job)
+* Photos
+    * [Create Photo](#create_photo)
+    * [Delete Photo](#delete_photo)
+* Floor plans
+    * [Create Floor Plan](#create_floor_plan)
+    * [Delete Floor Plan](#delete_floor_plan)
+* Prospectuses
+    * [Create Prospectus](#create_prospectus)
+    * [Delete Prospectus](#delete_prospectus)
+* [Subscriptions](#subscriptions_intro)
+    * [Read Subscriptions](#read_subscriptions)
+    * [Create Subscription](#create_subscription)
+    * [Delete Subscription](#delete_subscription)
+* [Read Job](#read_job)
 
 ###<a id="read_locations">Read Locations</a>
 
@@ -123,8 +129,8 @@ Response body:
             "floor_plans": {
                 "href": "http://www.lokalebasen.dk/api/provider/locations/8289/floor_plans"
             },
-            "subscribers": {
-                "href": "http://www.lokalebasen.dk/api/provider/locations/8289/subscribers"
+            "subscriptions": {
+                "href": "http://www.lokalebasen.dk/api/provider/locations/8289/subscriptions"
             },
             "activation": {
                 "href": "http://www.lokalebasen.dk/api/provider/locations/8289/activation"
@@ -224,8 +230,8 @@ to [create photos](#create_photo) for location.
 to [create floor_plan](#create_floor_plan) for location.
 * POST [ Location \["location"\] \["_links"\] \["prospectuses"\] \["href"\] ](#location)
 to [create prospectus](#create_prospectus) for location.
-* GET [ Location \["location"\] \["_links"\] \["subscribers"\] \["href"\] ](#location)
-to [read list of subscribers](#read_subscribers) for location.
+* GET [ Location \["location"\] \["_links"\] \["subscriptions"\] \["href"\] ](#location)
+to [read list of subscriptions](#read_subscriptions) for location.
 
 ####Status codes
 * 200 OK
@@ -658,45 +664,6 @@ DELETE [ Location \["location"\] \["prospectus"\] \["_links"\] \["self"\] \["hre
 * 404 Record Not Found
 
 
-###<a id="read_subscribers">Read Subscribers</a>
-
-GET [ Location \["location"\] \["_links"\] \["subscribers"\] \["href"\] ](#location)
-
-Response body example:
-
-{% highlight json %}
-{
-    "_links": {
-        "self": {
-            "href": "http://www.lokalebasen.dk/api/provider/locations/8289/subscribers"
-        }
-    },
-    "subscribers": [
-        {
-            "_links": {
-                "self": {
-                    "href": "http://lokalebasen.dev/api/provider/contacts/82776"
-                }
-            },
-            "external_key": "Contact 1"
-        },
-        {
-            "_links": {
-                "self": {
-                    "href": "http://lokalebasen.dev/api/provider/contacts/97440"
-                }
-            },
-            "external_key": "Contact 2"
-        }
-    ]
-}
-{% endhighlight %}
-
-The response body consists of a link the resource itself and a list of subscribers. Each subscriber has a link to its own resource and an external key. To get more details about a subscriber, a GET request must be send to the URL of the given subscriber.
-
-
-####Status codes
-* 200 OK
 
 
 

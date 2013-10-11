@@ -132,6 +132,7 @@ later.
 * [Entry Point](#entry_point)
 * [Location Resources](/provider_api/locations.html)
 * [Contact Resources](/provider_api/contacts.html)
+* [Subscription Resources](/provider_api/subscriptions.html)
 
 ###<a id="entry_point">Entry Point</a>
 
