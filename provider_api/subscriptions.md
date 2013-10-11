@@ -15,7 +15,7 @@ revealed to the client, but receives e-mails whenever a client requests informat
 
 ###<a id="read_subscriptions">Read Subscriptions</a>
 
-GET Location \["location"\] \["_links"\] \["subscriptions"\] \["href"\] ]
+GET Location \["location"\] \["_links"\] \["subscriptions"\] \["href"\]
 
 Response body example:
 
@@ -30,32 +30,35 @@ Response body example:
     {
       "_links":{
         "self":{
-          "href":"http://www.lokalebasen.dk/api/provider/subscriptions/13473"
+          "href": "http://www.lokalebasen.dk/api/provider/subscriptions/13473"
+        },
+        "contact": {
+          "href": "http://www.lokalebasen.dk/api/provider/contacts/15965"
         }
       },
-      "contact":{
-        "href":"http://www.lokalebasen.dk/api/provider/contacts/15965"
-      }
+      "contact": "http://www.lokalebasen.dk/api/provider/contacts/15965"
     },
     {
       "_links":{
         "self":{
           "href":"http://www.lokalebasen.dk/api/provider/subscriptions/13472"
+        },
+        "contact": {
+          "href": "http://www.lokalebasen.dk/api/provider/contacts/4595"
         }
       },
-      "contact":{
-        "href":"http://www.lokalebasen.dk/api/provider/contacts/4595"
-      }
+      "contact": "http://www.lokalebasen.dk/api/provider/contacts/4595"
     },
     {
       "_links":{
         "self":{
           "href":"http://www.lokalebasen.dk/api/provider/subscriptions/13471"
+        },
+        "contact": {
+          "href": "http://www.lokalebasen.dk/api/provider/contacts/26615"
         }
       },
-      "contact":{
-        "href":"http://www.lokalebasen.dk/api/provider/contacts/26615"
-      }
+      "contact": "http://www.lokalebasen.dk/api/provider/contacts/26615"
     }
   ]
 }
@@ -68,7 +71,7 @@ The response body consists of a link the resource itself and a list of subscript
 
 ###<a id="read_subscription">Read Subscription</a>
 
-GET [ Subscriptions \["subscriptions"\] \[index\] \["_links\] \["self"\] \["href"]
+GET Subscriptions \["subscriptions"\] \[index\] \["_links\] \["self"\] \["href"\]
 
 Response body example:
 
@@ -77,14 +80,15 @@ Response body example:
     "_links": {
         "self": {
             "href": "http://www.lokalebasen.dk/api/provider/subscriptions/13470"
+        },
+        "contact": {
+            "href": "http://www.lokalebasen.dk/api/provider/contacts/80"
+        },
+        "location": {
+            "href": "http://www.lokalebasen.dk/api/provider/locations/7569"
         }
     },
-    "contact": {
-        "href": "http://www.lokalebasen.dk/api/provider/contacts/80"
-    },
-    "location": {
-        "href": "http://www.lokalebasen.dk/api/provider/locations/7569"
-    }
+    "contact": "http://www.lokalebasen.dk/api/provider/contacts/80"
 }
 {% endhighlight %}
 
@@ -99,9 +103,7 @@ Request body example:
 
 {% highlight json %}
 {
-  "contact": {
-    "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
-  }
+  "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776"
 }
 {% endhighlight %}
 
@@ -114,14 +116,15 @@ Response body example:
   "_links": {
     "self": {
       "href": "http://www.lokalebasen.dk/api/provider/subscriptions/13360"
+    },
+    "contact": {
+      "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
+    },
+    "location": {
+      "href": "http://www.lokalebasen.dk/api/provider/locations/7569"
     }
   },
-  "contact": {
-    "href": "http://www.lokalebasen.dk/api/provider/contacts/80"
-  },
-  "location": {
-    "href": "http://www.lokalebasen.dk/api/provider/locations/7569"
-  }
+  "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776"
 }
 {% endhighlight %}
 

@@ -8,19 +8,12 @@ layout: provider_api_sub
 * [Update Location](#update_location)
 * [Activate Location](#activate_location)
 * [Deactivate Location](#deactivate_location)
-* Photos
-    * [Create Photo](#create_photo)
-    * [Delete Photo](#delete_photo)
-* Floor plans
-    * [Create Floor Plan](#create_floor_plan)
-    * [Delete Floor Plan](#delete_floor_plan)
-* Prospectuses
-    * [Create Prospectus](#create_prospectus)
-    * [Delete Prospectus](#delete_prospectus)
-* [Subscriptions](#subscriptions_intro)
-    * [Read Subscriptions](#read_subscriptions)
-    * [Create Subscription](#create_subscription)
-    * [Delete Subscription](#delete_subscription)
+* [Create Photo](#create_photo)
+* [Delete Photo](#delete_photo)
+* [Create Floor Plan](#create_floor_plan)
+* [Delete Floor Plan](#delete_floor_plan)
+* [Create Prospectus](#create_prospectus)
+* [Delete Prospectus](#delete_prospectus)
 * [Read Job](#read_job)
 
 ###<a id="read_locations">Read Locations</a>
@@ -138,9 +131,7 @@ Response body:
         },
         "title": "Beautiful place by the lake",
         "description": "Old building...\n\nIn the old center",
-        "contact": {
-            "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
-        },
+        "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776",
         "address_line1": "Hovedgaden 5, 1. th.",
         "address_line2": "",
         "postal_code": 1371,
@@ -251,9 +242,7 @@ Request body example:
     "location": {
         "external_key": "Location 3",
         "title": "Beautiful place by the lake",
-        "contact": {
-            "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
-        },
+        "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776",
         "description": "Old building...\n\nIn the old center",
         "address_line1": "Hovedgaden 5, 1. th.",
         "address_line2": "",
@@ -319,13 +308,11 @@ few attributes and use it as the request body to create a new location.
 ####<a id="location_contact">Contact</a>
 The contact information of the contact is the contact information displayed to the clients. The contact will also receive emails about leads for the location.
 
-Contact Resource example:
+The value for the contact is the URL for the resource of the given contact.
 
 {% highlight json %}
 {
-    "contact": {
-        "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
-    },
+    "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776"
 }
 {% endhighlight %}
 
@@ -381,9 +368,7 @@ Request body example:
     "location": {
         "title": "Beautiful place by the lake",
         "description": "Old building...\n\nIn the old center",
-        "contact": {
-            "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
-        },
+        "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776",
         "address_line1": "Hovedgaden 5, 1. th.",
         "address_line2": "",
         "postal_code": 2900,
