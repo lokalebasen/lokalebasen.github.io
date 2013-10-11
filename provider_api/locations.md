@@ -8,15 +8,12 @@ layout: provider_api_sub
 * [Update Location](#update_location)
 * [Activate Location](#activate_location)
 * [Deactivate Location](#deactivate_location)
-* Photos
-    * [Create Photo](#create_photo)
-    * [Delete Photo](#delete_photo)
-* Floor plans
-    * [Create Floor Plan](#create_floor_plan)
-    * [Delete Floor Plan](#delete_floor_plan)
-* Prospectuses
-    * [Create Prospectus](#create_prospectus)
-    * [Delete Prospectus](#delete_prospectus)
+* [Create Photo](#create_photo)
+* [Delete Photo](#delete_photo)
+* [Create Floor Plan](#create_floor_plan)
+* [Delete Floor Plan](#delete_floor_plan)
+* [Create Prospectus](#create_prospectus)
+* [Delete Prospectus](#delete_prospectus)
 * [Read Job](#read_job)
 
 ###<a id="read_locations">Read Locations</a>
