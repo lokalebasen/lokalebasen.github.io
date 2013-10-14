@@ -571,7 +571,7 @@ Use the link supplied in the response body to find out how the job is doing.
 
 
 
-###<a id="delete_floor_plans">Delete Floor Plans</a>
+###<a id="delete_floor_plan">Delete Floor Plans</a>
 
 DELETE [ Location \["location"\] \["floor_plans"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location)
 
