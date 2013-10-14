@@ -222,7 +222,9 @@ to [create floor_plan](#create_floor_plan) for location.
 * POST [ Location \["location"\] \["_links"\] \["prospectuses"\] \["href"\] ](#location)
 to [create prospectus](#create_prospectus) for location.
 * GET [ Location \["location"\] \["_links"\] \["subscriptions"\] \["href"\] ](#location)
-to [read list of subscriptions](#read_subscriptions) for location.
+to [read list of subscriptions](/provider_api/subscriptions.html#read_subscriptions) for location.
+* POST [ Location \["location"\] \["_links"\] \["subscriptions"\] \["href"\] ](#location)
+to [create a subscription](/provider_api/subscriptions.html#read_subscriptions) for the location.
 
 ####Status codes
 * 200 OK
@@ -571,7 +573,7 @@ Use the link supplied in the response body to find out how the job is doing.
 
 
 
-###<a id="delete_floor_plans">Delete Floor Plans</a>
+###<a id="delete_floor_plan">Delete Floor Plans</a>
 
 DELETE [ Location \["location"\] \["floor_plans"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location)
 

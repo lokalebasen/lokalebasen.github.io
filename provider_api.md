@@ -139,8 +139,8 @@ later.
 The only URL in the API that is certain not to change is the API entry
 point.
 This URL should be hard coded into the client application. The entry point exposes
-the URLs for accessing the [Location Resources](/provider_api/locations.html) and
-[Contact Resources](/provider_api/locations.html)
+the URLs for accessing the [Location Resources](/provider_api/locations.html),
+[Contact Resources](/provider_api/locations.html) and [Subscription Resources](/provider_api/subscriptions.html).
 
 GET http://www.lokalebasen.dk/api/provider
 
