@@ -223,6 +223,8 @@ to [create floor_plan](#create_floor_plan) for location.
 to [create prospectus](#create_prospectus) for location.
 * GET [ Location \["location"\] \["_links"\] \["subscriptions"\] \["href"\] ](#location)
 to [read list of subscriptions](/provider_api/subscriptions.html#read_subscriptions) for location.
+* POST [ Location \["location"\] \["_links"\] \["subscriptions"\] \["href"\] ](#location)
+to [create a subscription](/provider_api/subscriptions.html#read_subscriptions) for the location.
 
 ####Status codes
 * 200 OK
