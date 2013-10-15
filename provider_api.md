@@ -13,8 +13,7 @@ on Lokalebasen.dk.
 * [Media Types](#media_types)
 * [Error Handling](#error_handling)
 * [API resource documentation](#api_resource_documentation)
-
-
+* [PDF to JPEG conversion service](image_monger.html)
 
 ##<a id="contact_">Contact</a>
 
