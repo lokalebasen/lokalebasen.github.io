@@ -14,7 +14,7 @@ is served individually.
 ImageMonger takes a URL to a PDF-file as an argument. Make sure the PDF file
 is publicly accessible.
 
-ImageMonger is available at http://imagemonger.lokalebasen.dk/pdf/:file_url/:action
+ImageMonger is available at http://imagemonger.lokalebasen.dk/pdf/{file_url}/{action}
 
 The PDF URL's must be URL-encoded. E.g.
 
@@ -65,7 +65,7 @@ To get a JPEG version of a specific page, GET the matching URL. E.g.
   http://imagemonger.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/4
 </pre>
 
-This will return an <code>application/jpeg</code> response on succesful requests
+This will return an <code>image/jpeg</code> response on succesful requests
 and a <code>text/plain</code> response on failed requests.
 
 #### Return codes
