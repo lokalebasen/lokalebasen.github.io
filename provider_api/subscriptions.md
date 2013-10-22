@@ -77,18 +77,20 @@ Response body example:
 
 {% highlight json %}
 {
+  "subscription": {
     "_links": {
-        "self": {
-            "href": "http://www.lokalebasen.dk/api/provider/subscriptions/13470"
-        },
-        "contact": {
-            "href": "http://www.lokalebasen.dk/api/provider/contacts/80"
-        },
-        "location": {
-            "href": "http://www.lokalebasen.dk/api/provider/locations/7569"
-        }
+      "self": {
+          "href": "http://www.lokalebasen.dk/api/provider/subscriptions/13470"
+      },
+      "contact": {
+          "href": "http://www.lokalebasen.dk/api/provider/contacts/80"
+      },
+      "location": {
+          "href": "http://www.lokalebasen.dk/api/provider/locations/7569"
+      }
     },
     "contact": "http://www.lokalebasen.dk/api/provider/contacts/80"
+  }
 }
 {% endhighlight %}
 
@@ -113,18 +115,20 @@ Response body example:
 
 {% highlight json %}
 {
-  "_links": {
-    "self": {
-      "href": "http://www.lokalebasen.dk/api/provider/subscriptions/13360"
+  "subscription": {
+    "_links": {
+      "self": {
+        "href": "http://www.lokalebasen.dk/api/provider/subscriptions/13360"
+      },
+      "contact": {
+        "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
+      },
+      "location": {
+        "href": "http://www.lokalebasen.dk/api/provider/locations/7569"
+      }
     },
-    "contact": {
-      "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
-    },
-    "location": {
-      "href": "http://www.lokalebasen.dk/api/provider/locations/7569"
-    }
-  },
-  "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776"
+    "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776"
+  }
 }
 {% endhighlight %}
 
