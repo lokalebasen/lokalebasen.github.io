@@ -141,6 +141,7 @@ Response body:
         "kind": "office",
         "area_from": 334,
         "area_to": 370,
+        "energy_rating": "A",
         "external_key": "Location 45",
         "provider_website_link": "http://www.provider.com/location1",
         "yearly_rent_per_m2_from": {
