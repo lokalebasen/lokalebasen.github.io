@@ -255,6 +255,7 @@ Request body example:
         "area_to": 370,
         "kind": "office",
         "latitude": 52.145,
+        "energy_rating": "A",
         "longitude": 12.813,
         "provider_website_link": "http://www.provider.com/location1",
         "yearly_rent_per_m2_from": {
@@ -289,6 +290,7 @@ address_line2|String| |Optional
 area_from|Integer|Minimum area in m2.|Required
 area_to|Integer|Maximum area in m2. Must be more than area_from.|Optional
 description|String|A detailed description of the location. Use \n for new line.|Optional
+energy_rating|String|"A","B","C","D","E","F" or "G". null to remove.|Optional
 external_key|String|Providers own reference. Must be unique for a given resource. E.g. a provider can only have one photo with an external_key called "1", but he may also have a floor plan with an external_key called "1"|Optional
 kind|String|Type ("office", "warehouse" or "store").|Required
 latitude|Float|Latitude ( e.g. 55.6012 ). Must be within the area of Denmark ( 54.2000 - 57.9000 ).|Required
@@ -379,6 +381,7 @@ Request body example:
         "state": "active",
         "kind": "office",
         "area_from": 334,
+        "energy_rating": null,
         "area_to": 370,
         "external_key": "Location 4",
         "provider_website_link": "http://www.provider.com/location1",
