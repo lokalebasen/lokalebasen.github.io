@@ -293,8 +293,8 @@ description|String|A detailed description of the location. Use \n for new line.|
 energy_rating|String|"A","B","C","D","E","F" or "G". null to remove.|Optional
 external_key|String|Providers own reference. Must be unique for a given resource. E.g. a provider can only have one photo with an external_key called "1", but he may also have a floor plan with an external_key called "1"|Optional
 kind|String|Type ("office", "warehouse" or "store").|Required
-latitude|Float|Latitude ( e.g. 55.6012 ). Must be within the area of Denmark ( 54.2000 - 57.9000 ).|Required
-longitude|Float|Longitude ( e.g. 11.6121 ). Must be within the area of Denmark ( 7.8000 - 15.4000 ).|Required
+latitude|Float|Latitude ( e.g. 55.6012 ). Should contain at least 4 decimal points. Must be within the area of Denmark ( 54.2000 - 57.9000 ).|Required
+longitude|Float|Longitude ( e.g. 11.6121 ). Should contain at least 4 decimal points. Must be within the area of Denmark ( 7.8000 - 15.4000 ).|Required
 postal_code|String|A valid zip-code for the country of the location.|Required
 provider_website_link|String|A link to the location representation on providers own website.|Optional
 state|String|State ("new", "active", "closed"). Can only be changed by using activation/deactivation link in [location representation](#location)| Neither
