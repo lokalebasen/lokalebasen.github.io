@@ -48,6 +48,7 @@ Response body example:
                 "postal_district_name": "København K",
                 "state": "closed",
                 "kind": "office",
+                "internal_identifier": "123456",
                 "external_key": "Location 2"
             },
             {
@@ -65,6 +66,7 @@ Response body example:
                 "postal_district_name": "København K",
                 "state": "new",
                 "kind": "office",
+                "internal_identifier": "123457",
                 "external_key": "Location 45"
             }
         ]
@@ -142,6 +144,7 @@ Response body:
         "area_from": 334,
         "area_to": 370,
         "energy_rating": "A",
+        "internal_identifier": "123457",
         "external_key": "Location 45",
         "provider_website_link": "http://www.provider.com/location1",
         "yearly_rent_per_m2_from": {
@@ -257,6 +260,7 @@ Request body example:
         "kind": "office",
         "latitude": 52.145,
         "energy_rating": "A",
+        "internal_identifier": "123458",
         "longitude": 12.813,
         "provider_website_link": "http://www.provider.com/location1",
         "yearly_rent_per_m2_from": {
@@ -294,6 +298,7 @@ description|String|A detailed description of the location. Use \n for new line.|
 energy_rating|String|"A","B","C","D","E","F" or "G". null to remove.|Optional
 external_key|String|Providers own reference. Must be unique for a given resource. E.g. a provider can only have one photo with an external_key called "1", but he may also have a floor plan with an external_key called "1"|Optional
 kind|String|Type ("office", "warehouse" or "store").|Required
+internal_identifier|String|Providers own internal reference.|Optional
 latitude|Float|Latitude ( e.g. 55.6012 ). Should contain at least 4 decimal points. Must be within the area of Denmark ( 54.2000 - 57.9000 ).|Required
 longitude|Float|Longitude ( e.g. 11.6121 ). Should contain at least 4 decimal points. Must be within the area of Denmark ( 7.8000 - 15.4000 ).|Required
 postal_code|String|A valid zip-code for the country of the location.|Required
@@ -384,6 +389,7 @@ Request body example:
         "area_from": 334,
         "energy_rating": null,
         "area_to": 370,
+        "internal_identifier": "123456",
         "external_key": "Location 4",
         "provider_website_link": "http://www.provider.com/location1",
         "yearly_rent_per_m2_from": {
