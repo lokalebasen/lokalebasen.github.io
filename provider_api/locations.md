@@ -159,7 +159,8 @@ Response body:
                     }
                 },
                 "external_key": "Photo 5",
-                "url": "http://www.lokalebasen.dk/uploads/0014/2968/tokay.png"
+                "url": "http://www.lokalebasen.dk/uploads/0014/2968/tokay.png",
+                "position": 0
             },
             {
                 "_links": {
@@ -168,7 +169,8 @@ Response body:
                     }
                 },
                 "external_key": "Photo 7",
-                "url": "http://www.lokalebasen.dk/uploads/0014/2969/tokay.png"
+                "url": "http://www.lokalebasen.dk/uploads/0014/2969/tokay.png",
+                "position": 1
             }
         ],
         "floor_plans": [
@@ -179,7 +181,8 @@ Response body:
                     }
                 },
                 "external_key": "Floor Plan 1",
-                "url": "http://www.lokalebasen.dk/uploads/0014/2971/1_full.jpg"
+                "url": "http://www.lokalebasen.dk/uploads/0014/2971/1_full.jpg",
+                "position": 0
             }
         ],
         "yearly_rent_per_m2_to": {
@@ -476,7 +479,8 @@ Request body example:
 {
   "photo": {
     "external_key": "Photo 5",
-    "url": "http://www.skyen.dk/worldpixelsPictures/BigNarrowPictures/tokay.png"
+    "url": "http://www.skyen.dk/worldpixelsPictures/BigNarrowPictures/tokay.png",
+    "position": 2
   }
 }
 {% endhighlight %}
@@ -487,6 +491,7 @@ Request body example:
 | ----- | ---- | ----------- | ----------------- |
 external_key|String|Providers own reference. Must be unique. A provider may only have one photo with the external_key set to e.g. "1", though this provider may also have e.g. a floor plan with the external_key set to "1".|Required
 url|String|Photo URL ( jpg or png ).|Required
+position|Integer|Photo position relative to other photos for location. Photo with the lowest position will be shown first.|Optional
 
 The photo file must be accesible on the internet.
 
@@ -539,7 +544,8 @@ Request body example:
 {
   "floor_plan": {
     "external_key": "Floor Plan 1",
-    "url": "http://www.skyen.dk/worldpixelsPictures/BigNarrowPictures/floor_plan.png"
+    "url": "http://www.skyen.dk/worldpixelsPictures/BigNarrowPictures/floor_plan.png",
+    "position": 4
   }
 }
 {% endhighlight %}
@@ -550,6 +556,7 @@ Request body example:
 | ----- | ---- | ----------- | ----------------- |
 external_key|String|Providers own reference. Must be unique. A provider may only have one floor plan with the external_key set to e.g. "1", though this provider may also have a photo with the external_key set to "1".|Required
 url|String|Floor plan URL ( jpg or png ).|Required
+position|Integer|Floor plan position relative to other floor plans for location. Floor plan with the lowest position will be shown first.|Optional
 
 The floor plan file must be accesible on the internet.
 
