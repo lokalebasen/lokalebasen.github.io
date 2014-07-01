@@ -558,7 +558,7 @@ DELETE [ Location \["location"\] \["photos"\] \[index\] \["_links"\] \["self"\] 
 
 ###<a id="create_floor_plan">Create Floor Plan</a>
 
-POST [ Location \["location"\] \["floor_plans"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location)
+POST [ Location \["location"\] \["_links"\] \["floor_plans"\] \["href"\] ](#location)
 
 Request body example:
 
@@ -613,7 +613,7 @@ Use the link supplied in the response body to find out how the job is doing.
 
 ###<a id="update_floor_plan">Update Floor Plan</a>
 
-PUT [ Location \["location"\] \["_links"\] \["floor_plans"\] \["href"\] ](#location)
+PUT [ Location \["location"\] \["floor_plans"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location)
 
 Only the `position` attribute may be updated on a floor plan.
 
