@@ -9,8 +9,10 @@ layout: provider_api_sub
 * [Activate Location](#activate_location)
 * [Deactivate Location](#deactivate_location)
 * [Create Photo](#create_photo)
+* [Update Photo](#update_photo)
 * [Delete Photo](#delete_photo)
 * [Create Floor Plan](#create_floor_plan)
+* [Update Floor Plan](#update_floor_plan)
 * [Delete Floor Plan](#delete_floor_plan)
 * [Create Prospectus](#create_prospectus)
 * [Delete Prospectus](#delete_prospectus)
@@ -522,6 +524,26 @@ Use the link supplied in the response body to find out how the job is doing.
 * 400 Bad Request
 
 
+###<a id="update_photo">Update Photo</a>
+
+PUT [ Location \["location"\] \["photos"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location)
+
+Only the `position` attribute may be updated on a photo.
+
+Request body example:
+
+{% highlight json %}
+{
+  "photo": {
+    "position": 4
+  }
+}
+{% endhighlight %}
+
+####Status codes
+* 200 OK
+* 404 Record Not Found
+
 
 
 ###<a id="delete_photo">Delete Photo</a>
@@ -536,7 +558,7 @@ DELETE [ Location \["location"\] \["photos"\] \[index\] \["_links"\] \["self"\] 
 
 ###<a id="create_floor_plan">Create Floor Plan</a>
 
-POST [ Location \["location"\] \["_links"\] \["floor_plans"\] \["href"\] ](#location)
+POST [ Location \["location"\] \["floor_plans"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location)
 
 Request body example:
 
@@ -588,6 +610,26 @@ Use the link supplied in the response body to find out how the job is doing.
 * 400 Bad Request
 
 
+
+###<a id="update_floor_plan">Update Floor Plan</a>
+
+PUT [ Location \["location"\] \["_links"\] \["floor_plans"\] \["href"\] ](#location)
+
+Only the `position` attribute may be updated on a floor plan.
+
+Request body example:
+
+{% highlight json %}
+{
+  "floor_plan": {
+    "position": 4
+  }
+}
+{% endhighlight %}
+
+####Status codes
+* 200 OK
+* 404 Record Not Found
 
 
 ###<a id="delete_floor_plan">Delete Floor Plans</a>
