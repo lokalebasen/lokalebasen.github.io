@@ -492,7 +492,7 @@ Request body example:
 | Field | Type | Description | Required/Optional |
 | ----- | ---- | ----------- | ----------------- |
 external_key|String|Providers own reference. Must be unique. A provider may only have one photo with the external_key set to e.g. "1", though this provider may also have e.g. a floor plan with the external_key set to "1".|Required
-url|String|Photo URL ( jpg or png ).|Required
+url|String|Photo URL ( jpg, jpeg, png, tif, tiff, bmp or gif ).|Required
 position|Integer|Photo position relative to other photos for location. Photo with the lowest position will be shown first.|Optional
 
 The photo file must be accesible on the internet.
@@ -577,7 +577,7 @@ Request body example:
 | Field | Type | Description | Required/Optional |
 | ----- | ---- | ----------- | ----------------- |
 external_key|String|Providers own reference. Must be unique. A provider may only have one floor plan with the external_key set to e.g. "1", though this provider may also have a photo with the external_key set to "1".|Required
-url|String|Floor plan URL ( jpg or png ).|Required
+url|String|Floor plan URL ( jpg, jpeg, png, tif, tiff, bmp, gif or pdf ).|Required
 position|Integer|Floor plan position relative to other floor plans for location. Floor plan with the lowest position will be shown first.|Optional
 
 The floor plan file must be accesible on the internet.
