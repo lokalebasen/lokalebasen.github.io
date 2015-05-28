@@ -15,13 +15,11 @@ on Lokalebasen.dk.
 * [API resource documentation](#api_resource_documentation)
 * [PDF to JPEG conversion service](image_monger.html)
 
-##<a id="contact_">Contact</a>
+## <a id="contact_">Contact</a>
 
 Any questions, suggestions or other may be send to api@lokalebasen.dk .
 
-
-
-##<a id="architecture_">Architecture</a>
+## <a id="architecture_">Architecture</a>
 
 As a part of the Lokalebasen.dk B2B strategy, a RESTful API is being used.
 REST libraries are available for the most common programming languages such
@@ -42,34 +40,32 @@ Instead of using the absolute paths, this document explains where in a
 reponse body an URL is found.
 This is done to stress that URLs should not be hardcoded.
 
-A successful GET request on the location resource will produce a json
+A successful GET request on the location resource will produce a JSON
 response body. The top of which may appear as shown below:
 
-###Example
-<a id="syntax_example"></a>
+### <a id="syntax_example">Example</a>
 
 {% highlight json %}
 {
-    "location": {
-        "_links": {
-            "self": {
-                "href": "http://www.lokalebasen.dk/api/provider/locations/8289"
-            }
-        }
+  "location": {
+    "_links": {
+      "self": {
+        "href": "http://www.lokalebasen.dk/api/provider/locations/8289"
+      }
     }
+  }
 }
 {% endhighlight %}
 
-When explaining how to reload the location ( which the link in the json above
+When explaining how to reload the location ( which the link in the JSON above
 may be used for ) the documentation will use the following syntax:
 GET [ Example \["location\] \["_links"\] \["self"\] \["href"\] ](#syntax_example) .
 Meaning, in this example, that the client needs to
 `GET http://www.lokalebasen.dk/api/provider/locations/8289`.
-Whenever this syntax is used it will link to the json response where the link
+Whenever this syntax is used it will link to the JSON response where the link
 can be found.
 
-
-##<a id="getting_access">Getting Access</a>
+## <a id="getting_access">Getting Access</a>
 
 Getting access to Lokalebasen.dk Provider API is easy. Just follow the few
 steps below and you are ready to go.
@@ -81,30 +77,23 @@ steps below and you are ready to go.
 The `Api-Key` goes into the header of all requests to the API
 ( see [Headers](#headers_) ).
 
-
-
-##<a id="headers_">Headers</a>
+## <a id="headers_">Headers</a>
 
 Every request sent to the API must include `Api-Key` and `Content-Type` in
 header.
 
-###Header Requirements
+### Header Requirements
 
-| Header | Value |
-| --- | ----- |
-Api-Key| < providers 40 hex characters key >
-Content-Type|application/json
+| Header         | Value                               |
+| -------------- | ----------------------------------- |
+| `Api-Key`      | < providers 40 hex characters key > |
+| `Content-Type` | `application/json`                  |
 
-
-
-##<a id="media_types">Media Types</a>
+## <a id="media_types">Media Types</a>
 
 The API uses `application/json` media type. `application/xml` is not supported.
 
-
-
-
-##<a id="error_handling">Error Handling</a>
+## <a id="error_handling">Error Handling</a>
 
 Possible status codes and error messages are listed under each resource chapter.
 
@@ -113,7 +102,7 @@ the key: `message` ( see example below ).
 
 {% highlight json %}
 {
-    "message": "Record not found!"
+  "message": "Record not found!"
 }
 {% endhighlight %}
 
@@ -123,17 +112,14 @@ If Lokalebasen.dk Provider API is having trouble, you may see a 5xx error.
 It's the clients responsibility in all of these cases to retry your request
 later.
 
-
-
-
-##<a id="api_resource_documentation">API Resource Documentation</a>
+## <a id="api_resource_documentation">API Resource Documentation</a>
 
 * [Entry Point](#entry_point)
 * [Location Resources](/provider_api/locations.html)
 * [Contact Resources](/provider_api/contacts.html)
 * [Subscription Resources](/provider_api/subscriptions.html)
 
-###<a id="entry_point">Entry Point</a>
+### <a id="entry_point">Entry Point</a>
 
 The only URL in the API that is certain not to change is the API entry
 point.
@@ -145,28 +131,29 @@ GET http://www.lokalebasen.dk/api/provider
 
 Response body example:
 
-###<a id="entry_locations">Entry</a>
+### <a id="entry_locations">Entry</a>
 
 {% highlight json %}
 {
-    "_links": {
-        "clients": {
-            "href": "http://www.lokalebasen.dk/api/provider/clients.json"
-        },
-        "locations": {
-            "href": "http://www.lokalebasen.dk/api/provider/locations.json"
-        },
-        "orders": {
-            "index": {
-                "href": "http://www.lokalebasen.dk/api/provider/orders.json"
-            },
-            "index_for": {
-                "href": "http://www.lokalebasen.dk/api/provider/orders/index_for.json"
-            }
-        }
+  "_links": {
+    "clients": {
+      "href": "http://www.lokalebasen.dk/api/provider/clients.json"
+    },
+    "locations": {
+      "href": "http://www.lokalebasen.dk/api/provider/locations.json"
+    },
+    "orders": {
+      "index": {
+        "href": "http://www.lokalebasen.dk/api/provider/orders.json"
+      },
+      "index_for": {
+        "href": "http://www.lokalebasen.dk/api/provider/orders/index_for.json"
+      }
     }
+  }
 }
 {% endhighlight %}
 
-###Status codes
+### Status codes
+
 * 200 OK

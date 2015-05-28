@@ -35,10 +35,10 @@ To get a list of pages, use the menu action.
   http://imagemonger.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/menu
 </pre>
 
-This will return an <code>application/json</code> response containing an array
+This will return an `application/json` response containing an array
 of strings. Each string represents a URL to the designated page.
 
-<pre>
+{% highlight json %}
 [
    "http://imagemonger.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/1",
    "http://imagemonger.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/2",
@@ -51,9 +51,10 @@ of strings. Each string represents a URL to the designated page.
    "http://imagemonger.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/9",
    "http://imagemonger.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/10"
 ]
-</pre>
+{% endhighlight %}
 
 #### Return codes
+
 * 200 OK
 * 404 Resource Not Found
 
@@ -65,10 +66,11 @@ To get a JPEG version of a specific page, GET the matching URL. E.g.
   http://imagemonger.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/4
 </pre>
 
-This will return an <code>image/jpeg</code> response on succesful requests
-and a <code>text/plain</code> response on failed requests.
+This will return an `image/jpeg` response on succesful requests
+and a `text/plain` response on failed requests.
 
 #### Return codes
+
 * 200 OK
 * 404 Resource Not Found
 

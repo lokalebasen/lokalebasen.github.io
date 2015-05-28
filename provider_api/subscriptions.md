@@ -8,12 +8,12 @@ layout: provider_api_sub
 * [Create Subscription](#create_subscription)
 * [Delete Subscription](#delete_subscription)
 
-##<a id="subscriptions_intro">Subscriptions</a>
+## <a id="subscriptions_intro">Subscriptions</a>
 
 Subscriptions allow additional contacts to receive leads on a particular location. The subscribing contacts are not
 revealed to the client, but receives e-mails whenever a client requests information on the particular location.
 
-###<a id="read_subscriptions">Read Subscriptions</a>
+### <a id="read_subscriptions">Read Subscriptions</a>
 
 GET Location \["location"\] \["_links"\] \["subscriptions"\] \["href"\]
 
@@ -66,10 +66,11 @@ Response body example:
 
 The response body consists of a link the resource itself and a list of subscriptions. Each subscription has a link to its subscribing contact.
 
-####Status codes
+#### Status codes
+
 * 200 OK
 
-###<a id="read_subscription">Read Subscription</a>
+### <a id="read_subscription">Read Subscription</a>
 
 GET Subscriptions \["subscriptions"\] \[index\] \["_links\] \["self"\] \["href"\]
 
@@ -94,10 +95,11 @@ Response body example:
 }
 {% endhighlight %}
 
-####Status codes
+#### Status codes
+
 * 200 OK
 
-###<a id="create_subscription">Create Subscription</a>
+### <a id="create_subscription">Create Subscription</a>
 
 POST Location \["location"\] \["_links"\] \["subscriptions"\] \["href"\]
 
@@ -132,16 +134,18 @@ Response body example:
 }
 {% endhighlight %}
 
-####Status codes
+#### Status codes
+
 * 201 Created
 * 400 Bad Request
 * 422 Unprocessable Entity
 
-###<a id="delete_subscription">Delete Subscription</a>
+### <a id="delete_subscription">Delete Subscription</a>
 
 DELETE Subscriptions \["subscriptions"\] \[index\] \["_links\] \["self"\] \["href"]
 
-####Status codes
+#### Status codes
+
 * 204 No Content
 * 400 Bad Request
 * 422 Unprocessable Entity

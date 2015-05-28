@@ -8,53 +8,49 @@ layout: provider_api_sub
 * [Create Contact](#create_contact)
 * [Update Contact](#update_contact)
 
-###<a id="read_contacts">Read Contacts</a>
+### <a id="read_contacts">Read Contacts</a>
 
 GET [Entry \["_links"\] \["contacts"\] \["href"\] ](/provider_api.html#entry_locations)
 
 Response body example:
 
 {% highlight json %}
-
 {
-    "_links": {
+  "_links": {
+    "self": {
+      "href": "http://www.lokalebasen.dk/api/provider/contacts"
+    }
+  },
+  "contacts": [
+    {
+      "_links": {
         "self": {
-            "href": "http://www.lokalebasen.dk/api/provider/contacts"
+          "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
         }
+      },
+      "external_key": "Contact 1"
     },
-    "contacts": [
-        {
-            "_links": {
-                "self": {
-                    "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
-                }
-            },
-            "external_key": "Contact 1"
-        },
-        {
-            "_links": {
-                "self": {
-                    "href": "http://www.lokalebasen.dk/api/provider/contacts/97440"
-                }
-            },
-            "external_key": "Contact 2"
+    {
+      "_links": {
+        "self": {
+          "href": "http://www.lokalebasen.dk/api/provider/contacts/97440"
         }
-    ]
+      },
+      "external_key": "Contact 2"
+    }
+  ]
 }
-
 {% endhighlight %}
 
 The response body consists of a link to itself and the list of contacts. Each contact has a link to its own resource and an external key. To get more details about a given contact, the a GET request must be send to the URL of the given contact in the list (see [Read Contact](#read_contact))
 
 As an example, the URL for the second contact in the list is [ Contacts \["contacts"\] \[1\] \["_links"\] \["self"\] \["href"\] ](#read_contacts).
 
-####Status codes
+#### Status codes
+
 * 200 OK
 
-
-
-
-###<a id="read_contact">Read Contact</a>
+### <a id="read_contact">Read Contact</a>
 
 To find a specific contact in the contacts list, a client application should
 run through the list of [contacts](#contact_list) until it finds a match
@@ -65,21 +61,21 @@ GET [ Contacts \["contacts"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#co
 
 Response body:
 
-####<a id="contact">Contact</a>
+#### <a id="contact">Contact</a>
 
 {% highlight json %}
 {
-    "contact": {
-        "_links": {
-            "self": {
-                "href": "http://lokalebasen.dev/api/provider/contacts/82776"
-            }
-        },
-        "name": "Anders Andersen",
-        "email": "anders@andersen.dk",
-        "phone_number": "12345678",
-        "external_key": "Contact 1"
-    }
+  "contact": {
+    "_links": {
+      "self": {
+        "href": "http://lokalebasen.dev/api/provider/contacts/82776"
+      }
+    },
+    "name": "Anders Andersen",
+    "email": "anders@andersen.dk",
+    "phone_number": "12345678",
+    "external_key": "Contact 1"
+  }
 }
 {% endhighlight %}
 
@@ -88,29 +84,28 @@ From the links given in the [response](#contact) above, the client have the poss
 * GET [ Contact \["contact"\] \["_links"\] \["self"\] \["href"\] ](#contact) to reload contact
 * PUT [ Contact \["contact"\] \["_links"\] \["self"\] \["href"\] ](#contact) to [update contact](#update_contact)
 
-####Status codes
+#### Status codes
+
 * 200 OK
 * 404 Record Not Found
 
-
-###<a id="create_contact">Create Contact</a>
+### <a id="create_contact">Create Contact</a>
 
 POST [ Contacts \["contacts"\] \["_links"\] \["self"\] \["href"\] ](#contact_list)
 
 Request body example:
 
-####<a id="contact_create_request">Contact Create</a>
-
+#### <a id="contact_create_request">Contact Create</a>
 
 {% highlight json %}
 {
-    "contact": {
-        "email": "anders@andersen.dk",
-        "password": "secret123",
-        "name": "Anders Andersen",
-        "phone_number": "12345678",
-        "external_key": "Contact 1"
-    }
+  "contact": {
+    "email": "anders@andersen.dk",
+    "password": "secret123",
+    "name": "Anders Andersen",
+    "phone_number": "12345678",
+    "external_key": "Contact 1"
+  }
 }
 
 {% endhighlight %}
@@ -118,25 +113,26 @@ Request body example:
 Some of the attributes included in the request body example above are optional.
 Check the list below to see details for all fields.
 
-####<a id="contact_attributes">Contact Attributes</a>
-| Field      | Type   | Description | Request/Optional |
-| ---------- | ------ | ----------- | ---------------- |
-email        | String |             | Required
-password     | String | The password used to login to [Lokalebasen Provider Application](http://www.lokalebasen.dk/login). Must be between 6 and 40 characters.| Required
-name         | String |             | Required
-phone_number | String |             | Required
-external_key | String | Providers own reference. Must be unique for all contacts. | Optional
+#### <a id="contact_attributes">Contact Attributes</a>
+
+| Field          | Type   | Description | Request/Optional |
+| -------------- | ------ | ----------- | ---------------- |
+| `email`        | String |             | Required
+| `password`     | String | The password used to login to [Lokalebasen Provider Application](http://www.lokalebasen.dk/login). Must be between 6 and 40 characters. | Required
+| `name`         | String |             | Required
+| `phone_number` | String |             | Required
+| `external_key` | String | Providers own reference. Must be unique for all contacts. | Optional
 
 After the request, the api will send a [full representation](#contact) of the new contact as the response body.
 
 The response header includes a `Location` field with the link for the contact resource.
-####Status codes
+
+#### Status codes
+
 * 201 Created
 * 400 Bad Request
 
-
-
-###<a id="update_contact">Update Contact</a>
+### <a id="update_contact">Update Contact</a>
 
 PUT [ Contact \["contact"\] \["_links"\] \["self"\] \["href"\] ](#contact)
 
@@ -144,18 +140,17 @@ It is possible to update the [contact attributes](#contact_attributes) of an alr
 
 Request body example:
 
-####<a id="contact_update">Contact Update</a>
-
+#### <a id="contact_update">Contact Update</a>
 
 {% highlight json %}
 {
-    "contact": {
-        "name": "Anders Andersen",
-        "password": "secret123",
-        "email": "anders@andersen.dk",
-        "phone_number": "12345678",
-        "external_key": "Contact 1"
-    }
+  "contact": {
+    "name": "Anders Andersen",
+    "password": "secret123",
+    "email": "anders@andersen.dk",
+    "phone_number": "12345678",
+    "external_key": "Contact 1"
+  }
 }
 {% endhighlight %}
 
@@ -167,6 +162,7 @@ change the `external_key` value.
 If succesful a [contact representation](#contact) will be returned in the
 response body.
 
-####Status codes
+#### Status codes
+
 * 200 OK
 * 404 Record Not Found
