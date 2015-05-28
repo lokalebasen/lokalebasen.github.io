@@ -1,7 +1,0 @@
----
-layout: default
----
-Foo
-===
-
-Hello
