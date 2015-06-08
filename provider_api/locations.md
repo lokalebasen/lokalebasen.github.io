@@ -194,6 +194,14 @@ Response body:
       "cents": 49500,
       "currency": "DKK"
     },
+    "yearly_heating_cost_per_m2_from": {
+      "cents": 5500,
+      "currency": "DKK"
+    },
+    "yearly_heating_cost_per_m2_to": {
+      "cents": 7000,
+      "currency": "DKK"
+    },
     "prospectus": {
       "_links": {
         "self": {
@@ -278,6 +286,14 @@ Request body example:
     "yearly_operational_cost_per_m2_to": {
       "cents": 49500,
       "currency": "DKK"
+    },
+    "yearly_heating_cost_per_m2_from": {
+      "cents": 5500,
+      "currency": "DKK"
+    },
+    "yearly_heating_cost_per_m2_to": {
+      "cents": 7000,
+      "currency": "DKK"
     }
   }
 }
@@ -308,6 +324,8 @@ Check the list below to see details for all fields.
 | `contact`                             | [Contact Resource](#location_contact) | A resource representation of the contact. | Required
 | `yearly_operational_cost_per_m2_from` | [Money](#money)                       | Minimum yearly operational cost per m2. | Optional
 | `yearly_operational_cost_per_m2_to`   | [Money](#money)                       | Maximum yearly operational cost per m2. Must be more than yearly_operational_cost_per_m2_from. | Optional
+| `yearly_heating_cost_per_m2_from`     | [Money](#money)                       | Minimum yearly heating cost per m2. | Optional
+| `yearly_heating_cost_per_m2_to`       | [Money](#money)                       | Maximum yearly heating cost per m2. Must be more than yearly_heating_cost_per_m2_from. | Optional
 | `yearly_rent_per_m2_from`             | [Money](#money)                       | Minimum yearly rent per m2 . | Required
 | `yearly_rent_per_m2_to`               | [Money](#money)                       | Maximum yearly rent per m2. Must be more than yearly_rent_per_m2_from. | Optional
 
@@ -405,6 +423,14 @@ Request body example:
     },
     "yearly_operational_cost_per_m2_to": {
       "cents": 49500,
+      "currency": "DKK"
+    },
+    "yearly_heating_cost_per_m2_from": {
+      "cents": 5500,
+      "currency": "DKK"
+    },
+    "yearly_heating_cost_per_m2_to": {
+      "cents": 7000,
       "currency": "DKK"
     }
   }

@@ -48,15 +48,17 @@ Eksempel
           "area_to": null,
           "title": "Udelukkende lokaler til opbevaring/arkiv i kælderplan",
           "description": "Der er mulighed for at leje 100 m² til opbevaring i kælderen i ejendommen.
-      
+
           Der er i samme ejendom mulighed for at leje op til 716 m² kontor.
-      
+
           Drift er ikke inkl i lejen.",
           "is_built": true,
           "yearly_rent_per_m2_from": 900,
           "yearly_rent_per_m2_to": null,
           "yearly_operational_cost_per_m2_from": 100,
           "yearly_operational_cost_per_m2_to": null,
+          "yearly_heating_cost_per_m2_from": 70,
+          "yearly_heating_cost_per_m2_to": null,
           "show_as_rented_out_until": null,
           "photos": [
             {
