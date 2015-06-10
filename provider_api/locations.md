@@ -144,6 +144,7 @@ Response body:
     "internal_identifier": "123457",
     "external_key": "Location 45",
     "provider_website_link": "http://www.provider.com/location1",
+    "facilities": ["Alarmsystem", "Bad og omklædning", "Elevator"],
     "yearly_rent_per_m2_from": {
       "cents": 117300,
       "currency": "DKK"
@@ -271,6 +272,7 @@ Request body example:
     "internal_identifier": "123458",
     "longitude": 12.813,
     "provider_website_link": "http://www.provider.com/location1",
+    "facilities": ["Alarmsystem", "Bad og omklædning", "Elevator"],
     "yearly_rent_per_m2_from": {
       "cents": 117300,
       "currency": "DKK"
@@ -321,6 +323,7 @@ Check the list below to see details for all fields.
 | `provider_website_link`               | String                                | A link to the location representation on providers own website. | Optional
 | `state`                               | String                                | State ("new", "active", "closed"). Can only be changed by using activation/deactivation link in [location representation](#location)| Neither
 | `title`                               | String                                | Title. | Required
+| `facilities`                          | String array                          | An array of facilities as human readable strings. There are no technical constraints on the number or values of the strings, but values that have not been used before on our site require manual approval, before they will be visible on the site. You can retrieve a list of approved values here: http://www.lokalebasen.dk/lease/api/facilities - we appreciate mapping to existing values if possible. The list may be subject to change. | Optional
 | `contact`                             | [Contact Resource](#location_contact) | A resource representation of the contact. | Required
 | `yearly_operational_cost_per_m2_from` | [Money](#money)                       | Minimum yearly operational cost per m2. | Optional
 | `yearly_operational_cost_per_m2_to`   | [Money](#money)                       | Maximum yearly operational cost per m2. Must be more than yearly_operational_cost_per_m2_from. | Optional
