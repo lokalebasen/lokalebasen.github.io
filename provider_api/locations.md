@@ -203,6 +203,22 @@ Response body:
       "cents": 7000,
       "currency": "DKK"
     },
+    "yearly_water_cost_per_m2_from": {
+      "cents": 5500,
+      "currency": "DKK"
+    },
+    "yearly_water_cost_per_m2_to": {
+      "cents": 7000,
+      "currency": "DKK"
+    },
+    "yearly_electricity_cost_per_m2_from": {
+      "cents": 5500,
+      "currency": "DKK"
+    },
+    "yearly_electricity_cost_per_m2_to": {
+      "cents": 7000,
+      "currency": "DKK"
+    },
     "prospectus": {
       "_links": {
         "self": {
@@ -296,6 +312,22 @@ Request body example:
     "yearly_heating_cost_per_m2_to": {
       "cents": 7000,
       "currency": "DKK"
+    },
+    "yearly_water_cost_per_m2_from": {
+      "cents": 5500,
+      "currency": "DKK"
+    },
+    "yearly_water_cost_per_m2_to": {
+      "cents": 7000,
+      "currency": "DKK"
+    },
+    "yearly_electricity_cost_per_m2_from": {
+      "cents": 5500,
+      "currency": "DKK"
+    },
+    "yearly_electricity_cost_per_m2_to": {
+      "cents": 7000,
+      "currency": "DKK"
     }
   }
 }
@@ -329,6 +361,10 @@ Check the list below to see details for all fields.
 | `yearly_operational_cost_per_m2_to`   | [Money](#money)                       | Maximum yearly operational cost per m2. Must be more than yearly_operational_cost_per_m2_from. | Optional
 | `yearly_heating_cost_per_m2_from`     | [Money](#money)                       | Minimum yearly heating cost per m2. | Optional
 | `yearly_heating_cost_per_m2_to`       | [Money](#money)                       | Maximum yearly heating cost per m2. Must be more than yearly_heating_cost_per_m2_from. | Optional
+| `yearly_water_cost_per_m2_from`       | [Money](#money)                       | Minimum yearly water cost per m2. | Optional
+| `yearly_water_cost_per_m2_to`         | [Money](#money)                       | Maximum yearly water cost per m2. Must be more than yearly_water_cost_per_m2_from. | Optional
+| `yearly_electricity_cost_per_m2_from` | [Money](#money)                       | Minimum yearly electricity cost per m2. | Optional
+| `yearly_electricity_cost_per_m2_to`   | [Money](#money)                       | Maximum yearly electricity cost per m2. Must be more than yearly_electricity_cost_per_m2_from. | Optional
 | `yearly_rent_per_m2_from`             | [Money](#money)                       | Minimum yearly rent per m2 . | Required
 | `yearly_rent_per_m2_to`               | [Money](#money)                       | Maximum yearly rent per m2. Must be more than yearly_rent_per_m2_from. | Optional
 
@@ -433,6 +469,22 @@ Request body example:
       "currency": "DKK"
     },
     "yearly_heating_cost_per_m2_to": {
+      "cents": 7000,
+      "currency": "DKK"
+    },
+    "yearly_water_cost_per_m2_from": {
+      "cents": 5500,
+      "currency": "DKK"
+    },
+    "yearly_water_cost_per_m2_to": {
+      "cents": 7000,
+      "currency": "DKK"
+    },
+    "yearly_electricity_cost_per_m2_from": {
+      "cents": 5500,
+      "currency": "DKK"
+    },
+    "yearly_electricity_cost_per_m2_to": {
       "cents": 7000,
       "currency": "DKK"
     }
