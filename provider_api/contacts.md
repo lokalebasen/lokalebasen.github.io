@@ -28,7 +28,11 @@ Response body example:
           "href": "http://www.lokalebasen.dk/api/provider/contacts/82776"
         }
       },
-      "external_key": "Contact 1"
+      "external_key": "Contact 1",
+      "name": "Anders Andersen",
+      "email": "anders@andersen.dk",
+      "phone_number": "12345678",
+      "url": "http://www.lokalebasen.dk/api/provider/contacts/82776"
     },
     {
       "_links": {
@@ -36,7 +40,11 @@ Response body example:
           "href": "http://www.lokalebasen.dk/api/provider/contacts/97440"
         }
       },
-      "external_key": "Contact 2"
+      "external_key": "Contact 2",
+      "name": "Bente Bendtsen",
+      "email": "bente@bendtsen.dk",
+      "phone_number": "23456789",
+      "url": "http://www.lokalebasen.dk/api/provider/contacts/97440"
     }
   ]
 }
@@ -74,7 +82,8 @@ Response body:
     "name": "Anders Andersen",
     "email": "anders@andersen.dk",
     "phone_number": "12345678",
-    "external_key": "Contact 1"
+    "external_key": "Contact 1",
+    "url": "http://www.lokalebasen.dk/api/provider/contacts/82776"
   }
 }
 {% endhighlight %}
