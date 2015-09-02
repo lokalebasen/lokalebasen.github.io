@@ -346,6 +346,7 @@ Check the list below to see details for all fields.
 | `area_to`                             | Integer                               | Maximum area in m2. Must be more than area_from. | Optional
 | `description`                         | String                                | A detailed description of the location. Use \n for new line. | Optional
 | `energy_rating`                       | String                                | "A","B","C","D","E","F" or "G". null to remove. | Optional
+| `exempted_from_energy_rating`         | Boolean                               | Indicate the location is exempted from having energy rating. The energy rating is null, when the location is exempted. Default is false.  | Optional
 | `external_key`                        | String                                | Providers own reference. Must be unique for a given resource. E.g. a provider can only have one photo with an external_key called "1", but he may also have a floor plan with an external_key called "1" | Optional
 | `kind`                                | String                                | Type ("office", "warehouse" or "store"). | Required
 | `internal_identifier`                 | String                                | Providers own internal reference. | Optional
