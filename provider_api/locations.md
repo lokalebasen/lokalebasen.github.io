@@ -44,7 +44,8 @@ Response body example:
       "id": 8250,
       "address_line1": "Lillegade 3",
       "address_line2": "",
-      "postal_code": 1371,
+      "postal_code": "1371",
+      "postal_name": "København K",
       "area_from": 334,
       "area_to": null,
       "postal_district_name": "København K",
@@ -62,7 +63,8 @@ Response body example:
       "id": 8289,
       "address_line1": "Hovedgaden 5, 1. th.",
       "address_line2": "",
-      "postal_code": 1371,
+      "postal_code": "1371",
+      "postal_name": "København K",
       "area_from": 334,
       "area_to": 370,
       "postal_district_name": "København K",
@@ -133,7 +135,8 @@ Response body:
     "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776",
     "address_line1": "Hovedgaden 5, 1. th.",
     "address_line2": "",
-    "postal_code": 1371,
+    "postal_code": "1371",
+    "postal_name": "København K",
     "latitude": 55.145,
     "longitude": 12.813,
     "state": "new",
@@ -355,6 +358,7 @@ Check the list below to see details for all fields.
 | `latitude`                            | Float                                 | Latitude ( e.g. 55.6012 ). Should contain at least 4 decimal points. Must be within the area of Denmark ( 54.2000 - 57.9000 ). | Required
 | `longitude`                           | Float                                 | Longitude ( e.g. 11.6121 ). Should contain at least 4 decimal points. Must be within the area of Denmark ( 7.8000 - 15.4000 ). | Required
 | `postal_code`                         | String                                | A valid zip-code for the country of the location. | Required
+| `postal_name`                         | String                                | The city/area for the postal code - will be autodetected from postal_code, if not set | Optional
 | `provider_website_link`               | String                                | A link to the location representation on providers own website. | Optional
 | `state`                               | String                                | State ("new", "active", "closed"). Can only be changed by using activation/deactivation link in [location representation](#location)| Neither
 | `title`                               | String                                | Title. | Required
@@ -440,7 +444,7 @@ Request body example:
     "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776",
     "address_line1": "Hovedgaden 5, 1. th.",
     "address_line2": "",
-    "postal_code": 2900,
+    "postal_code": "2900",
     "latitude": 55.145,
     "longitude": 12.813,
     "state": "active",
