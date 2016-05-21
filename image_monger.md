@@ -14,7 +14,7 @@ is served individually.
 ImageMonger takes a URL to a PDF-file as an argument. Make sure the PDF file
 is publicly accessible.
 
-ImageMonger is available at http://imagemonger.lokalebasen.dk/pdf/{file_url}/{action}
+ImageMonger is available at http://image-monger.services.lokalebasen.dk/pdf/{file_url}/{action}
 
 The PDF URL's must be URL-encoded. E.g.
 
@@ -32,7 +32,7 @@ becomes
 To get a list of pages, use the menu action.
 
 <pre>
-  http://imagemonger.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/menu
+  http://image-monger.services.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/menu
 </pre>
 
 This will return an `application/json` response containing an array
@@ -40,16 +40,16 @@ of strings. Each string represents a URL to the designated page.
 
 {% highlight json %}
 [
-   "http://imagemonger.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/1",
-   "http://imagemonger.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/2",
-   "http://imagemonger.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/3",
-   "http://imagemonger.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/4",
-   "http://imagemonger.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/5",
-   "http://imagemonger.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/6",
-   "http://imagemonger.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/7",
-   "http://imagemonger.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/8",
-   "http://imagemonger.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/9",
-   "http://imagemonger.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/10"
+   "http://image-monger.services.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/1",
+   "http://image-monger.services.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/2",
+   "http://image-monger.services.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/3",
+   "http://image-monger.services.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/4",
+   "http://image-monger.services.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/5",
+   "http://image-monger.services.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/6",
+   "http://image-monger.services.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/7",
+   "http://image-monger.services.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/8",
+   "http://image-monger.services.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/9",
+   "http://image-monger.services.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/10"
 ]
 {% endhighlight %}
 
@@ -63,7 +63,7 @@ of strings. Each string represents a URL to the designated page.
 To get a JPEG version of a specific page, GET the matching URL. E.g.
 
 <pre>
-  http://imagemonger.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/4
+  http://image-monger.services.lokalebasen.dk/pdf/http%3A%2F%2Fdev.lokalebasen-uploads.dk%2Fexample.pdf/4
 </pre>
 
 This will return an `image/jpeg` response on succesful requests
