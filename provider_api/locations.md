@@ -31,14 +31,14 @@ Response body example:
 {
   "_links": {
     "self": {
-      "href": "http://www.lokalebasen.dk/api/provider/locations"
+      "href": "https://www.lokalebasen.dk/api/provider/locations"
     }
   },
   "locations": [
     {
       "_links": {
         "self": {
-          "href": "http://www.lokalebasen.dk/api/provider/locations/8250"
+          "href": "https://www.lokalebasen.dk/api/provider/locations/8250"
         }
       },
       "id": 8250,
@@ -57,7 +57,7 @@ Response body example:
     {
       "_links": {
         "self": {
-          "href": "http://www.lokalebasen.dk/api/provider/locations/8289"
+          "href": "https://www.lokalebasen.dk/api/provider/locations/8289"
         }
       },
       "id": 8289,
@@ -112,27 +112,27 @@ Response body:
   "location": {
     "_links": {
       "self": {
-        "href": "http://www.lokalebasen.dk/api/provider/locations/8289"
+        "href": "https://www.lokalebasen.dk/api/provider/locations/8289"
       },
       "prospectuses": {
-        "href": "http://www.lokalebasen.dk/api/provider/locations/8289/prospectuses"
+        "href": "https://www.lokalebasen.dk/api/provider/locations/8289/prospectuses"
       },
       "photos": {
-        "href": "http://www.lokalebasen.dk/api/provider/locations/8289/photos"
+        "href": "https://www.lokalebasen.dk/api/provider/locations/8289/photos"
       },
       "floor_plans": {
-        "href": "http://www.lokalebasen.dk/api/provider/locations/8289/floor_plans"
+        "href": "https://www.lokalebasen.dk/api/provider/locations/8289/floor_plans"
       },
       "subscriptions": {
-        "href": "http://www.lokalebasen.dk/api/provider/locations/8289/subscriptions"
+        "href": "https://www.lokalebasen.dk/api/provider/locations/8289/subscriptions"
       },
       "activation": {
-        "href": "http://www.lokalebasen.dk/api/provider/locations/8289/activation"
+        "href": "https://www.lokalebasen.dk/api/provider/locations/8289/activation"
       }
     },
     "title": "Beautiful place by the lake",
     "description": "Old building...\n\nIn the old center",
-    "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776",
+    "contact": "https://www.lokalebasen.dk/api/provider/contacts/82776",
     "address_line1": "Hovedgaden 5, 1. th.",
     "address_line2": "",
     "postal_code": "1371",
@@ -157,21 +157,21 @@ Response body:
       {
         "_links": {
           "self": {
-            "href": "http://www.lokalebasen.dk/api/provider/photos/142968"
+            "href": "https://www.lokalebasen.dk/api/provider/photos/142968"
           }
         },
         "external_key": "Photo 5",
-        "url": "http://www.lokalebasen.dk/uploads/0014/2968/tokay.png",
+        "url": "https://www.lokalebasen.dk/uploads/0014/2968/tokay.png",
         "position": 0
       },
       {
         "_links": {
           "self": {
-            "href": "http://www.lokalebasen.dk/api/provider/photos/142969"
+            "href": "https://www.lokalebasen.dk/api/provider/photos/142969"
           }
         },
         "external_key": "Photo 7",
-        "url": "http://www.lokalebasen.dk/uploads/0014/2969/tokay.png",
+        "url": "https://www.lokalebasen.dk/uploads/0014/2969/tokay.png",
         "position": 1
       }
     ],
@@ -179,11 +179,11 @@ Response body:
       {
         "_links": {
           "self": {
-            "href": "http://www.lokalebasen.dk/api/provider/floor_plans/142971"
+            "href": "https://www.lokalebasen.dk/api/provider/floor_plans/142971"
           }
         },
         "external_key": "Floor Plan 1",
-        "url": "http://www.lokalebasen.dk/uploads/0014/2971/1_full.jpg",
+        "url": "https://www.lokalebasen.dk/uploads/0014/2971/1_full.jpg",
         "position": 0
       }
     ],
@@ -226,11 +226,11 @@ Response body:
     "prospectus": {
       "_links": {
         "self": {
-          "href": "http://www.lokalebasen.dk/api/provider/prospectuses/142973"
+          "href": "https://www.lokalebasen.dk/api/provider/prospectuses/142973"
         }
       },
       "external_key": "Prospectus 2",
-      "url": "http://www.lokalebasen.dk/uploads/0014/2973/sample.pdf"
+      "url": "https://www.lokalebasen.dk/uploads/0014/2973/sample.pdf"
     }
   }
 }
@@ -277,7 +277,7 @@ Request body example:
   "location": {
     "external_key": "Location 3",
     "title": "Beautiful place by the lake",
-    "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776",
+    "contact": "https://www.lokalebasen.dk/api/provider/contacts/82776",
     "description": "Old building...\n\nIn the old center",
     "address_line1": "Hovedgaden 5, 1. th.",
     "address_line2": "",
@@ -362,7 +362,7 @@ Check the list below to see details for all fields.
 | `provider_website_link`               | String                                | A link to the location representation on providers own website. | Optional
 | `state`                               | String                                | State ("new", "active", "closed"). Can only be changed by using activation/deactivation link in [location representation](#location)| Neither
 | `title`                               | String                                | Title. | Required
-| `facilities`                          | String array                          | An array of facilities as human readable strings. There are no technical constraints on the number or values of the strings, but values that have not been used before on our site require manual approval, before they will be visible on the site. You can retrieve a list of approved values here: http://www.lokalebasen.dk/lease/api/facilities - we appreciate mapping to existing values if possible. The list may be subject to change. | Optional
+| `facilities`                          | String array                          | An array of facilities as human readable strings. There are no technical constraints on the number or values of the strings, but values that have not been used before on our site require manual approval, before they will be visible on the site. You can retrieve a list of approved values here: https://www.lokalebasen.dk/lease/api/facilities - we appreciate mapping to existing values if possible. The list may be subject to change. | Optional
 | `contact`                             | [Contact Resource](#location_contact) | A resource representation of the contact. | Required
 | `yearly_operational_cost_per_m2_from` | [Money](#money)                       | Minimum yearly operational cost per m2. | Optional
 | `yearly_operational_cost_per_m2_to`   | [Money](#money)                       | Maximum yearly operational cost per m2. Must be more than yearly_operational_cost_per_m2_from. | Optional
@@ -387,7 +387,7 @@ The value for the contact is the URL for the resource of the given contact.
 
 {% highlight json %}
 {
-  "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776"
+  "contact": "https://www.lokalebasen.dk/api/provider/contacts/82776"
 }
 {% endhighlight %}
 
@@ -441,7 +441,7 @@ Request body example:
   "location": {
     "title": "Beautiful place by the lake",
     "description": "Old building...\n\nIn the old center",
-    "contact": "http://www.lokalebasen.dk/api/provider/contacts/82776",
+    "contact": "https://www.lokalebasen.dk/api/provider/contacts/82776",
     "address_line1": "Hovedgaden 5, 1. th.",
     "address_line2": "",
     "postal_code": "2900",
@@ -583,7 +583,7 @@ Response body example:
     "job": {
         "_links": {
             "self": {
-                "href": "http://www.lokalebasen.dk/api/provider/asset_jobs/25951"
+                "href": "https://www.lokalebasen.dk/api/provider/asset_jobs/25951"
             }
         },
         "state": "enqueued"
@@ -666,7 +666,7 @@ Response body example:
   "job": {
     "_links": {
       "self": {
-        "href": "http://www.lokalebasen.dk/api/provider/asset_jobs/25952"
+        "href": "https://www.lokalebasen.dk/api/provider/asset_jobs/25952"
       }
     },
     "state": "enqueued"
@@ -752,7 +752,7 @@ Response body example:
   "job": {
     "_links": {
       "self": {
-        "href": "http://www.lokalebasen.dk/api/provider/asset_jobs/25953"
+        "href": "https://www.lokalebasen.dk/api/provider/asset_jobs/25953"
       }
     },
     "state": "enqueued"
@@ -792,7 +792,7 @@ Request body example:
   "job": {
     "_links": {
       "self": {
-        "href": "http://www.lokalebasen.dk/api/provider/asset_jobs/25888"
+        "href": "https://www.lokalebasen.dk/api/provider/asset_jobs/25888"
       }
     },
     "state": "enqueued"

@@ -29,7 +29,7 @@ Lokalebasen.dk Provider API is a hypermedia API, meaning that it allows
 client applications to browse through information much like a human user
 browses through the internet.
 The client should begin any operation at the entry of the API at
-http://www.lokalebasen.dk/api/provider and then follow link after link until
+https://www.lokalebasen.dk/api/provider and then follow link after link until
 a link to the desired resource is found.
 The link keys will remain unchanged. Some URLs will definately change over
 time.
@@ -50,7 +50,7 @@ response body. The top of which may appear as shown below:
   "location": {
     "_links": {
       "self": {
-        "href": "http://www.lokalebasen.dk/api/provider/locations/8289"
+        "href": "https://www.lokalebasen.dk/api/provider/locations/8289"
       }
     }
   }
@@ -61,7 +61,7 @@ When explaining how to reload the location ( which the link in the JSON above
 may be used for ) the documentation will use the following syntax:
 GET [ Example \["location\] \["_links"\] \["self"\] \["href"\] ](#syntax_example) .
 Meaning, in this example, that the client needs to
-`GET http://www.lokalebasen.dk/api/provider/locations/8289`.
+`GET https://www.lokalebasen.dk/api/provider/locations/8289`.
 Whenever this syntax is used it will link to the JSON response where the link
 can be found.
 
@@ -127,7 +127,7 @@ This URL should be hard coded into the client application. The entry point expos
 the URLs for accessing the [Location Resources](/provider_api/locations.html),
 [Contact Resources](/provider_api/locations.html) and [Subscription Resources](/provider_api/subscriptions.html).
 
-GET http://www.lokalebasen.dk/api/provider
+GET https://www.lokalebasen.dk/api/provider
 
 Response body example:
 
@@ -137,17 +137,17 @@ Response body example:
 {
   "_links": {
     "clients": {
-      "href": "http://www.lokalebasen.dk/api/provider/clients.json"
+      "href": "https://www.lokalebasen.dk/api/provider/clients.json"
     },
     "locations": {
-      "href": "http://www.lokalebasen.dk/api/provider/locations.json"
+      "href": "https://www.lokalebasen.dk/api/provider/locations.json"
     },
     "orders": {
       "index": {
-        "href": "http://www.lokalebasen.dk/api/provider/orders.json"
+        "href": "https://www.lokalebasen.dk/api/provider/orders.json"
       },
       "index_for": {
-        "href": "http://www.lokalebasen.dk/api/provider/orders/index_for.json"
+        "href": "https://www.lokalebasen.dk/api/provider/orders/index_for.json"
       }
     }
   }
