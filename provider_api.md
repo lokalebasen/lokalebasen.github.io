@@ -17,7 +17,7 @@ on Lokalebasen.dk.
 
 ## <a id="contact_">Contact</a>
 
-Any questions, suggestions or other may be send to api@lokalebasen.dk .
+Any questions, suggestions or other may be send to udviklere@lokalebasen.dk.
 
 ## <a id="architecture_">Architecture</a>
 
