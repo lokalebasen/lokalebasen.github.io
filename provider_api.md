@@ -28,8 +28,13 @@ as Java, C#, Javascript, PHP, Python and Ruby.
 Lokalebasen.dk Provider API is a hypermedia API, meaning that it allows
 client applications to browse through information much like a human user
 browses through the internet.
+
 The client should begin any operation at the entry of the API at
-https://www.lokalebasen.dk/api/provider and then follow link after link until
+https://www.lokalebasen.dk/api/provider.
+
+Please note that as of May 2016, the API is **only** accessible over secure connections, no plain http support.
+
+Once the client have read the entry point, they can then follow link after link until
 a link to the desired resource is found.
 The link keys will remain unchanged. Some URLs will definately change over
 time.
