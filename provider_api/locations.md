@@ -347,13 +347,13 @@ Check the list below to see details for all fields.
 | ------------------------------------- | ------------------------------------- | ----------- | ----------------- |
 | `address_line1`                       | String                                | | Required
 | `address_line2`                       | String                                | | Optional
-| `area_from`                           | Integer                               | Minimum area in m2.| Required
+| `area_from`                           | Integer                               | Minimum area in m2.| Required (for all location `kind`s except "virtual_office" and "parking")
 | `area_to`                             | Integer                               | Maximum area in m2. Must be more than area_from. | Optional
 | `description`                         | String                                | A detailed description of the location. Use \n for new line. | Optional
 | `energy_rating`                       | String                                | "A","B","C","D","E","F" or "G". null to remove. | Optional
 | `exempted_from_energy_rating`         | Boolean                               | Indicate the location is exempted from having energy rating. The energy rating is null, when the location is exempted. Default is false.  | Optional
 | `external_key`                        | String                                | Providers own reference. Must be unique for a given resource. E.g. a provider can only have one photo with an external_key called "1", but he may also have a floor plan with an external_key called "1" | Optional
-| `kind`                                | String                                | Type ("office", "warehouse" or "store"). | Required
+| `kind`                                | String                                | Type for Lease `section`: ("office", "business_center", "warehouse", "store", "coworking", "meeting_room", "virtual_office", "parking"), type for Sale `section` ("housing", "office", "warehouse", "store", "lot"). | Required
 | `internal_identifier`                 | String                                | Providers own internal reference. | Optional
 | `latitude`                            | Float                                 | Latitude ( e.g. 55.6012 ). Should contain at least 4 decimal points. Must be within the area of Denmark ( 54.2000 - 57.9000 ). | Required
 | `longitude`                           | Float                                 | Longitude ( e.g. 11.6121 ). Should contain at least 4 decimal points. Must be within the area of Denmark ( 7.8000 - 15.4000 ). | Required
@@ -374,6 +374,13 @@ Check the list below to see details for all fields.
 | `yearly_electricity_cost_per_m2_to`   | [Money](#money)                       | Maximum yearly electricity cost per m2. Must be more than yearly_electricity_cost_per_m2_from. | Optional
 | `yearly_rent_per_m2_from`             | [Money](#money)                       | Minimum yearly rent per m2 . | Required
 | `yearly_rent_per_m2_to`               | [Money](#money)                       | Maximum yearly rent per m2. Must be more than yearly_rent_per_m2_from. | Optional
+| `monthly_rent_per_space_to`           | [Money](#money)                       | Maximum monthly rent per space. Must be more than monthly_rent_per_space_from. | Optional
+| `monthly_rent_per_space_from`         | [Money](#money)                       | Minimum monthly rent per space. | Required for location with `kind` "virtual_office" and shows on "parking" locations
+| `parking_type`                        | String                                | Type of parking ("underground_parking", "outdoor_parking", "parking_house", "garage"). | Requried for location with "parking" `kind`
+| `amount_of_spaces_from`               | Integer                               | Maximum number of parking lots at parking. | Required for location with "parking" `kind`
+| `amount_of_spaces_to`                 | Integer                               | Maximum number of parking lots at parking. | Optional
+| `secondary_kinds`                     | String array                          | Secondary location `kind` ("office", "business_center", "warehouse", "store", "coworking", "meeting_room"). | Optional
+| `section`                             | String                                | For lease locations ("lease"), for sale locations ("own_use", "foreclosure", "investment"). | Optional (if not set then "lease")
 
 All attributes not included in the list above will be ignored. This makes
 it possible to GET an existing location ( with links, photos etc ), alter a
