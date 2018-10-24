@@ -16,6 +16,7 @@ layout: provider_api_sub
 * [Update Floor Plan](#update_floor_plan)
 * [Delete Floor Plan](#delete_floor_plan)
 * [Create Prospectus](#create_prospectus)
+* [Update Prospectus](#update_prospectus)
 * [Delete Prospectus](#delete_prospectus)
 * [Read Job](#read_job)
 
@@ -611,14 +612,15 @@ Use the link supplied in the response body to find out how the job is doing.
 
 PUT [ Location \["location"\] \["photos"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location)
 
-Only the `position` attribute may be updated on a photo.
+Only the `position` and `url` attribute may be updated on a photo.
 
 Request body example:
 
 {% highlight json %}
 {
   "photo": {
-    "position": 4
+    "position": 4,
+    "url": "http://www.skyen.dk/worldpixelsPictures/BigNarrowPictures/tokay.png"
   }
 }
 {% endhighlight %}
@@ -695,14 +697,15 @@ Use the link supplied in the response body to find out how the job is doing.
 
 PUT [ Location \["location"\] \["floor_plans"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location)
 
-Only the `position` attribute may be updated on a floor plan.
+Only the `position` and `url` attribute may be updated on a floor plan.
 
 Request body example:
 
 {% highlight json %}
 {
   "floor_plan": {
-    "position": 4
+    "position": 4,
+    "url": "http://www.skyen.dk/worldpixelsPictures/BigNarrowPictures/floor_plan.png"
   }
 }
 {% endhighlight %}
@@ -776,6 +779,27 @@ Use the link supplied in the response body to find out how the job is doing.
 
 * 202 Accepted
 * 400 Bad Request
+
+### <a id="update_prospectus">Update Prospectus</a>
+
+PUT [ Location \["location"\] \["prospectus"\] \[index\] \["_links"\] \["self"\] \["href"\] ](#location)
+
+Only the `url` attribute may be updated on a prospectus.
+
+Request body example:
+
+{% highlight json %}
+{
+  "prospectus": {
+    "url": "http://www.skyen.dk/worldpixelsPictures/BigNarrowPictures/prospectus2.png"
+  }
+}
+{% endhighlight %}
+
+#### Status codes
+
+* 200 OK
+* 404 Record Not Found
 
 ### <a id="delete_prospectus">Delete Prospectus</a>
 
