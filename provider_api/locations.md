@@ -354,7 +354,8 @@ Check the list below to see details for all fields.
 | `energy_rating`                       | String                                | "A","B","C","D","E","F" or "G". null to remove. | Optional
 | `exempted_from_energy_rating`         | Boolean                               | Indicate the location is exempted from having energy rating. The energy rating is null, when the location is exempted. Default is false.  | Optional
 | `external_key`                        | String                                | Providers own reference. Must be unique for a given resource. E.g. a provider can only have one photo with an external_key called "1", but he may also have a floor plan with an external_key called "1" | Optional
-| `kind`                                | String                                | “Type of Lease” `section`: ("office", "business_center", "warehouse", "store", "coworking", "meeting_room", "virtual_office", "parking"). “Type of Sale” `section` ("housing", "office", "warehouse", "store", "lot"). | Required
+| `kind`                                | String                                | “Type of Lease” `section`: ("office", "business_center", "warehouse", "store", "coworking", "meeting_room", "virtual_office", "parking"). “Type of Sale” `section` ("housing", "office", "warehouse", "store", "lot", "cafe"). | Required
+| `secondary_kinds`                     | String array                          | Secondary location `kind` ("office", "business_center", "warehouse", "store", "coworking", "meeting_room"). | Optional
 | `internal_identifier`                 | String                                | Providers own internal reference. | Optional
 | `latitude`                            | Float                                 | Latitude ( e.g. 55.6012 ). Should contain at least 4 decimal points. Must be within the area of Denmark ( 54.2000 - 57.9000 ). | Required
 | `longitude`                           | Float                                 | Longitude ( e.g. 11.6121 ). Should contain at least 4 decimal points. Must be within the area of Denmark ( 7.8000 - 15.4000 ). | Required
@@ -380,7 +381,6 @@ Check the list below to see details for all fields.
 | `parking_type`                        | String                                | Type of parking ("underground_parking", "outdoor_parking", "parking_house", "garage"). | Requried for location with "parking" `kind`
 | `amount_of_spaces_from`               | Integer                               | Maximum number of parking lots at parking. | Required for location with "parking" `kind`
 | `amount_of_spaces_to`                 | Integer                               | Maximum number of parking lots at parking. | Optional
-| `secondary_kinds`                     | String array                          | Secondary location `kind` ("office", "business_center", "warehouse", "store", "coworking", "meeting_room"). | Optional
 | `section`                             | String                                | For lease locations ("lease"), for sale locations ("own_use", "foreclosure", "investment"). | Optional (if not set then "lease")
 
 All attributes not included in the list above will be ignored. This makes
