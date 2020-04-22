@@ -334,6 +334,14 @@ Request body example:
     "yearly_electricity_cost_per_m2_to": {
       "cents": 7000,
       "currency": "DKK"
+    },
+    "annual_total_cost_amount_from": {
+      "cents": 137300000000,
+      "currency": "DKK"
+    },
+    "annual_total_cost_amount_to: {
+      "cents": 234600000000,
+      "currency": "DKK"
     }
   }
 }
@@ -374,8 +382,10 @@ Check the list below to see details for all fields.
 | `yearly_water_cost_per_m2_to`         | [Money](#money)                       | Maximum yearly water cost per m2. Must be more than yearly_water_cost_per_m2_from. | Optional
 | `yearly_electricity_cost_per_m2_from` | [Money](#money)                       | Minimum yearly electricity cost per m2. | Optional
 | `yearly_electricity_cost_per_m2_to`   | [Money](#money)                       | Maximum yearly electricity cost per m2. Must be more than yearly_electricity_cost_per_m2_from. | Optional
-| `yearly_rent_per_m2_from`             | [Money](#money)                       | Minimum yearly rent per m2 . | Required
+| `yearly_rent_per_m2_from`             | [Money](#money)                       | Minimum yearly rent per m2. | Required
 | `yearly_rent_per_m2_to`               | [Money](#money)                       | Maximum yearly rent per m2. Must be more than yearly_rent_per_m2_from. | Optional
+| `annual_total_cost_amount_from`       | [Money](#money)                       | Minimum yearly total cost (yearly rent with yearly operational cost) | Optional
+| `annual_total_cost_amount_to`         | [Money](#money)                       | Maximum yearly total cost (yearly rent with yearly operational cost). Must be more than annual_total_cost_amount_from. | Optional
 | `monthly_rent_per_space_to`           | [Money](#money)                       | Maximum monthly rent per space. Must be more than monthly_rent_per_space_from. | Optional
 | `monthly_rent_per_space_from`         | [Money](#money)                       | Minimum monthly rent per space. | Required for “virtual_office” location `kind` and shows on “parking” location `kind`
 | `parking_type`                        | String                                | Type of parking ("underground_parking", "outdoor_parking", "parking_house", "garage"). | Requried for location with "parking" `kind`
@@ -501,6 +511,14 @@ Request body example:
     },
     "yearly_electricity_cost_per_m2_to": {
       "cents": 7000,
+      "currency": "DKK"
+    },
+    "annual_total_cost_amount_from": {
+      "cents": 137300000000,
+      "currency": "DKK"
+    },
+    "annual_total_cost_amount_to: {
+      "cents": 234600000000,
       "currency": "DKK"
     }
   }
