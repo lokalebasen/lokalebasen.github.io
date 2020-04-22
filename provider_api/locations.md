@@ -339,7 +339,7 @@ Request body example:
       "cents": 137300000000,
       "currency": "DKK"
     },
-    "annual_total_cost_amount_to: {
+    "annual_total_cost_amount_to": {
       "cents": 234600000000,
       "currency": "DKK"
     }
@@ -517,7 +517,7 @@ Request body example:
       "cents": 137300000000,
       "currency": "DKK"
     },
-    "annual_total_cost_amount_to: {
+    "annual_total_cost_amount_to": {
       "cents": 234600000000,
       "currency": "DKK"
     }
