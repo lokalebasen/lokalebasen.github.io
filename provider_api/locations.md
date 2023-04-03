@@ -150,6 +150,7 @@ Response body:
     "external_key": "Location 45",
     "provider_website_link": "http://www.provider.com/location1",
     "facilities": ["Alarmsystem", "Bad og omklædning", "Elevator"],
+    "suitable_for_kinds": ["showroom", "clinic", "education"],
     "yearly_rent_per_m2_from": {
       "cents": 117300,
       "currency": "DKK"
@@ -295,6 +296,7 @@ Request body example:
     "longitude": 12.813,
     "provider_website_link": "http://www.provider.com/location1",
     "facilities": ["Alarmsystem", "Bad og omklædning", "Elevator"],
+    "suitable_for_kinds": ["showroom", "clinic", "education"],
     "yearly_rent_per_m2_from": {
       "cents": 117300,
       "currency": "DKK"
@@ -364,6 +366,7 @@ Check the list below to see details for all fields.
 | `external_key`                        | String                                | Providers own reference. Must be unique for a given resource. E.g. a provider can only have one photo with an external_key called "1", but he may also have a floor plan with an external_key called "1" | Required
 | `kind`                                | String                                | “Type of Lease” `section`: ("office", "business_center", "warehouse", "store", "coworking", "meeting_room", "virtual_office", "parking"). “Type of Sale” `section` ("housing", "office", "warehouse", "store", "lot"). | Required
 | `secondary_kinds`                     | String array                          | `secondary kind` of location ("office", "business_center", "warehouse", "store", "coworking", "meeting_room", "cafe"). "cafe" allowed only if main `kind` is "store" | Optional
+| `suitable_for_kinds`                  | String array                          | `suitable for kind` of location (available "suitable for kinds" by location's kind: `store`: "cafe", "showroom", "clinic", "education", "popup_store", `office`: "showroom", "clinic", "education", `business_center`: "clinic", "education", `warehouse`: "high_ceiling_storage", "storage_hotel", "production", "workshop"). | Optional
 | `internal_identifier`                 | String                                | Providers own internal reference. | Optional
 | `latitude`                            | Float                                 | Latitude ( e.g. 55.6012 ). Should contain at least 4 decimal points. Must be within the area of Denmark ( 54.2000 - 57.9000 ). | Required
 | `longitude`                           | Float                                 | Longitude ( e.g. 11.6121 ). Should contain at least 4 decimal points. Must be within the area of Denmark ( 7.8000 - 15.4000 ). | Required
@@ -473,6 +476,7 @@ Request body example:
     "internal_identifier": "123456",
     "external_key": "Location 4",
     "provider_website_link": "http://www.provider.com/location1",
+    "suitable_for_kinds": ["showroom", "clinic", "education"],
     "yearly_rent_per_m2_from": {
       "cents": 117300,
       "currency": "DKK"
