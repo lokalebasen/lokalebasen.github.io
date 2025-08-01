@@ -149,7 +149,7 @@ Response body:
     "internal_identifier": "123457",
     "external_key": "Location 45",
     "provider_website_link": "http://www.provider.com/location1",
-    "facilities": ["Alarmsystem", "Bad og omklædning", "Elevator"],
+    "facility_keys": ["alarm_system", "shower", "elevator"],
     "suitable_for_kinds": ["showroom", "clinic", "education"],
     "yearly_rent_per_m2_from": {
       "cents": 117300,
@@ -284,19 +284,72 @@ Request body example:
     "address_line1": "Hovedgaden 5, 1. th.",
     "address_line2": "",
     "postal_code": "1371",
-    "floor": "1",
-    "side": "th",
+    "postal_name": "København K",
     "area_from": 334,
     "area_to": 370,
+    "workstation_count_from": 4,
+    "workstation_count_to": 10,
+    "workstation_cost_per_month_from": 40,
+    "workstation_cost_per_month_to": 100,
+    "employees_count_from": 5,
+    "employees_count_to": 9,
+    "employees_count_visible": true,
     "kind": "office",
     "latitude": 55.145,
     "energy_rating": "A",
     "exempted_from_energy_rating": false,
+    "has_energy_certificate_levels": false,
     "internal_identifier": "123458",
     "longitude": 12.813,
     "provider_website_link": "http://www.provider.com/location1",
-    "facilities": ["Alarmsystem", "Bad og omklædning", "Elevator"],
+    "is_rent_include_operational_cost": false,
+    "yearly_rent_per_m2_amount_flexible": true,
+    "annual_rent_amount_flexible": true,
+    "fixed_annual_operational_cost": 43,
+    "deposit_and_prepaid_rent": 0,
+    "yearly_rental_income": 0,
+    "amount_of_available_spaces": 4,
+    "amount_of_spaces_from": 2,
+    "amount_of_spaces_to": 5,
+    "virtual_tour": "https://my.matterport.com/show/?m=tN8pmWWtDzc",
+    "vimeo_id": "1098180204"
+    "parking_type": "garage"
+    "facility_keys": ["alarm_system", "shower", "elevator"],
     "suitable_for_kinds": ["showroom", "clinic", "education"],
+    "secondary_kinds": ["office"],
+    "energy_certificate_levels": ["Platin", "Excellent"],
+    "hourly_rent_from": {
+      "cents": 113,
+      "currency": "DKK"
+    },
+    "monthly_rent_per_space_from": {
+      "cents": 1100,
+      "currency": "DKK"
+    },
+    "monthly_rent_per_space_to": {
+      "cents": 1170,
+      "currency": "DKK"
+    },
+    "annual_operational_cost_amount_from": {
+      "cents": 1170,
+      "currency": "DKK"
+    },
+    "annual_operational_cost_amount_to": {
+      "cents": 1170,
+      "currency": "DKK"
+    },
+    "annual_rent_from": {
+      "cents": 900,
+      "currency": "DKK"
+    },
+    "annual_rent_to": {
+      "cents": 1000,
+      "currency": "DKK"
+    },
+    "hourly_rent_to": {
+      "cents": 117,
+      "currency": "DKK"
+    },
     "yearly_rent_per_m2_from": {
       "cents": 117300,
       "currency": "DKK"
@@ -360,12 +413,21 @@ Check the list below to see details for all fields.
 | `address_line2`                       | String                                | | Optional
 | `area_from`                           | Integer                               | Minimum area in m2.| Required (for all location `kind`s except "virtual_office" and "parking")
 | `area_to`                             | Integer                               | Maximum area in m2. Must be more than area_from. | Optional
+| `workstation_count_from`              | Integer                               | Minimum workstations count. | Optional
+| `workstation_count_to`                | Integer                               | Maximum workstations count. Must be more than workstation_count_from. | Optional
+| `workstation_cost_per_month_from`     | Integer                               | Minimum workstation cost per month. | Optional
+| `workstation_cost_per_month_to`       | Integer                               | Maximum workstation cost per month. Must be more than workstation_cost_per_month_from. | Optional
+| `employees_count_from`                | Integer                               | Minimum employees count. | Optional
+| `employees_count_to`                  | Integer                               | Maximum employees count. Must be more than employees_count_from. | Optional
+| `employees_count_visible`             | Boolean                               | Indicate the employees count visibility. Default is false.   | Optional
+| `has_energy_certificate_levels`       | Boolean                               | Indicate the energy certificate levels visibility. Default is false.   | Optional
 | `description`                         | String                                | A detailed description of the location. Use \n for new line. | Optional
 | `energy_rating`                       | String                                | "A","B","C","D","E","F" or "G". null to remove. | Optional
 | `exempted_from_energy_rating`         | Boolean                               | Indicate the location is exempted from having energy rating. The energy rating is null, when the location is exempted. Default is false.  | Optional
 | `external_key`                        | String                                | Providers own reference. Must be unique for a given resource. E.g. a provider can only have one photo with an external_key called "1", but he may also have a floor plan with an external_key called "1" | Required
 | `kind`                                | String                                | “Type of Lease” `section`: ("office", "business_center", "warehouse", "store", "coworking", "meeting_room", "virtual_office", "parking"). “Type of Sale” `section` ("housing", "office", "warehouse", "store", "lot"). | Required
 | `secondary_kinds`                     | String array                          | `secondary kind` of location ("office", "business_center", "warehouse", "store", "coworking", "meeting_room", "cafe"). "cafe" allowed only if main `kind` is "store" | Optional
+| `energy_certificate_levels`           | String array                          | `energy certificate levels` of location (`DGNB`: "Platin", "Guld", "Sølv", "Bronze", `Tillæg til DGNB`: "Diamant", "Hjerte", "Planet", `BREEAM`: "Outstanding", "Excellent", "Very good", "Good", "Pass", "Acceptable", `LEED`: "Platinum", "Gold", "Silver", "Certified"]). Can be selected just one from each energy certificate | Optional
 | `suitable_for_kinds`                  | String array                          | `suitable for kind` of location (available "suitable for kinds" by location's kind: `store`: "cafe", "showroom", "clinic", "education", "popup_store", `office`: "showroom", "clinic", "education", `business_center`: "clinic", "education", `warehouse`: "high_ceiling_storage", "storage_hotel", "production", "workshop"). | Optional
 | `internal_identifier`                 | String                                | Providers own internal reference. | Optional
 | `latitude`                            | Float                                 | Latitude ( e.g. 55.6012 ). Should contain at least 4 decimal points. Must be within the area of Denmark ( 54.2000 - 57.9000 ). | Required
@@ -375,8 +437,16 @@ Check the list below to see details for all fields.
 | `provider_website_link`               | String                                | A link to the location representation on providers own website. | Optional
 | `state`                               | String                                | State ("new", "active", "closed"). Can only be changed by using activation/deactivation link in [location representation](#location)| Neither
 | `title`                               | String                                | Title. | Required
-| `facilities`                          | String array                          | An array of facilities as human readable strings. There are no technical constraints on the number or values of the strings, but values that have not been used before on our site require manual approval, before they will be visible on the site. You can retrieve a list of approved values here: https://www.lokalebasen.dk/lease/api/facilities - we appreciate mapping to existing values if possible. The list may be subject to change. | Optional
+| `facility_keys`                       | String array                          | An array of facility keys as human readable strings. There are no technical constraints on the number. You can retrieve a list of approved values here: https://www.lokalebasen.dk/lease/api/facilities. The list may be subject to change. | Optional
 | `contact`                             | [Contact Resource](#location_contact) | A resource representation of the contact. | Required
+| `hourly_rent_from`                    | [Money](#money)                       | Minimum hourly rent. | Optional
+| `hourly_rent_to`                      | [Money](#money)                       | Maximum hourly rent. | Optional
+| `monthly_rent_per_space_from`         | [Money](#money)                       | Minimum monthly rent per space. | Optional
+| `monthly_rent_per_space_to`           | [Money](#money)                       | Maximum monthly rent per space. | Optional
+| `annual_operational_cost_amount_from` | [Money](#money)                       | Minimum annual operational cost amount. | Optional
+| `annual_operational_cost_amount_to`   | [Money](#money)                       | Maximum annual operational cost amount. | Optional
+| `annual_rent_from`                    | [Money](#money)                       | Minimum annual rent cost. | Optional
+| `annual_rent_to`                      | [Money](#money)                       | Maximum annual rent cost. | Optional
 | `yearly_operational_cost_per_m2_from` | [Money](#money)                       | Minimum yearly operational cost per m2. | Optional
 | `yearly_operational_cost_per_m2_to`   | [Money](#money)                       | Maximum yearly operational cost per m2. Must be more than yearly_operational_cost_per_m2_from. | Optional
 | `yearly_heating_cost_per_m2_from`     | [Money](#money)                       | Minimum yearly heating cost per m2. | Optional
